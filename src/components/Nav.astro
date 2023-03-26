@@ -58,7 +58,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 			<div class="socials">
 				{
 					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social">
+						<a href={href} target="_blank" class="social">
 							<span class="sr-only">{label}</span>
 							<Icon icon={icon} />
 						</a>
