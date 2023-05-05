@@ -1,15 +1,15 @@
 ---
-import { AstroSeo } from '@astrolib/seo';
-import { GoogleAnalytics } from '@astrolib/analytics';
-import { getImage } from '@astrojs/image';
+import { AstroSeo } from "@astrolib/seo";
+import { GoogleAnalytics } from "@astrolib/analytics";
+import { getImage } from "@astrojs/image";
 
-import { SITE } from '~/config.mjs';
-import { MetaSEO } from '~/types';
-import { getCanonical, getAsset } from '~/utils/permalinks';
-import { getRelativeUrlByFilePath } from '~/utils/directories';
+import { SITE } from "~/config.mjs";
+import { MetaSEO } from "~/types";
+import { getCanonical, getAsset } from "~/utils/permalinks";
+import { getRelativeUrlByFilePath } from "~/utils/directories";
 
-import CustomStyles from '~/components/CustomStyles.astro';
-import SplitbeeAnalytics from './SplitbeeAnalytics.astro';
+import CustomStyles from "~/components/CustomStyles.astro";
+import MicrosoftClarity from "~/components/common/MicrosoftClarity.astro";
 
 export interface Props extends MetaSEO {
   dontUseTitleTemplate?: boolean;
@@ -19,16 +19,16 @@ const defaultImage = SITE.defaultImage
   ? (
       await getImage({
         src: SITE.defaultImage,
-        alt: 'Default image',
+        alt: "Default image",
         width: 1200,
         height: 628,
       })
     ).src
-  : '';
+  : "";
 
 const {
   title = SITE.name,
-  description = '',
+  description = "",
   image: _image = defaultImage,
 
   canonical = getCanonical(String(Astro.url.pathname)),
@@ -36,15 +36,15 @@ const {
   nofollow = false,
 
   ogTitle = title,
-  ogType = 'website',
+  ogType = "website",
 
   dontUseTitleTemplate = false,
 } = Astro.props;
 
 const image =
-  typeof _image === 'string'
+  typeof _image === "string"
     ? new URL(_image, Astro.site)
-    : _image && typeof _image['src'] !== 'undefined'
+    : _image && typeof _image["src"] !== "undefined"
     ? // @ts-ignore
       new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
     : null;
@@ -55,7 +55,7 @@ const image =
 
 <AstroSeo
   title={title}
-  titleTemplate={dontUseTitleTemplate ? '%s' : `%s — ${SITE.name}`}
+  titleTemplate={dontUseTitleTemplate ? "%s" : `%s — ${SITE.name}`}
   description={description}
   canonical={String(canonical)}
   noindex={noindex}
@@ -78,20 +78,26 @@ const image =
   twitter={{
     // handle: '@handle',
     // site: '@site',
-    cardType: image ? 'summary_large_image' : undefined,
+    cardType: image ? "summary_large_image" : undefined,
   }}
 />
 
 <CustomStyles />
 
-<!-- Google Site Verification -->
-{SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
-
 <!-- Google Analytics -->
-{SITE.googleAnalyticsId && <GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />}
+{
+  SITE.googleAnalyticsId && (
+    <GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />
+  )
+}
 
-{SITE.splitbeeAnalytics?.enabled && <SplitbeeAnalytics {...SITE.splitbeeAnalytics} />}
+<!-- Microsoft Clarity -->
+{
+  SITE.microsoftClarityId && (
+    <MicrosoftClarity id={String(SITE.microsoftClarityId)} partytown={true} />
+  )
+}
 
-<link rel="shortcut icon" href={getAsset('/favicon.ico')} />
-<link rel="icon" type="image/svg+xml" href={getAsset('/favicon.svg')} />
-<link rel="mask-icon" href={getAsset('/favicon.svg')} color="#8D46E7" />
+<link rel="shortcut icon" href={getAsset("/favicon.ico")} />
+<link rel="icon" type="image/svg+xml" href={getAsset("/favicon.svg")} />
+<link rel="mask-icon" href={getAsset("/favicon.svg")} color="#8D46E7" />

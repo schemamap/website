@@ -24,6 +24,7 @@ const CONFIG = {
   }),
 
   googleAnalyticsId: "G-89H7G8GTJR",
+  microsoftClarityId: "gtgmt0rftj",
 
   blog: {
     disabled: false,

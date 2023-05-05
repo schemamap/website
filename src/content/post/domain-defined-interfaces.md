@@ -1,18 +1,18 @@
 ---
-publishDate: 2023-04-25T00:00:00Z
-title: The resurgence of Database-first architectures
-description: A look into the recent trends of fully utilizing Postgres
-excerpt: How can avoid the problems of the early 2000s with improved tooling, while keeping the architecture compact?
-image: ~/assets/images/stickers.jpg
+publishDate: 2023-05-07T00:00:00Z
+title: Domain-defined Interfaces
+description: Faster software delivery by combining rich domain schemas with rules.
+excerpt: Analyzing how recent succesfull projects like Supabase and Hasura are re-defining software architectures.
+image: ~/assets/images/tools.jpg
 category: Design
 tags:
   - postgres
   - system-architecture
   - software-engineering
-canonical: https://schemamap.io/blog/resurgence-of-database-first-architectures
+canonical: https://schemamap.io/blog/domain-defined-interfaces
 ---
 
-## Dictum integer fusce ac ridiculus et odio sollicitudin diam at
+## Domain-defined Interfaces
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit euismod rutrum, consequat fringilla ultricies nullam curae mollis semper conubia viverra, orci aenean dapibus pharetra nec tortor tellus cubilia. Ullamcorper mi lectus eu malesuada tempor massa praesent magna mattis posuere, lobortis vulputate ut duis magnis parturient habitant nibh id tristique, quis suspendisse donec nisl penatibus sem non feugiat taciti. Mollis per ridiculus integer cursus semper vestibulum fermentum penatibus cubilia blandit scelerisque, tempus platea leo posuere ac pharetra volutpat aliquet euismod id ullamcorper lobortis, urna est magna mus rhoncus massa curae libero praesent eget. Mattis malesuada vestibulum quis ac nam phasellus suscipit facilisis libero diam posuere, cursus massa vehicula neque imperdiet tincidunt dui egestas lacinia mollis aliquet orci, nisl curabitur dapibus litora dis cum nostra montes ligula praesent. Facilisi aliquam convallis molestie tempor blandit ultricies bibendum parturient cubilia quam, porttitor morbi torquent tempus taciti nec faucibus elementum phasellus, quis inceptos vestibulum gravida augue potenti eget nunc maecenas. Tempor facilisis ligula volutpat habitant consequat inceptos orci per potenti blandit platea, mus sapien eget vel libero vestibulum augue cubilia ut ultrices fringilla lectus, imperdiet pellentesque cum ridiculus convallis sollicitudin nisl interdum semper felis.
 
