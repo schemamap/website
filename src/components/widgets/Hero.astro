@@ -4,13 +4,17 @@ import { Picture } from '@astrojs/image/components';
 
 interface CallToAction {
   text: string;
-  href: string;
+  href?: string;
+  class?: string;
+  onclick?: string;
+  target?: string;
   icon?: string;
 }
 
 export interface Props {
   title?: string;
   subtitle?: string;
+  content?: string;
   callToAction?: string | CallToAction;
   callToAction2?: string | CallToAction;
   image?: string | any; // TODO: find HTMLElementProps
@@ -49,7 +53,7 @@ const {
                   {typeof callToAction === 'string' ? (
                     <Fragment set:html={callToAction} />
                   ) : (
-                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} target="_blank" rel="noopener">
+                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} onclick={callToAction?.onclick} target={callToAction.target ?? "_blank"} rel="noopener">
                       {callToAction?.icon && (
                         <>
                           <Icon name={callToAction.icon} class="w-5 h-5 mr-1 -ml-1.5" />{' '}

@@ -25,13 +25,14 @@ const CONFIG = {
 
   googleAnalyticsId: "G-89H7G8GTJR",
   microsoftClarityId: "gtgmt0rftj",
+  mailerLiteId: "388243",
 
   blog: {
     disabled: false,
     postsPerPage: 4,
 
     post: {
-      permalink: '/%slug%', // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: 'blog/%slug%', // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       noindex: false,
       disabled: false,
     },
@@ -43,13 +44,13 @@ const CONFIG = {
     },
 
     category: {
-      pathname: 'category', // Category main path /category/some-category
+      pathname: 'blog/category', // Category main path /category/some-category
       noindex: true,
       disabled: false,
     },
 
     tag: {
-      pathname: 'tag', // Tag main path /tag/some-tag
+      pathname: 'blog/tag', // Tag main path /tag/some-tag
       noindex: true,
       disabled: false,
     },

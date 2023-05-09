@@ -9,6 +9,7 @@ export interface Props {
   allPostsText?: string;
   allPostsLink?: string | URL;
   information?: string;
+  count?: number;
   postIds: string[];
 }
 
@@ -25,7 +26,7 @@ const posts = await findLatestPosts({ count });
 
 <section class="px-4 py-16 mx-auto max-w-7xl lg:py-20">
   <div class="flex flex-col lg:justify-between lg:flex-row mb-8">
-    <div class="md:max-w-sm">
+    <div class="md:max-w-md">
       {
         title && (
           <h2

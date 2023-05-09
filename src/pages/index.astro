@@ -1,17 +1,17 @@
 ---
-import { SITE } from '~/config.mjs';
-import Layout from '~/layouts/PageLayout.astro';
+import { SITE } from "~/config.mjs";
+import Layout from "~/layouts/PageLayout.astro";
 
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import LatestPosts from '~/components/blog/LatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero from "~/components/widgets/Hero.astro";
+import Note from "~/components/widgets/Note.astro";
+import Features from "~/components/widgets/Features.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import Steps from "~/components/widgets/Steps.astro";
+import Content from "~/components/widgets/Content.astro";
+import LatestPosts from "~/components/blog/LatestPosts.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+import Stats from "~/components/widgets/Stats.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
 
 const meta = {
   title: SITE.title,
@@ -24,74 +24,33 @@ const meta = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    callToAction={{ text: 'Join the waitlist', href: '#join-waitlist', icon: 'tabler:list-check' }}
-    callToAction2={{ text: "Let's talk!", href: '/meeting' }}
-    image={{ src: import('~/assets/images/hero.png'), alt: 'schemamap Hero Image' }}
+    callToAction={{
+      text: "Join the waitlist",
+      target: "",
+      href: '#',
+      onclick: "ml('show', 'JvkNs6', true); return false;",
+      class: "ml-onclick-form",
+      icon: "tabler:list-check",
+    }}
+    callToAction2={{ text: "Let's talk!", href: "/meeting" }}}
   >
     <Fragment slot="title">
-      <span class="font-semibold">10x</span> faster tenant onboarding for your
-      <span class="text-accent dark:text-white highlight"> Postgres</span>-based SaaS
+      <span class="font-extrabold">10x</span> faster tenant onboarding for your
+      <span class="text-accent dark:text-white highlight"> Postgres</span>-based
+      SaaS
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">schemamap.io</span> is an open-core, database-native system that uses the rich schema of your database
-        to end-to-end manage long-running data imports.<br/>
-        <u class="font-semibold">No more DIY CSV/Excel imports. No more frustrated tenants.</u>
+        <span class="font-semibold">schemamap.io</span> is an open-core, Postgres-native
+        solution that uses the rich schema of your DB to end-to-end manage long-running
+        data imports via Google Sheets.<br />
+        <u class="font-semibold"
+          >No more DIY CSV/Excel imports. No more frustrated tenants.</u
+        >
       </span>
     </Fragment>
   </Hero>
-
-  <Features
-    highlight="Features"
-    items={[
-      [
-        {
-          title: 'In-database schema map',
-          // schemamap.io is a tool that manages itself within your database, utilizing its own schema. Within this schema, tables can be categorized as either master data tables or transaction tables.
-
-          // Master data tables store core entities, such as customers, products, and employees, that remain relatively stable and are used throughout an organization. 
-          // In contrast, transaction tables store day-to-day business activities, such as sales orders, purchase orders, and inventory movements. 
-          // These tables are updated frequently as transactions occur.
-          description:
-            "schemamap.io manages itself in your running database in its' own schema. Separate master data and transaction tables.",
-          icon: 'tabler:map',
-        },
-        {
-          title: 'Segmenting',
-          description:
-            'Split the master data table contents into segments based on common columns like tenant/tenant_id. Tenant onboarding completion is automatically tracked across tables.',
-          icon: 'tabler:components',
-        },
-        {
-          title: 'Automatic Google Sheet management',
-          description:
-            'Stop building CSV and Excel imports. Allow your customers to fix their data collaboratively in parallel via our Google Sheet integration.',
-          icon: 'tabler:list-check',
-        },
-      ],
-      [
-        {
-          title: 'Offline capabilities',
-          description:
-            "By embracing a database-first architecture, the majority of features are available locally with stored procedures. No network calls = maximum performance.",
-          icon: 'tabler:rocket',
-        },
-        {
-          title: 'Re-imports',
-          description:
-            "Utilizing your schema's unique constraints and primary key tracking by handling the import process, you can re-import even messy data as many times as you want.",
-          icon: 'tabler:recycle',
-        },
-        {
-          title: 'Cloud-ready',
-          description:
-            'Run schemamap.io with any cloud Postgres provider (Supabase, AWS RDS, GCP, Azure).',
-          icon: 'tabler:cloud',
-        },
-      ],
-    ]}
-  />
 
   <!-- Steps Widget ****************** -->
 
@@ -99,42 +58,84 @@ const meta = {
     title="Get your tenants onboarded with these simple steps:"
     items={[
       {
-        title: 'Step 1: Connect to your Postgres DB.',
+        title: "Step 1: Connect to your Postgres DB.",
         description:
-          'Add a simple migration to your migration system, that creates a limited DB user + basic schema.<br/>Whitelist our IPs and provide a connection string.<br/>Start locally or on staging for maximum safety.',
-        icon: 'tabler:wifi',
+          "Add a simple migration to your migration system, that creates a limited DB user + basic schema.<br/>Whitelist our IPs and provide a connection string.<br/>Start locally or on staging for maximum safety.",
+        icon: "tabler:wifi",
       },
       {
-        title: 'Step 2: Categorize your tables into master and transactional data.',
+        title:
+          "Step 2: Categorize your tables into master and transactional data.",
         description:
-          'Master data tables store core entities, such as customers, products, and employees, that remain relatively stable and are used throughout an organization.<br/> In contrast, transaction tables store day-to-day business activities, such as sales orders, purchase orders, and inventory movements.',
-        icon: 'tabler:map',
+          "Master data tables store core entities, such as customers, products, and employees, that remain relatively stable and are used throughout an organization.<br/> In contrast, transaction tables store day-to-day business activities, such as sales orders, purchase orders, and inventory movements.",
+        icon: "tabler:map",
       },
       {
-        title: 'Step 3: Define your main master data entities',
+        title: "Step 3: Define your main master data entities",
         description:
-          'Define how many high-level entities you want to import.<br/>schemamap.io figures out the ordering of the import.<br/>Example: 2 sheets: Customer and Product.<br/>Products have to be configured for which customers to be sold.',
-        icon: 'tabler:components',
+          "Define how many high-level entities you want to import.<br/>schemamap.io figures out the ordering of the import.<br/>Example: 2 sheets: Customer and Product.<br/>Products have to be configured for which customers to be sold.",
+        icon: "tabler:components",
       },
       {
-        title: 'Step 4: Send out managed Google Sheets',
-        description: 
-          'By providing email adresses of your new tenants, they get invited to edit the automatically managed Google Sheets.<br/>Error highlighting, coloring and automatic data validation included.',
-        icon: 'tabler:message',
+        title: "Step 4: Send out managed Google Sheets",
+        description:
+          "By providing email adresses of your new tenants, they get invited to edit the automatically managed Google Sheets.<br/>Error highlighting, coloring and automatic data validation included.",
+        icon: "tabler:message",
       },
       {
-        title: 'Import into your DB with a click of a button!',
-        description: 'No developer-time needed. Easily remove faulty records or fix them, without losing transactional data.',
-        icon: 'tabler:check',
+        title: "Import into your DB with a click of a button!",
+        description:
+          "No developer-time needed. Easily remove faulty records or fix them, without losing transactional data.",
+        icon: "tabler:check",
       },
-    ]}}
+    ]}
+    }
+  />
+
+  <Features
+    highlight="Features"
+    items={[
+      {
+        title: "In-database schema map",
+        description:
+          "schemamap.io manages itself in your running database in its' own schema. Separate master data and transaction tables.",
+        icon: "tabler:map",
+      },
+      {
+        title: "Segmenting",
+        description:
+          "Split the master data table contents into segments based on common columns like tenant/tenant_id. Tenant onboarding completion is automatically tracked across tables.",
+        icon: "tabler:components",
+      },
+      {
+        title: "Automatic Google Sheet management",
+        description:
+          "Stop building CSV and Excel imports. Allow your customers to fix their data collaboratively in parallel via our Google Sheet integration.",
+        icon: "tabler:list-check",
+      },
+      {
+        title: "Offline capabilities",
+        description:
+          "By embracing a database-first architecture, the majority of features are available locally with stored procedures. No network calls = maximum performance.",
+        icon: "tabler:rocket",
+      },
+      {
+        title: "Re-imports",
+        description:
+          "Utilizing your schema's unique constraints and primary key tracking by handling the import process, you can re-import even messy data as many times as you want.",
+        icon: "tabler:recycle",
+      },
+      {
+        title: "Cloud-ready",
+        description:
+          "Run schemamap.io with any cloud Postgres provider (Supabase, AWS RDS, GCP, Azure).",
+        icon: "tabler:cloud",
+      },
+    ]}
   />
 
   <LatestPosts
     title="Find out more on the blog"
-
-    postIds={[
-      'domain-defined-interfaces.md',
-    ]}
+    postIds={["domain-defined-interfaces.md"]}
   />
 </Layout>

@@ -12,6 +12,7 @@ import LatestPosts from "~/components/blog/LatestPosts.astro";
 import FAQs from "~/components/widgets/FAQs.astro";
 import Stats from "~/components/widgets/Stats.astro";
 import CallToAction from "~/components/widgets/CallToAction.astro";
+import { Icon } from "astro-icon";
 
 const meta = {
   title: SITE.title,
@@ -23,7 +24,9 @@ const meta = {
 <Layout {meta}>
   <section class="scroll-mt-16" id="features">
     <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
-      Developed by <a target="_blank" href="https://github.com/thenonameguy">Krisztián Szabó</a>.
+      Developed by 
+      <a target="_blank" href="https://github.com/thenonameguy">Krisztián Szabó</a> 
+      with <Icon name="tabler:heart" title="love" class="w-5 h-5 mr-1 inline-block icon-bold color-red"/>
     </div>
   </section>
 </Layout>
