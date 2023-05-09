@@ -1,8 +1,14 @@
 # schemamap.io website
 
-### Commands
+### Setup
 
-Run `direnv allow` to set up your `PATH`. 
+1. https://devenv.sh/getting-started/#installation
+2. `direnv allow`
+3. `devenv up`
+
+Check `devenv info` for any extra functionality/scripts
+
+### Commands
 
 All commands are run from the root of the project, from a terminal:
 

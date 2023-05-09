@@ -17,10 +17,19 @@ pnpm-debug.log*
 .env
 .env.production
 
+.envrc.secret
+
 # macOS-specific files
 .DS_Store
 
 # Devenv
 .devenv*
 devenv.local.nix
+.pre-commit-config.yaml
+.venv
 
+# Nix
+result
+
+# direnv
+.direnv

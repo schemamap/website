@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "schemamap-web"
+version = "0.1.0"
+description = "The documentation website for schemamap.io"
+authors = ["Krisztian Szabo <thenonameguy24@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "schemamap_web"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mkdocs-material = "^9.1.11"
+CairoSVG = "^2.7.0"
+mkdocs = "^1.4.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
