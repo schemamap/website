@@ -11,7 +11,7 @@ const CONFIG = {
   description: 'schemamap.io handles your tenant onboarding end-to-end based on your database schema.',
   defaultImage,
 
-  defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  defaultTheme: 'light', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
   language: 'en',
   textDirection: 'ltr',

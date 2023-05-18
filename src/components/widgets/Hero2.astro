@@ -53,7 +53,7 @@ const {
                   {typeof callToAction === 'string' ? (
                     <Fragment set:html={callToAction} />
                   ) : (
-                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} target="_blank" rel="noopener">
+                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} onclick={callToAction?.onclick} target={callToAction.target ?? "_blank"} rel="noopener">
                       {callToAction?.icon && (
                         <>
                           <Icon name={callToAction.icon} class="w-5 h-5 mr-1 -ml-1.5" />{' '}
@@ -98,10 +98,10 @@ const {
                   class="mx-auto rounded-md w-full"
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  aspectRatio={600 / 600}
+                  aspectRatio={1943 / 1769}
                   loading="eager"
-                  width={600}
-                  height={600}
+                  width={1943}
+                  height={1769}
                   {...image}
                 />
               )}

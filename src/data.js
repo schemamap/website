@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getBlogPermalink, getAsset, getHomePermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -9,6 +9,10 @@ export const headerData = {
     {
       text: 'Blog',
       href: getBlogPermalink(),
+    },
+    {
+      text: 'Docs',
+      href: '/docs',
     },
   ],
   actions: [
@@ -24,11 +28,11 @@ export const footerData = {
     {
       title: 'Product',
       links: [
-        { text: 'Features', href: getPermalink('/features') },
-        { text: 'Security', href: getPermalink('/security') },
-        { text: 'Enterprise', href: getPermalink('/enterprise') },
-        { text: 'Customer stories', href: getPermalink('/customer-stories') },
-        { text: 'Pricing', href: getPermalink('/pricing') },
+        { text: 'Features', href: getHomePermalink() + '#features' },
+        //{ text: 'Security', href: getPermalink('/security') },
+        //{ text: 'Enterprise', href: getPermalink('/enterprise') },
+        //{ text: 'Customer stories', href: getPermalink('/customer-stories') },
+        //{ text: 'Pricing', href: getPermalink('/pricing') },
       ],
     },
     {
@@ -37,7 +41,7 @@ export const footerData = {
         { text: 'Docs', href: getPermalink('/docs') },
         { text: 'Community Forum', href: discordLink },
         { text: 'Professional Services', href: getPermalink('/professional-services') },
-        { text: 'Status', href: getPermalink('/status') },
+        //{ text: 'Status', href: getPermalink('/status') },
       ],
     },
     {
@@ -46,7 +50,7 @@ export const footerData = {
         { text: 'About', href: getPermalink('/about') },
         { text: 'Blog', href: getBlogPermalink() },
         // { text: 'Careers', href: '#' },
-        { text: 'Press', href: getPermalink('/press-kit') },
+        // { text: 'Press', href: getPermalink('/press-kit') },
       ],
     },
   ],

@@ -27,12 +27,17 @@ const meta = {
     callToAction={{
       text: "Join the waitlist",
       target: "",
-      href: '#',
+      href: "javascript:void(0)",
       onclick: "ml('show', 'JvkNs6', true); return false;",
       class: "ml-onclick-form",
       icon: "tabler:list-check",
     }}
-    callToAction2={{ text: "Let's talk!", href: "/meeting" }}}
+    callToAction2={{ text: "Let's talk!", href: "/meeting" }}
+    }
+    image={{
+      src: import("~/assets/images/schemamap_architecture_light.png"),
+      alt: "Schemamap.io Hero Image",
+    }}
   >
     <Fragment slot="title">
       <span class="font-extrabold">10x</span> faster tenant onboarding for your
@@ -50,17 +55,17 @@ const meta = {
         >
       </span>
     </Fragment>
-  </Hero>
+  </Hero2>
 
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Get your tenants onboarded with these simple steps:"
+    title="Get your tenants onboarded with these steps:"
     items={[
       {
         title: "Step 1: Connect to your Postgres DB.",
         description:
-          "Add a simple migration to your migration system, that creates a limited DB user + basic schema.<br/>Whitelist our IPs and provide a connection string.<br/>Start locally or on staging for maximum safety.",
+          "Add schemamap.io your DB migration system via .sql file, that creates a limited DB user + basic schema.<br/>Whitelist our IPs and provide a connection string.<br/>Start locally or on staging for maximum safety.",
         icon: "tabler:wifi",
       },
       {
@@ -108,7 +113,7 @@ const meta = {
         icon: "tabler:components",
       },
       {
-        title: "Automatic Google Sheet management",
+        title: "Google Sheet management",
         description:
           "Stop building CSV and Excel imports. Allow your customers to fix their data collaboratively in parallel via our Google Sheet integration.",
         icon: "tabler:list-check",
@@ -130,6 +135,18 @@ const meta = {
         description:
           "Run schemamap.io with any cloud Postgres provider (Supabase, AWS RDS, GCP, Azure).",
         icon: "tabler:cloud",
+      },
+      {
+        title: "Data-privacy",
+        description:
+          "Data transfer is end-to-end encrypted, just like WhatsApp. Trust only Google Sheets and your own DB.",
+        icon: "tabler:lock",
+      },
+      {
+        title: "Extensible",
+        description:
+          "HTTP webhooks and database-level callbacks are there to enrich or transform data. Get each modified DB record along with what changed to trigger any wanted side-effects.",
+        icon: "tabler:plus",
       },
     ]}
   />
