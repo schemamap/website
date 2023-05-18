@@ -11,15 +11,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # Run a build step here if your project requires
-      - name: 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+
+      - run: pip install -r requirements.txt
+
+      - run: npm run build
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: YOUR_ACCOUNT_ID
-          projectName: YOUR_PROJECT_NAME
-          directory: YOUR_ASSET_DIRECTORY
-          # Optional: Enable this if you want to have GitHub Deployments triggered
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: schemamap
+          directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
