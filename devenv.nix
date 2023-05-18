@@ -17,7 +17,7 @@
   process.implementation = "process-compose";
 
   processes.mkdocs.exec = "mkdocs serve";
-  processes.astro.exec = "yarn dev";
+  processes.astro.exec = "npm run dev";
 
   pre-commit.hooks = {
     nixpkgs-fmt.enable = true;
