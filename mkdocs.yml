@@ -1,5 +1,6 @@
 site_name: schemamap.io
 site_description: 'schemamap.io handles your tenant onboarding end-to-end based on your database schema.'
+site_dir: 'dist/docs'
 site_url: 'https://schemamap.io'
 repo_name: 'schemamap/schemamap'
 repo_url: 'https://github.com/schemamap/schemamap'
@@ -8,10 +9,8 @@ extra_css:
   - assets/extra.css
 theme:
   name: material
-  logo: src/assets/icons/logo.svg
-  favicon: public/favicon.svg
-
-  custom_dir: docs/overrides
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
   palette:
     primary: white
     accent: '#FBFBFB'
@@ -28,61 +27,22 @@ nav:
   - Home: index.md
   - Documentation:
     - Getting Started: getting-started.md
-    - Files And Variables: files-and-variables.md
-    - Writing devenv.nix:
-      - Basics: basics.md
-      - Packages: packages.md
-      - Scripts: scripts.md
-      - Languages: languages.md
-      - Processes: processes.md
-      - Containers 🆕: containers.md
-      - Pre-Commit Hooks: pre-commit-hooks.md
-      - Common Patterns: common-patterns.md
-    - Writing devenv.yaml:
-      - Inputs: inputs.md
-      - Composing Using Imports: composing-using-imports.md
-    - Overview:
-      - Automatic Shell Activation: automatic-shell-activation.md
-      - Garbage Collection: garbage-collection.md
-    - Guides: 
-      - Using With Flakes: guides/using-with-flakes.md
-      - Using With flake.parts: guides/using-with-flake-parts.md
-    - Integrations:
-      - GitHub Actions: integrations/github-actions.md
-      - Codespaces / devcontainer: integrations/codespaces-devcontainer.md
-      - Difftastic: integrations/difftastic.md
-
     - Examples: examples.md
     - Roadmap: roadmap.md
     - Reference:
       - devenv.yaml: reference/yaml-options.md
       - devenv.nix: reference/options.md
-  - Blog:
-      - blog/index.md
   - Community:
       - Get Involved: community/get-involved.md
       - Contributing: community/contributing.md
 plugins:
   search: {}
-  markdownextradata: {}
-  social:
-    cards_color:
-      fill: "#FBFBFB"
-      text: "#425C82"
-  rss:
-    match_path: blog/posts/.* 
-    date_from_meta:
-      as_creation: date
-      as_update: date
-
 extra:
   social:
     - icon: fontawesome/brands/github 
       link: https://github.com/schemamap/schemamap
     - icon: fontawesome/brands/discord 
       link: https://discord.com/invite/P3UzxNusbA
-  devenv:
-    version: 0.6.2
 markdown_extensions:
   - tables
   - admonition
@@ -94,4 +54,3 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 
-

@@ -2,7 +2,7 @@
 import { SITE } from "~/config.mjs";
 import Layout from "~/layouts/PageLayout.astro";
 
-import Hero from "~/components/widgets/Hero.astro";
+import Hero2 from "~/components/widgets/Hero2.astro";
 import Note from "~/components/widgets/Note.astro";
 import Features from "~/components/widgets/Features.astro";
 import Features2 from "~/components/widgets/Features2.astro";
@@ -23,7 +23,7 @@ const meta = {
 <Layout {meta}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
+  <Hero2
     callToAction={{
       text: "Join the waitlist",
       target: "",
@@ -136,6 +136,6 @@ const meta = {
 
   <LatestPosts
     title="Find out more on the blog"
-    postIds={["domain-defined-interfaces.md"]}
+    postIds={["domain-inferred-interfaces.md"]}
   />
 </Layout>

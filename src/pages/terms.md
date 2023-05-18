@@ -3,7 +3,7 @@ title: 'Terms and Conditions'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Last updated_: January 06, 2023
+_Last updated_: May 15, 2023
 
 Please read these terms and conditions carefully before using Our Service.
 
@@ -21,7 +21,7 @@ For the purposes of these Terms and Conditions:
 
 - **Country** refers to: California, United States
 
-- **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Schemamap Kft. (LLC), TBD
+- **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Schemamap.io Kft., 1027 Budapest, Bem József utca 9. fszt.10.
 
 - **Device** means any device that can access the Service such as a computer, a cellphone or a digital tablet.
 

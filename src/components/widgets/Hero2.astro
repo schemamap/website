@@ -4,13 +4,17 @@ import { Picture } from '@astrojs/image/components';
 
 interface CallToAction {
   text: string;
-  href: string;
+  href?: string;
+  class?: string;
+  onclick?: string;
+  target?: string;
   icon?: string;
 }
 
 export interface Props {
   title?: string;
   subtitle?: string;
+  content?: string;
   callToAction?: string | CallToAction;
   callToAction2?: string | CallToAction;
   image?: string | any; // TODO: find HTMLElementProps

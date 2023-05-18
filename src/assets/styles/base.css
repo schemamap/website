@@ -49,6 +49,10 @@
   stroke-width: 2.4;
 }
 
+html.dark [astro-icon] {
+  fill: #fff;
+}
+
 [data-aw-toggle-menu] path {
   @apply transition;
 }

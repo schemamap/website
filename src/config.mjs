@@ -29,7 +29,7 @@ const CONFIG = {
 
   blog: {
     disabled: false,
-    postsPerPage: 4,
+    postsPerPage: 3,
 
     post: {
       permalink: 'blog/%slug%', // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
@@ -46,13 +46,13 @@ const CONFIG = {
     category: {
       pathname: 'blog/category', // Category main path /category/some-category
       noindex: true,
-      disabled: false,
+      disabled: true,
     },
 
     tag: {
       pathname: 'blog/tag', // Tag main path /tag/some-tag
       noindex: true,
-      disabled: false,
+      disabled: true,
     },
   },
 };
