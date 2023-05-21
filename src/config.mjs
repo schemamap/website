@@ -28,7 +28,7 @@ const CONFIG = {
   mailerLiteId: "388243",
 
   blog: {
-    disabled: false,
+    disabled: true,
     postsPerPage: 3,
 
     post: {

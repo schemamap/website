@@ -6,10 +6,10 @@ export const headerData = {
       text: 'About',
       href: getPermalink('/about'),
     },
-    {
-      text: 'Blog',
-      href: getBlogPermalink(),
-    },
+    // {
+    //   text: 'Blog',
+    //   href: getBlogPermalink(),
+    // },
     {
       text: 'Docs',
       href: '/docs',
