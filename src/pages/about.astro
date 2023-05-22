@@ -2,6 +2,8 @@
 import { SITE } from "~/config.mjs";
 import Layout from "~/layouts/PageLayout.astro";
 import { Icon } from "astro-icon";
+import Content from "~/components/widgets/Content.astro";
+import { Picture } from "@astrojs/image/components";
 
 const meta = {
   title: SITE.title,
@@ -13,9 +15,82 @@ const meta = {
 <Layout {meta}>
   <section class="scroll-mt-16" id="features">
     <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
-      Developed by 
-      <a target="_blank" href="https://www.linkedin.com/in/kriszszabo/">Krisztián Szabó</a> 
-      with <Icon name="tabler:heart" title="love" class="w-5 h-5 mr-1 inline-block icon-bold color-red"/>
+      <div class="flex justify-center pb-8">
+        <Picture
+        src={import("~/assets/images/krisz.jpg")}
+        class="md:object-cover w-50 md:w-auto md:h-full rounded-full shadow-lg bg-gray-400 dark:bg-slate-700"
+        widths={[512]}
+        width={512}
+        height={512}
+        sizes="512px"
+        alt="Picture of Krisztian Szabo."
+        aspectRatio="1:1"
+        loading="eager"
+        decoding="async"
+      />
+      </div>
+      
+      <h3 class="text-center text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Hi, I’m <a
+        class="underline text-blue-600"
+          target="_blank"
+          href="https://www.linkedin.com/in/kriszszabo/">Krisz</a
+        >. I’m the founder of schemamap.io.
+      </h3>
+
+      <p class="text-justify text-xl tracking-tight mb-2 lg:px-8 lg:py-20">
+        Schemamap.io was born out of frustrations of onboarding tenants onto
+        Postgres-based systems.<br/> I’ve spent the last 2.5 years building a Swiss
+        meat industry ERP system and felt the pain of cleaning customer/tenant
+        data and writing scripts to import it.<br/> To meet new requirements, we had
+        to grow the system, which involved a lot of manual work patching
+        long-running imports to keep them in sync.
+      </p>
+
+      <Content
+        isReversed
+        title="A few lessons learned during the process:"
+        items={[
+          {
+            title:
+              "SQL (via relational algebra) is still one of the best tool for data sanitization and importing.",
+            description: "For low- to medium-sized datasets",
+          },
+          {
+            title: `Good performance requires data locality. Serializing state between
+            apps and DBs causes longer iteration cycles.`,
+            description: `Slow iteration cycles
+            lead to delayed feedback, potential inefficiencies, and prolonged
+            data import completion.`,
+          },
+          {
+            title: `Collaborative/multiplayer manual data cleaning is strictly
+            preferable over single-person one.`,
+            description: `Edit history and rollbacks are
+            necessary for allowing quick fixes that won't cause further damage.`,
+          },
+          {
+            title: `Database schemas have a lot of problem-domain describing power.`,
+            description: `The
+            status quo of DB schemas stops at the mechanical specifics and lacks
+            domain metadata. Most of the time this exists in the backend layer,
+            disallowing code reuse across languages.`,
+          },
+          {
+            title: `
+            Importing and iterating on a subset of partial data in an isolated environment helps. 
+            `,
+            description: `It builds intuition for the new tenants of what the effects of
+            certain fields are.
+            `,
+          },
+        ]}
+      />
+      <div class ="text-xl lg:px-8 lg:py-20">
+        My goal with schemamap.io is to take the above lessons and turn them
+        into a turnkey solution that solves this often overlooked but immensely
+        painful part of multi-tenant SaaS.
+      </div>
     </div>
   </section>
 </Layout>
