@@ -17,7 +17,7 @@ export const headerData = {
   ],
   actions: [
     // this is redirected via CloudFlare to Savvycal
-    { type: 'button', text: "Let's talk", href: getPermalink('/meeting') }
+    { type: 'button', text: "Let's talk!", href: getPermalink('/meeting') }
   ],
 };
 export const githubOrgLink = 'https://github.com/schemamap';

@@ -24,16 +24,7 @@ const meta = {
   <!-- Hero Widget ******************* -->
 
   <Hero2
-    callToAction={{
-      text: "Join the waitlist",
-      target: "",
-      href: "javascript:void(0)",
-      onclick: "ml('show', '6BNIFe', true)",
-      class: "ml-onclick-form",
-      icon: "tabler:list-check",
-    }}
-    callToAction2={{ text: "Let's talk!", href: "/meeting" }}
-    }
+    callToAction={{ text: "Let's talk!", href: "/meeting", icon: 'tabler:calendar'}}
     image={{
       src: import("~/assets/images/schemamap_architecture_light.png"),
       alt: "Schemamap.io Hero Image",
@@ -150,9 +141,12 @@ const meta = {
       },
     ]}
   />
-  {false && 
-  <LatestPosts
-    title="Find out more on the blog"
-    postIds={["domain-inferred-interfaces.md"]}
-  />}
+  {
+    false && (
+      <LatestPosts
+        title="Find out more on the blog"
+        postIds={["domain-inferred-interfaces.md"]}
+      />
+    )
+  }
 </Layout>
