@@ -1,0 +1,56 @@
+site_name: schemamap.io
+site_description: 'schemamap.io handles your tenant onboarding end-to-end based on your database schema.'
+site_dir: 'dist/docs'
+site_url: 'https://schemamap.io'
+repo_name: 'schemamap/schemamap'
+repo_url: 'https://github.com/schemamap/schemamap'
+edit_uri: 'edit/main/docs'
+extra_css:
+  - assets/extra.css
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
+  palette:
+    primary: white
+    accent: '#FBFBFB'
+  features:
+    - tabs
+    - instant
+    - navigation.tabs
+    - navigation.expand
+    - navigation.instant
+    - navigation.tracking
+    - content.code.annotate
+    - content.tabs.link
+nav:
+  - Home: index.md
+  - Documentation:
+    - Getting Started: getting-started.md
+    - Examples: examples.md
+    - Roadmap: roadmap.md
+    - Reference:
+      - devenv.yaml: reference/yaml-options.md
+      - devenv.nix: reference/options.md
+  - Community:
+      - Get Involved: community/get-involved.md
+      - Contributing: community/contributing.md
+plugins:
+  search: {}
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/schemamap/schemamap
+    - icon: fontawesome/brands/discord 
+      link: https://discord.com/invite/P3UzxNusbA
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.escapeall
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 

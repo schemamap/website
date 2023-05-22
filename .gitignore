@@ -16,6 +16,24 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.cache
+
+.envrc.secret
 
 # macOS-specific files
 .DS_Store
+
+# Devenv
+.devenv*
+devenv.local.nix
+.pre-commit-config.yaml
+.venv
+
+# Nix
+result
+
+# direnv
+.direnv
+
+# mkdocs
+site

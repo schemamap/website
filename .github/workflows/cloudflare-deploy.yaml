@@ -1,0 +1,35 @@
+on: [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+          cache: "pip" # caching pip dependencies
+
+      - run: pip install -r requirements.txt
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: schemamap
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

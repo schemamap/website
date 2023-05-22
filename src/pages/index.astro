@@ -1,182 +1,152 @@
 ---
-import { getCollection } from 'astro:content';
+import { SITE } from "~/config.mjs";
+import Layout from "~/layouts/PageLayout.astro";
 
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero2 from "~/components/widgets/Hero2.astro";
+import Note from "~/components/widgets/Note.astro";
+import Features from "~/components/widgets/Features.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import Steps from "~/components/widgets/Steps.astro";
+import Content from "~/components/widgets/Content.astro";
+import LatestPosts from "~/components/blog/LatestPosts.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+import Stats from "~/components/widgets/Stats.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
 
-// Component Imports
-import CallToAction from '../components/CallToAction.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
-
-// Page section components
-import ContactCTA from '../components/ContactCTA.astro';
-import Skills from '../components/Skills.astro';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
 ---
 
-<BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="schemamap.io"
-					tagline="Simplify your Postgres Tenant Onboarding."
-					align="start">
-				</Hero>
+<Layout {meta}>
+  <!-- Hero Widget ******************* -->
 
-			</header>
+  <Hero2
+    callToAction={{ text: "Let's talk!", href: "/meeting", icon: 'tabler:calendar'}}
+    image={{
+      src: import("~/assets/images/schemamap_architecture_light.png"),
+      alt: "Schemamap.io Hero Image",
+    }}
+  >
+    <Fragment slot="title">
+      <span class="font-extrabold">10x</span> faster tenant onboarding for your
+      <span class="text-accent dark:text-white highlight"> Postgres</span>-based
+      SaaS
+    </Fragment>
 
-			<Skills />
-		</div>
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">schemamap.io</span> is an open-core, Postgres-native
+        solution that uses the rich schema of your DB to end-to-end manage long-running
+        data imports via Google Sheets.<br />
+        <u class="font-semibold"
+          >No more DIY CSV/Excel imports. No more frustrated tenants.</u
+        >
+      </span>
+    </Fragment>
+  </Hero2>
 
-		<ContactCTA />
-	</div>
-</BaseLayout>
+  <!-- Steps Widget ****************** -->
 
-<style>
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
+  <Steps
+    title="Get your tenants onboarded with these steps:"
+    items={[
+      {
+        title: "Step 1: Connect to your Postgres DB.",
+        description:
+          "Add schemamap.io your DB migration system via .sql file, that creates a limited DB user + basic schema.<br/>Whitelist our IPs and provide a connection string.<br/>Start locally or on staging for maximum safety.",
+        icon: "tabler:wifi",
+      },
+      {
+        title:
+          "Step 2: Categorize your tables into master and transactional data.",
+        description:
+          "Master data tables store core entities, such as customers, products, and employees, that remain relatively stable and are used throughout an organization.<br/> In contrast, transaction tables store day-to-day business activities, such as sales orders, purchase orders, and inventory movements.",
+        icon: "tabler:map",
+      },
+      {
+        title: "Step 3: Define your main master data entities",
+        description:
+          "Define how many high-level entities you want to import.<br/>schemamap.io figures out the ordering of the import.<br/>Example: 2 sheets: Customer and Product.<br/>Products have to be configured for which customers to be sold.",
+        icon: "tabler:components",
+      },
+      {
+        title: "Step 4: Send out managed Google Sheets",
+        description:
+          "By providing email adresses of your new tenants, they get invited to edit the automatically managed Google Sheets.<br/>Error highlighting, coloring and automatic data validation included.",
+        icon: "tabler:message",
+      },
+      {
+        title: "Import into your DB with a click of a button!",
+        description:
+          "No developer-time needed. Easily remove faulty records or fix them, without losing transactional data.",
+        icon: "tabler:check",
+      },
+    ]}
+    }
+  />
 
-	.roles {
-		display: none;
-	}
-
-	.hero img {
-		aspect-ratio: 5 / 4;
-		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
-
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
-
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
-
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
-		}
-	}
-
-	/* ====================================================== */
-
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
-
-	.with-background {
-		position: relative;
-	}
-
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
-
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background: url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat, var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
-
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
-	}
-
-	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
-	}
-
-	.section-header h3 {
-		font-size: var(--text-2xl);
-	}
-
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
-		}
-
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
-		}
-
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
-
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
-
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
-
-		.gallery {
-			grid-area: gallery;
-		}
-
-		.cta {
-			grid-area: cta;
-		}
-	}
-
-	/* ====================================================== */
-
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
-		}
-	}
-</style>
+  <Features
+    highlight="Features"
+    items={[
+      {
+        title: "In-database schema map",
+        description:
+          "schemamap.io manages itself in your running database in its' own schema. Separate master data and transaction tables.",
+        icon: "tabler:map",
+      },
+      {
+        title: "Segmenting",
+        description:
+          "Split the master data table contents into segments based on common columns like tenant/tenant_id. Tenant onboarding completion is automatically tracked across tables.",
+        icon: "tabler:components",
+      },
+      {
+        title: "Google Sheet management",
+        description:
+          "Stop building CSV and Excel imports. Allow your customers to fix their data collaboratively in parallel via our Google Sheet integration.",
+        icon: "tabler:list-check",
+      },
+      {
+        title: "Offline capabilities",
+        description:
+          "By embracing a database-first architecture, the majority of features are available locally with stored procedures. No network calls = maximum performance.",
+        icon: "tabler:rocket",
+      },
+      {
+        title: "Re-imports",
+        description:
+          "Utilizing your schema's unique constraints and primary key tracking by handling the import process, you can re-import even messy data as many times as you want.",
+        icon: "tabler:recycle",
+      },
+      {
+        title: "Cloud-ready",
+        description:
+          "Run schemamap.io with any cloud Postgres provider (Supabase, AWS RDS, GCP, Azure).",
+        icon: "tabler:cloud",
+      },
+      {
+        title: "Data-privacy",
+        description:
+          "Data transfer is end-to-end encrypted, just like WhatsApp. Trust only Google Sheets and your own DB.",
+        icon: "tabler:lock",
+      },
+      {
+        title: "Extensible",
+        description:
+          "HTTP webhooks and database-level callbacks are there to enrich or transform data. Get each modified DB record along with what changed to trigger any wanted side-effects.",
+        icon: "tabler:plus",
+      },
+    ]}
+  />
+  {
+    false && (
+      <LatestPosts
+        title="Find out more on the blog"
+        postIds={["domain-inferred-interfaces.md"]}
+      />
+    )
+  }
+</Layout>
