@@ -3,7 +3,7 @@ import { SITE } from "~/config.mjs";
 import Layout from "~/layouts/PageLayout.astro";
 import { Icon } from "astro-icon";
 import Content from "~/components/widgets/Content.astro";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "@astrojs/image/components";
 
 const meta = {
   title: SITE.title,
@@ -15,34 +15,36 @@ const meta = {
 <Layout {meta}>
   <section class="scroll-mt-16" id="features">
     <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
-      <div class="flex justify-center pb-8">
-        <Picture
-        src={import("~/assets/images/krisz.jpg")}
-        class="md:object-cover w-50 md:w-auto md:h-full rounded-full shadow-lg bg-gray-400 dark:bg-slate-700"
-        widths={[512]}
-        width={512}
-        height={512}
-        sizes="512px"
-        alt="Picture of Krisztian Szabo."
-        aspectRatio="1:1"
-        loading="eager"
-        decoding="async"
-      />
+      <div class="flex flex-col md:flex-row justify-center items-center">
+        <Image
+          src={import("~/assets/images/krisz.jpg")}
+          class="flex items-center md:object-cover w-1/3 md:w-auto md:h-full rounded-full drop-shadow-2xl bg-gray-400 dark:bg-slate-700"
+          width={512}
+          height={512}
+          sizes="512px"
+          alt="Picture of Krisztian Szabo."
+          aspectRatio="1:1"
+          loading="eager"
+          decoding="async"
+        />
+        <h3
+          class="md:pl-8 py-8 md:py-0 text-center text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+        >
+          Hi, I’m <a
+            class="underline text-blue-600"
+            target="_blank"
+            href="https://www.linkedin.com/in/kriszszabo/">Krisz</a
+          >.<br/> I’m the founder of schemamap.io.
+        </h3>
       </div>
-      
-      <h3 class="text-center text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Hi, I’m <a
-        class="underline text-blue-600"
-          target="_blank"
-          href="https://www.linkedin.com/in/kriszszabo/">Krisz</a
-        >. I’m the founder of schemamap.io.
-      </h3>
 
-      <p class="text-justify text-xl tracking-tight mb-2 lg:px-8 lg:py-20">
+      <p class="text-xl mb-2 lg:px-8 lg:py-20">
         Schemamap.io was born out of frustrations of onboarding tenants onto
-        Postgres-based applications.<br/> I’ve spent the last 2.5 years building a Swiss
-        ERP, cleaning customer/tenant data and writing scripts to import it being a significant part of it.<br/>
-        To meet new requirements, we had to extend the DB, which involved a lot of manual work patching long-running imports to keep them in sync.
+        Postgres-based applications.<br /> I’ve spent the last 2.5 years building
+        a Swiss ERP, cleaning customer/tenant data and writing scripts to import
+        it being a significant part of it.<br />
+        To meet new requirements, we had to extend the DB, which involved a lot of
+        manual work patching long-running imports to keep them in sync.
       </p>
 
       <Content
@@ -52,7 +54,7 @@ const meta = {
           {
             title:
               "SQL (via relational algebra) is still one of the best tool for data sanitization and importing.",
-            description: "For low- to medium-sized datasets",
+            description: "For low- to medium-sized (<= 32GB) datasets.",
           },
           {
             title: `Good performance requires data locality. Serializing state between
@@ -84,7 +86,7 @@ const meta = {
           },
         ]}
       />
-      <div class ="text-xl lg:px-8 lg:py-20">
+      <div class="text-xl pt-8 lg:px-8 lg:py-20">
         My goal with schemamap.io is to take the above lessons and turn them
         into a turnkey solution that solves this often overlooked but immensely
         painful part of multi-tenant SaaS.
