@@ -24,7 +24,11 @@ const meta = {
   <!-- Hero Widget ******************* -->
 
   <Hero2
-    callToAction={{ text: "Let's talk!", href: "/meeting", icon: 'tabler:calendar'}}
+    callToAction2={{
+      text: "Let's talk!",
+      href: "/meeting",
+      icon: "tabler:calendar",
+    }}
     image={{
       src: import("~/assets/images/schemamap_architecture_light.png"),
       alt: "Schemamap.io Hero Image",
@@ -34,6 +38,24 @@ const meta = {
       <span class="font-extrabold">10x</span> faster tenant onboarding for your
       <span class="text-accent dark:text-white highlight"> Postgres</span>-based
       SaaS
+    </Fragment>
+
+    <Fragment slot="callToAction">
+      <button
+        class="btn btn-primary"
+        data-tf-popup="wYU8OnuS"
+        data-tf-opacity="100"
+        data-tf-size="100"
+        data-tf-iframe-props="title=Schemamap.io Lead Gen"
+        data-tf-open="scroll"
+        data-tf-open-value="90"
+        data-tf-auto-close="3000"
+        data-tf-transitive-search-params
+        data-tf-medium="snippet"
+       >
+        Check if it's for you!
+      </button>
+      <script is:inline src="//embed.typeform.com/next/embed.js"></script>
     </Fragment>
 
     <Fragment slot="subtitle">
