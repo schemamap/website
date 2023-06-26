@@ -6,6 +6,10 @@ export const headerData = {
       text: 'About',
       href: getPermalink('/about'),
     },
+    {
+      text: 'Services',
+      href: getPermalink('/services'),
+    },
     // {
     //   text: 'Blog',
     //   href: getBlogPermalink(),
@@ -40,15 +44,16 @@ export const footerData = {
       links: [
         { text: 'Docs', href: getPermalink('/docs') },
         { text: 'Community Forum', href: discordLink },
-        { text: 'Professional Services', href: getPermalink('/professional-services') },
-        //{ text: 'Status', href: getPermalink('/status') },
+        { text: 'Services', href: getPermalink('/services') },
+        // this is redirected via CloudFlare to UptimeRobot
+        { text: 'Status', href: getPermalink('/status') },
       ],
     },
     {
       title: 'Company',
       links: [
         { text: 'About', href: getPermalink('/about') },
-        { text: 'Blog', href: getBlogPermalink() },
+        // { text: 'Blog', href: getBlogPermalink() },
         // { text: 'Careers', href: '#' },
         // { text: 'Press', href: getPermalink('/press-kit') },
       ],
