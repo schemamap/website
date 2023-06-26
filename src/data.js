@@ -10,10 +10,10 @@ export const headerData = {
     //   text: 'Blog',
     //   href: getBlogPermalink(),
     // },
-    {
-      text: 'Docs',
-      href: '/docs',
-    },
+    // {
+    //   text: 'Docs',
+    //   href: '/docs',
+    // },
   ],
   actions: [
     // this is redirected via CloudFlare to Savvycal
