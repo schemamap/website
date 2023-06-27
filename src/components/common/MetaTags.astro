@@ -49,6 +49,7 @@ const image =
     ? // @ts-ignore
       new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
     : null;
+
 ---
 
 <meta charset="UTF-8" />
@@ -77,7 +78,7 @@ const image =
           },
         ]
       : undefined,
-    // site_name: 'SiteName',
+    site_name: 'schemamap.io',
   }}
   twitter={{
     // handle: '@handle',
@@ -90,14 +91,14 @@ const image =
 
 <!-- Google Analytics -->
 {
-  SITE.googleAnalyticsId && (
+  SITE.googleAnalyticsId && import.meta.env.PROD && (
     <GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />
   )
 }
 
 <!-- Microsoft Clarity -->
 {
-  SITE.microsoftClarityId && (
+  SITE.microsoftClarityId && import.meta.env.PROD && (
     <MicrosoftClarity id={String(SITE.microsoftClarityId)} partytown={true} />
   )
 }

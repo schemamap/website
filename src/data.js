@@ -3,13 +3,14 @@ import { getPermalink, getBlogPermalink, getAsset, getHomePermalink } from './ut
 export const headerData = {
   links: [
     {
-      text: 'About',
-      href: getPermalink('/about'),
-    },
-    {
       text: 'Services',
       href: getPermalink('/services'),
     },
+    {
+      text: 'About',
+      href: getPermalink('/about'),
+    },
+
     // {
     //   text: 'Blog',
     //   href: getBlogPermalink(),
@@ -44,7 +45,6 @@ export const footerData = {
       links: [
         { text: 'Docs', href: getPermalink('/docs') },
         { text: 'Community Forum', href: discordLink },
-        { text: 'Services', href: getPermalink('/services') },
         // this is redirected via CloudFlare to UptimeRobot
         { text: 'Status', href: getPermalink('/status') },
       ],
@@ -52,6 +52,7 @@ export const footerData = {
     {
       title: 'Company',
       links: [
+        { text: 'Services', href: getPermalink('/services') },
         { text: 'About', href: getPermalink('/about') },
         // { text: 'Blog', href: getBlogPermalink() },
         // { text: 'Careers', href: '#' },

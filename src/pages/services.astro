@@ -1,0 +1,91 @@
+---
+import { SITE } from "~/config.mjs";
+import Layout from "~/layouts/PageLayout.astro";
+import { Icon } from "astro-icon";
+import Content from "~/components/widgets/Content.astro";
+import { Image } from "@astrojs/image/components";
+import { getPermalink } from '~/utils/permalinks';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+  <div slot="announcement"></div>
+  <section class="scroll-mt-16" id="features">
+    <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
+      <div class="flex flex-col md:flex-row justify-center items-center">
+        <h1 class="md:pl-8 py-8 md:py-0 text-center text-5xl mb-2">
+          Helping you achieve your business goals via <br />
+          <a class="hover:underline text-muted transition ease-in duration-200" href="#software-development"
+            >software development</a
+          >,
+          <a class="hover:underline text-muted transition ease-in duration-200" href="#consulting">consulting</a
+          > and
+          <a class="hover:underline text-muted transition ease-in duration-200" href="#training">training</a
+          >.<br />
+          Focused on simplicity and agility.
+        </h1>
+      </div>
+    </div>
+  </section>
+  <section class="scroll-mt-16 bg-slate-50" id="software-development">
+    <div class="px-4 py-16 mx-auto max-w-6xl">
+      <h2 class="pb-8 text-2xl">Software Development</h2>
+      <p>
+        Whether you're embarking on a brand-new venture or looking to enhance
+        your current system, I'm here to assist.<br />
+        Leveraging over a decade of full-stack development expertise, particularly
+        in the realm of functional programming,<br />
+        I pledge to deliver reliable, premium results, all while avoiding unnecessary
+        complexity.<br />
+        My pricing is structured around the value I provide rather than time, this
+        way you can reliably stay within your budget.<br /> From the project's inception,
+        you will be provided a definitive cost with assured guarantees in place.
+      </p>
+    </div>
+  </section>
+  <section class="scroll-mt-16" id="consulting">
+    <div class="px-4 py-16 mx-auto max-w-6xl">
+      <h2 class="pb-8 text-2xl">Consulting</h2>
+      <p>
+        As an expert in the field, I'm happy to provide my consulting services
+        to support tech companies.<br />
+        My expertise encompasses a wide range of areas including technology, data,
+        cloud, operations, and integrations.<br />
+        I provide guidance on refining processes and methodologies to accelerate
+        time to market.<br />
+        Let's transform your software liability into a best-in-class asset. Rest
+        assured, I'll be there to guide you every step of the journey.
+      </p>
+    </div>
+  </section>
+  <section class="scroll-mt-16 bg-slate-50" id="training">
+    <div class="px-4 py-16 mx-auto max-w-6xl">
+      <h2 class="pb-8 text-2xl">Training</h2>
+      <p>
+        I believe a small, tight-knit group of highly effective and driven
+        individuals is the best path to success.<br />
+        Schedule a training day or an interactive workshop so I can elevate your
+        team's skills,<br /> focusing on their needs and desires, rather than chasing
+        the latest fads.<br />
+        I am constantly evaluating technological advances and novel approaches to
+        unlock greater efficiency and reliability.
+      </p>
+    </div>
+  </section>
+  <section class="scroll-mt-16" id="contact">
+    <div class="px-4 py-16 mx-auto max-w-6xl">
+      <h2 class="pb-8 text-2xl">Interested?</h2>
+      <p>
+        Send me an e-mail at <a href="mailto:krisz@schemamap.io"
+        class="underline text-blue-600">krisz@schemamap.io</a>, or 
+        <a href={getPermalink('/meeting')}
+        class="underline text-blue-600">schedule a meeting right away</a>!
+      </p>
+    </div>
+  </section>
+</Layout>
