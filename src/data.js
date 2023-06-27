@@ -43,7 +43,7 @@ export const footerData = {
     {
       title: 'Support',
       links: [
-        { text: 'Docs', href: getPermalink('/docs') },
+        //{ text: 'Docs', href: getPermalink('/docs') },
         { text: 'Community Forum', href: discordLink },
         // this is redirected via CloudFlare to UptimeRobot
         { text: 'Status', href: getPermalink('/status') },

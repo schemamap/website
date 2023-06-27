@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run astro build && mkdocs build",
+    "build": "npm run astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w .",
