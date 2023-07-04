@@ -1,6 +1,5 @@
 ---
 import { AstroSeo } from "@astrolib/seo";
-import { GoogleAnalytics } from "@astrolib/analytics";
 import { getImage } from "@astrojs/image";
 
 import { SITE } from "~/config.mjs";
@@ -88,13 +87,6 @@ const image =
 />
 
 <CustomStyles />
-
-<!-- Google Analytics -->
-{
-  SITE.googleAnalyticsId && import.meta.env.PROD && (
-    <GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />
-  )
-}
 
 <!-- Microsoft Clarity -->
 {

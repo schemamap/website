@@ -23,7 +23,6 @@ const CONFIG = {
     timeZone: 'UTC',
   }),
 
-  googleAnalyticsId: "G-89H7G8GTJR",
   microsoftClarityId: "gtgmt0rftj",
   mailerLiteId: "388243",
 
