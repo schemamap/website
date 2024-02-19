@@ -8,8 +8,7 @@ import { getCanonical, getAsset } from "~/utils/permalinks";
 import { getRelativeUrlByFilePath } from "~/utils/directories";
 
 import CustomStyles from "~/components/CustomStyles.astro";
-import MicrosoftClarity from "~/components/common/MicrosoftClarity.astro";
-import MailerLite from "~/components/common/MailerLite.astro";
+import PostHog from "~/components/PostHog.astro";
 
 export interface Props extends MetaSEO {
   dontUseTitleTemplate?: boolean;
@@ -55,8 +54,6 @@ const image =
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="slack-app-id" content="A05CZMTBB40">
 
-<!-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="eaddd225-b875-4cd2-85a4-763ff736698b" data-blockingmode="auto" type="text/javascript"></script> -->
-
 <AstroSeo
   title={title}
   titleTemplate={dontUseTitleTemplate ? "%s" : `%s — ${SITE.name}`}
@@ -88,12 +85,6 @@ const image =
 
 <CustomStyles />
 
-<!-- Microsoft Clarity -->
-{
-  SITE.microsoftClarityId && import.meta.env.PROD && (
-    <MicrosoftClarity id={String(SITE.microsoftClarityId)} partytown={true} />
-  )
-}
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -104,3 +95,5 @@ const image =
 <meta name="application-name" content="Schemamap.io">
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
+
+<PostHog />

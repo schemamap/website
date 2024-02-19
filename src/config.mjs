@@ -24,9 +24,6 @@ const CONFIG = {
     timeZone: "UTC",
   }),
 
-  microsoftClarityId: "gtgmt0rftj",
-  mailerLiteId: "388243",
-
   blog: {
     disabled: true,
     postsPerPage: 3,
