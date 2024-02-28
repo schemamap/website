@@ -2,7 +2,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useConsent } from "./consent";
-import { Box, Button, HStack, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  HStack,
+  Stack,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 export function Banner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -40,20 +47,21 @@ export function Banner() {
   };
 
   return (
-    <HStack
+    <Stack
       width={"100%"}
       position="fixed"
       zIndex={"sticky"}
-      fontSize={"xl"}
+      fontSize={{ base: "md", lg: "xl" }}
       bottom={0}
       py={4}
-      pl={10}
-      spacing={4}
+      px={{ base: 4, lg: 8 }}
+      spacing={{ base: 2, lg: 4 }}
       transitionProperty="common"
       transitionDuration="normal"
       bg={bg}
       borderTopWidth={"1px"}
       backdropFilter={"blur(10px)"}
+      direction={{ base: "column", lg: "row" }}
     >
       <Text>
         We use tracking cookies to understand how you use the product and help
@@ -66,6 +74,6 @@ export function Banner() {
       <Button variant={"secondary"} onClick={declineCookies}>
         Decline cookies
       </Button>
-    </HStack>
+    </Stack>
   );
 }
