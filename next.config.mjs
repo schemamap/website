@@ -1,5 +1,3 @@
-import { withContentlayer } from 'next-contentlayer'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -8,12 +6,12 @@ const nextConfig = {
       test: /\.svg$/,
       use: [
         {
-          loader: '@svgr/webpack',
+          loader: "@svgr/webpack",
           options: {
             svgoConfig: {
               plugins: [
                 {
-                  name: 'removeViewBox',
+                  name: "removeViewBox",
                   active: false,
                 },
               ],
@@ -21,9 +19,9 @@ const nextConfig = {
           },
         },
       ],
-    })
-    return config
+    });
+    return config;
   },
-}
+};
 
-export default withContentlayer(nextConfig)
+export default nextConfig;

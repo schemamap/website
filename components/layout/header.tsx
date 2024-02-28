@@ -21,7 +21,7 @@ export const Header = (props: HeaderProps) => {
 
   const { scrollY } = useScroll();
   React.useEffect(() => {
-    return scrollY.onChange(() => setY(scrollY.get()));
+    return scrollY.on("change", () => setY(scrollY.get()));
   }, [scrollY]);
 
   const bg = useColorModeValue("whiteAlpha.700", "rgba(29, 32, 37, 0.7)");

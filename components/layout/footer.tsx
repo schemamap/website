@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = (props) => {
 
 export interface CopyrightProps {
   title?: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Copyright: React.FC<CopyrightProps> = ({

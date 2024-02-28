@@ -51,7 +51,7 @@ const siteConfig = {
     copyright: (
       <>
         <Link href="https://www.linkedin.com/company/schemamap-io-kft/">
-          © Schemamap.io Kft.
+          © {new Date().getFullYear()} Schemamap.io Kft. All rights reserved
         </Link>
       </>
     ),
@@ -74,7 +74,7 @@ const siteConfig = {
       },
       {
         href: "https://github.com/schemamap/schemamap",
-        label: <FaGithub size="14" />,
+        label: <FaGithub size="20" />,
       },
     ],
   },
