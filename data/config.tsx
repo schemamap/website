@@ -101,7 +101,7 @@ const siteConfig = {
         title: "Postgres-native",
         icon: FiGrid,
         description:
-          "Integrate Schemamap.io with any cloud Postgres provider (Supabase, AWS RDS, GCP, Azure).",
+          "Integrate Schemamap.io with any cloud Postgres provider (Supabase, Hasura, AWS RDS, GCP, Azure). No special extensions needed.",
         iconPosition: "left",
         delay: 1,
       },
@@ -109,7 +109,7 @@ const siteConfig = {
         title: "Always up-to-date",
         icon: FiThumbsUp,
         description:
-          "By tracking how the underlying tables & their constraints change, your spreadsheets stay automatically in sync. Easily backfill missing data.",
+          "By tracking how the underlying tables & their constraints change, your spreadsheets stay automatically in sync. Trivially backfill data.",
         iconPosition: "left",
         delay: 1.1,
       },

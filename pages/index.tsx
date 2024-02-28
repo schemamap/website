@@ -176,7 +176,7 @@ const HeroSection: React.FC = () => {
       <Features
         id="benefits"
         columns={[1, 2, 4]}
-        iconSize={4}
+        iconSize={6}
         innerWidth="container.xl"
         pt={20}
         features={siteConfig.signup.features}
@@ -314,7 +314,7 @@ const FeaturesSection = () => {
       }
       align="left"
       columns={[1, 2, 3]}
-      iconSize={4}
+      iconSize={6}
       features={[
         {
           title: "Components.",
