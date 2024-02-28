@@ -27,7 +27,7 @@ export default class Document extends NextDocument {
           <link rel="manifest" href="/static/favicons/manifest.json" />
         </Head>
         <body>
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+          <ColorModeScript initialColorMode={"dark"} type="localStorage" />
           <Main />
           <NextScript />
         </body>
