@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import {
   Container,
   Box,
