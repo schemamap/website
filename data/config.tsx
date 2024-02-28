@@ -2,8 +2,17 @@ import { Button } from "@chakra-ui/react";
 import { Link } from "@saas-ui/react";
 import { NextSeoProps } from "next-seo";
 import { FaGithub, FaTwitter } from "react-icons/fa";
-import { FiCheck } from "react-icons/fi";
+import {
+  FiCheck,
+  FiSmile,
+  FiSliders,
+  FiGrid,
+  FiThumbsUp,
+  FiTable,
+  FiUsers,
+} from "react-icons/fi";
 import { Logo } from "./logo";
+import { FeatureProps } from "components/features";
 
 const siteConfig = {
   logo: Logo,
@@ -73,29 +82,38 @@ const siteConfig = {
     title: "Create a new Schemamap.io account",
     features: [
       {
-        icon: FiCheck,
-        title: "Accessible",
-        description: "All components strictly follow WAI-ARIA standards.",
+        title: "Google Sheet management",
+        icon: FiTable,
+        description:
+          "Stop building CSV and Excel imports. Allow your customers to import their data collaboratively via secure Google Sheet integration.",
+        iconPosition: "left",
+        delay: 0.6,
       },
       {
-        icon: FiCheck,
-        title: "Themable",
+        title: "Tenant Onboarding",
+        icon: FiUsers,
         description:
-          "Fully customize all components to your brand with theme support and style props.",
+          "Track the onboarding progress of your tenants, see where people get stuck. Get notified on Slack when data is ready for import.",
+        iconPosition: "left",
+        delay: 0.8,
       },
       {
-        icon: FiCheck,
-        title: "Composable",
+        title: "Postgres-native",
+        icon: FiGrid,
         description:
-          "Compose components to fit your needs and mix them together to create new ones.",
+          "Integrate Schemamap.io with any cloud Postgres provider (Supabase, AWS RDS, GCP, Azure).",
+        iconPosition: "left",
+        delay: 1,
       },
       {
-        icon: FiCheck,
-        title: "Productive",
+        title: "Always up-to-date",
+        icon: FiThumbsUp,
         description:
-          "Designed to reduce boilerplate and fully typed, build your product at speed.",
+          "By tracking how the underlying tables & their constraints change, your spreadsheets stay automatically in sync. Easily backfill missing data.",
+        iconPosition: "left",
+        delay: 1.1,
       },
-    ],
+    ] as FeatureProps[],
   },
 };
 

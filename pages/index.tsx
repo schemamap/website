@@ -59,6 +59,7 @@ import {
   HighlightsItem,
   HighlightsTestimonialItem,
 } from "components/highlights";
+import siteConfig from "data/config";
 
 const Home: NextPage = () => {
   return (
@@ -70,11 +71,11 @@ const Home: NextPage = () => {
       <Box>
         <HeroSection />
 
-        <HighlightsSection />
+        {/* <HighlightsSection /> */}
 
         <FeaturesSection />
 
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
 
         <PricingSection />
 
@@ -90,8 +91,8 @@ const HeroSection: React.FC = () => {
       <BackgroundGradient height="100%" />
       <Container
         maxW="container.xl"
-        pt={{ base: 40, lg: 60 }}
-        pb={{ base: 0, lg: 40 }}
+        pt={{ base: 10, lg: 40 }}
+        pb={{ base: 0, lg: 10 }}
       >
         <Stack direction={{ base: "column", lg: "row" }} alignItems="center">
           <Hero
@@ -106,20 +107,28 @@ const HeroSection: React.FC = () => {
             }
             description={
               <FallInPlace delay={0.4} fontWeight="medium">
-                Save time and avoid errors with Google Sheets syncing tailored
-                automatically to your Postgres database.
+                Reduce onboarding time and avoid errors with Google Sheets
+                tailored automatically to your multi-tenant Postgres database.
               </FallInPlace>
             }
           >
             <FallInPlace delay={0.8}>
               <ButtonGroup spacing={4} alignItems="center" mt={10}>
-                <ButtonLink colorScheme="primary" size="lg" href="/signup">
+                <ButtonLink
+                  variant="primary"
+                  size="lg"
+                  href="/signup"
+                  height={12}
+                  data-attr="signup"
+                >
                   Get started for free
                 </ButtonLink>
                 <ButtonLink
                   size="lg"
                   href="https://schemamap.io/meeting"
                   variant="outline"
+                  data-attr="demo"
+                  height={12}
                   rightIcon={
                     <Icon
                       as={FiArrowRight}
@@ -139,7 +148,7 @@ const HeroSection: React.FC = () => {
             </FallInPlace>
           </Hero>
           <Box
-            height="600px"
+            maxH="600px"
             position={{ base: "initial", lg: "absolute" }}
             display={"block"}
             left={{ lg: "60%", xl: "55%" }}
@@ -169,40 +178,8 @@ const HeroSection: React.FC = () => {
         columns={[1, 2, 4]}
         iconSize={4}
         innerWidth="container.xl"
-        pt={{ base: 0, lg: 20 }}
-        features={[
-          {
-            title: "Accessible",
-            icon: FiSmile,
-            description: "All components strictly follow WAI-ARIA standards.",
-            iconPosition: "left",
-            delay: 0.6,
-          },
-          {
-            title: "Themable",
-            icon: FiSliders,
-            description:
-              "Fully customize all components to your brand with theme support and style props.",
-            iconPosition: "left",
-            delay: 0.8,
-          },
-          {
-            title: "Composable",
-            icon: FiGrid,
-            description:
-              "Compose components to fit your needs and mix them together to create new ones.",
-            iconPosition: "left",
-            delay: 1,
-          },
-          {
-            title: "Productive",
-            icon: FiThumbsUp,
-            description:
-              "Designed to reduce boilerplate and fully typed, build your product at speed.",
-            iconPosition: "left",
-            delay: 1.1,
-          },
-        ]}
+        pt={20}
+        features={siteConfig.signup.features}
         reveal={FallInPlace}
       />
     </Box>
@@ -322,20 +299,17 @@ const FeaturesSection = () => {
       title={
         <Heading
           lineHeight="short"
-          fontSize={["2xl", null, "4xl"]}
+          fontSize={["xl", null, "2xl"]}
           textAlign="left"
           as="p"
         >
-          Not your standard
-          <Br /> dashboard template.
+          Everything you need to reduce your tenants time to ROI.
         </Heading>
       }
       description={
         <>
-          Saas UI Pro includes everything you need to build modern frontends.
-          <Br />
-          Use it as a template for your next product or foundation for your
-          design system.
+          Free up precious developer time by using your database schema as a
+          knowledge base for your onboarding.
         </>
       }
       align="left"
@@ -450,7 +424,7 @@ const PricingSection = () => {
   return (
     <Pricing {...pricing}>
       <Text p="8" textAlign="center" color="muted">
-        VAT may be applicable depending on your location and business.
+        VAT may be applicable depending on your location and business type.
       </Text>
     </Pricing>
   );

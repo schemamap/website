@@ -2844,6 +2844,16 @@
     "@saas-ui/nprogress" "2.0.3"
     "@saas-ui/theme" "2.3.3"
 
+"@saas-ui/theme-glass@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@saas-ui/theme-glass/-/theme-glass-0.5.4.tgz#f0200a30483ec21cfc36209bbad8b861557a10f0"
+  integrity sha512-JviTYiD6Hl3319qZjuqy4Dw+vUbDWXa/qO0KWphnouw4PWk11+h3DaNm8oHJVo+ccT1xiThSd0xD+CS6FaW9eQ==
+  dependencies:
+    "@chakra-ui/anatomy" "^2.2.2"
+    "@chakra-ui/styled-system" "^2.9.2"
+    "@chakra-ui/theme-tools" "^2.1.2"
+    "@chakra-ui/utils" "^2.0.15"
+
 "@saas-ui/theme@2.0.0-next.6":
   version "2.0.0-next.6"
   resolved "https://registry.yarnpkg.com/@saas-ui/theme/-/theme-2.0.0-next.6.tgz#88495020cdf3b818addba7259290475411de9a4b"

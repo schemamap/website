@@ -26,13 +26,18 @@ export const Footer: React.FC<FooterProps> = (props) => {
           <Stack spacing="8">
             <Copyright>{siteConfig.footer.copyright}</Copyright>
           </Stack>
-          <HStack justify="flex-end" spacing="4" alignSelf="flex-end">
+          <Stack
+            justify="flex-end"
+            spacing="4"
+            alignSelf="flex-end"
+            direction={{ base: "column", lg: "row" }}
+          >
             {siteConfig.footer?.links?.map(({ href, label }) => (
               <FooterLink key={href} href={href}>
                 {label}
               </FooterLink>
             ))}
-          </HStack>
+          </Stack>
         </SimpleGrid>
       </Container>
     </Box>

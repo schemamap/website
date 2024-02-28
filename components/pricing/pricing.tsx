@@ -32,8 +32,46 @@ export interface PricingProps extends SectionProps {
   plans: Array<PricingPlan>;
 }
 
+export const PricingPlan = ({ plan }: { plan: PricingPlan }) => {
+  return (
+    <PricingBox
+      key={plan.id}
+      title={plan.title}
+      description={plan.description}
+      price={plan.price}
+      sx={
+        plan.isRecommended
+          ? {
+              borderColor: "primary.500",
+              _dark: {
+                borderColor: "primary.500",
+                bg: "blackAlpha.300",
+              },
+            }
+          : {}
+      }
+    >
+      <PricingFeatures>
+        {plan.features.map((feature, i) =>
+          feature ? <PricingFeature key={i} {...feature} /> : <br key={i} />
+        )}
+      </PricingFeatures>
+      <ButtonLink colorScheme="primary" {...plan.action}>
+        {plan.action.label || "Sign Up"}
+      </ButtonLink>
+    </PricingBox>
+  );
+};
+
 export const Pricing: React.FC<PricingProps> = (props) => {
   const { children, plans, title, description, ...rest } = props;
+
+  const enterpriseId = "enterprise_plan";
+
+  const plansExceptEnterprise = plans.filter(
+    (plan) => plan.id !== enterpriseId
+  );
+  const enterprisePlan = plans.find((plan) => plan.id === enterpriseId);
 
   return (
     <Section id="pricing" pos="relative" {...rest}>
@@ -42,39 +80,16 @@ export const Pricing: React.FC<PricingProps> = (props) => {
         <SectionTitle title={title} description={description}></SectionTitle>
 
         <SimpleGrid columns={[1, null, 3]} spacing={4}>
-          {plans?.map((plan) => (
-            <PricingBox
-              key={plan.id}
-              title={plan.title}
-              description={plan.description}
-              price={plan.price}
-              sx={
-                plan.isRecommended
-                  ? {
-                      borderColor: "primary.500",
-                      _dark: {
-                        borderColor: "primary.500",
-                        bg: "blackAlpha.300",
-                      },
-                    }
-                  : {}
-              }
-            >
-              <PricingFeatures>
-                {plan.features.map((feature, i) =>
-                  feature ? (
-                    <PricingFeature key={i} {...feature} />
-                  ) : (
-                    <br key={i} />
-                  )
-                )}
-              </PricingFeatures>
-              <ButtonLink colorScheme="primary" {...plan.action}>
-                {plan.action.label || "Sign Up"}
-              </ButtonLink>
-            </PricingBox>
+          {plansExceptEnterprise?.map((plan) => (
+            <PricingPlan key={plan.id} plan={plan} />
           ))}
         </SimpleGrid>
+
+        {enterprisePlan && (
+          <Box mt={8}>
+            <PricingPlan key={enterprisePlan.id} plan={enterprisePlan} />
+          </Box>
+        )}
 
         {children}
       </Box>

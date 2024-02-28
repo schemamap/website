@@ -1,14 +1,17 @@
-import { HStack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Tag, Text, VStack } from "@chakra-ui/react";
 
 export default {
-  title: "Pricing for every stage",
+  title: "Pricing for every business",
   description: (
     <VStack>
       <Text>Use Schemamap.io free forever (with generous usage limits).</Text>
       <Text>
-        Or pay by MB of Postgres master data transferred and get unrestricted
-        access to everything.
+        Pay only for the synced Postgres master data bandwidth used, per MB.
       </Text>
+      {/* <Text>
+        Don&apos;t get penalized by Monthly active rows-based pricing, for
+        properly designed granular tables.
+      </Text> */}
     </VStack>
   ),
   plans: [
@@ -20,7 +23,28 @@ export default {
       price: "Free",
       features: [
         {
-          title: "10MB / month of Postgres data transfer",
+          title: "10MB / month of Postgres bandwidth included",
+        },
+        {
+          title: "No flexible bandwidth usage",
+        },
+        {
+          title: "EU data residency with GDPR compliance",
+        },
+        {
+          title: "1 tracked tenant",
+        },
+        {
+          title: "2 Google Sheets",
+        },
+        {
+          title: "Unlimited users",
+        },
+        {
+          title: "Slack integration",
+        },
+        {
+          title: "Best-effort support",
         },
       ],
       action: {
@@ -28,76 +52,99 @@ export default {
       },
     },
     {
-      id: "bootstrap",
-      title: "Bootstrap",
-      description: "Complete frontend stack for bootstrappers and small teams.",
-      price: "Free",
-      isRecommended: true,
+      id: "starter_plan",
+      title: "Starter Plan",
+      description: "Best for companies close to PMF.",
+      price: <Text>€600/year</Text>,
       features: [
+        { title: "Everything in Free, plus:" },
+
         {
-          title: "One project",
+          title: "1GB / month of Postgres bandwidth included",
         },
         {
-          title: "One developer",
+          title: "Flexible usage pricing: €0.05 / MB",
         },
         {
-          title: "Advanced components",
+          title: "5 tracked tenants",
         },
         {
-          title: "Multiple themes",
+          title: "100 Google Sheets",
         },
         {
-          title: "Next.js and Electron boilerplates",
+          title: "3-day email support",
         },
         {
-          title: "Private discord community",
+          title: "Schema Overview dashboard",
         },
         {
-          title: "1 year of updates",
-        },
-        null,
-        {
-          title: "Private beta access",
-          iconColor: "green.500",
+          title: "Tenant Onboarding dashboard",
         },
       ],
       action: {
-        href: "https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license",
+        href: "/signup",
+        label: "Sign up then upgrade",
       },
     },
     {
-      id: "startup",
-      title: "Startup",
-      description: "Unlimited license for growing teams.",
+      id: "pro_plan",
+      title: "Pro Plan",
+      description: "For companies that are expanding rapidly.",
+      isRecommended: true,
       price: (
         <HStack>
-          <Text textDecoration="line-through" fontSize="sm" color="gray.400">
-            €999,-
-          </Text>
-          <Text>€499,-</Text>
+          <Text>€1200/year</Text>
+          <Tag colorScheme="green">Best value</Tag>
         </HStack>
       ),
       features: [
         {
-          title: "Unlimited projects",
+          title: "Everything in Starter, plus:",
         },
         {
-          title: "Unlimited developers",
+          title: "10GB / month of Postgres bandwidth included",
         },
         {
-          title: "1 year of updates",
+          title: "Flexible usage pricing: €0.04 / MB",
         },
         {
-          title: "Everything from Bootstrap",
+          title: "100 tracked tenants",
+        },
+        {
+          title: "1000 Google Sheets",
+        },
+        {
+          title: "Priority support",
         },
         null,
         {
-          title: "Private beta access",
+          title: "Success Engineer",
           iconColor: "green.500",
         },
       ],
       action: {
-        href: "https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license",
+        href: "/signup",
+        label: "Sign up then upgrade",
+      },
+    },
+    {
+      id: "enterprise_plan",
+      title: "Enterprise Plan",
+      description: "Custom license for large companies with unique needs.",
+      price: "Custom",
+      features: [
+        { title: "Everything in Pro, plus:" },
+        { title: "Custom/unlimited bandwidth pricing" },
+        { title: "On-premise hosting & cloud deployment" },
+        { title: "White-labeling" },
+        { title: "Custom components" },
+        { title: "Dedicated support" },
+        { title: "SLAs" },
+        { title: "Onboarding optimization consulting" },
+      ],
+      action: {
+        label: "Talk to the founder",
+        href: "https://schemamap.io/meeting",
       },
     },
   ],
