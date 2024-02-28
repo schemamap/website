@@ -20,7 +20,6 @@
     "@saas-ui/react": "^2.0.0-next.12",
     "@saas-ui/theme-glass": "^0.5.4",
     "@svgr/webpack": "^7.0.0",
-    "contentlayer": "^0.3.2",
     "crisp-sdk-web": "^1.0.22",
     "date-fns": "^2.29.3",
     "framer-motion": "^10.12.4",

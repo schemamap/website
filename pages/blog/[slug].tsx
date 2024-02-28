@@ -1,27 +1,12 @@
 import Head from "next/head";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
-import { allPosts } from "contentlayer/generated";
 import { NextPage } from "next";
 
-export async function getStaticPaths() {
-  const paths = allPosts.map((post) => post.url);
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-  return {
-    props: {
-      post,
-    },
-  };
-}
+const allPosts = [] as any[];
 
 const PostLayout: NextPage = ({ post }: any) => {
+  /*
   return (
     <>
       <Head>
@@ -45,6 +30,8 @@ const PostLayout: NextPage = ({ post }: any) => {
       </article>
     </>
   );
+  */
+  return null;
 };
 
 export default PostLayout;

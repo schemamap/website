@@ -3,16 +3,15 @@ import Head from "next/head";
 import Link from "next/link";
 
 import { compareDesc, format, parseISO } from "date-fns";
-import { allPosts } from "contentlayer/generated";
 
 const Blog: NextPage = ({ posts }: any) => {
   return (
     <div className="mx-auto max-w-2xl py-16 text-center">
       <Head>
-        <title>Contentlayer Blog Example</title>
+        <title>Blog Example</title>
       </Head>
 
-      <h1 className="mb-8 text-3xl font-bold">Contentlayer Blog Example</h1>
+      <h1 className="mb-8 text-3xl font-bold">Blog placeholder</h1>
 
       {posts?.map((post, idx) => (
         <PostCard key={idx} {...post} />
@@ -37,10 +36,3 @@ function PostCard(post) {
 }
 
 export default Blog;
-
-export async function getStaticProps() {
-  const posts = allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date));
-  });
-  return { props: { posts } };
-}

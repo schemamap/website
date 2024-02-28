@@ -10,7 +10,6 @@ Feel free to submit any feature requests. If you use this template please share 
 - Next.js
 - Chakra UI
 - Saas UI
-- Contentlayer
 - Typescript
 
 ## Features
@@ -25,7 +24,6 @@ Feel free to submit any feature requests. If you use this template please share 
 
 - [ ] Supabase Auth
 - [ ] Waitlist sign-up with GetRevue
-- [ ] Blog (Contentlayer)
 - [ ] Docs
 
 ## Getting Started
