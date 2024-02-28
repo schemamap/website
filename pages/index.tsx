@@ -24,7 +24,6 @@ import { FallInPlace } from "components/motion/fall-in-place";
 import { Hero } from "components/hero";
 import { Link, Br } from "@saas-ui/react";
 import { Em } from "components/typography";
-import { NextjsLogo, ChakraLogo } from "components/logos";
 import {
   FiArrowRight,
   FiBox,
@@ -65,8 +64,8 @@ const Home: NextPage = () => {
   return (
     <Box>
       <SEO
-        title="Saas UI Landingspage"
-        description="Free SaaS landingspage starter kit"
+        title="Schemamap.io - Tenant Onboarding for Postgres"
+        description="Schemamap.io handles your multi-tenant SaaS onboarding, inferred from your Postgres database schema."
       />
       <Box>
         <HeroSection />
@@ -89,38 +88,41 @@ const HeroSection: React.FC = () => {
   return (
     <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" />
-      <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="40">
+      <Container
+        maxW="container.xl"
+        pt={{ base: 40, lg: 60 }}
+        pb={{ base: 0, lg: 40 }}
+      >
         <Stack direction={{ base: "column", lg: "row" }} alignItems="center">
           <Hero
             id="home"
             justifyContent="flex-start"
             px="0"
+            zIndex={1000}
             title={
               <FallInPlace>
-                Build beautiful
-                <Br /> software faster
+                Spreadsheet imports solved once and for all
               </FallInPlace>
             }
             description={
               <FallInPlace delay={0.4} fontWeight="medium">
-                Saas UI is a <Em>React component library</Em>
-                <Br /> that doesn&apos;t get in your way and helps you <Br />{" "}
-                build intuitive SaaS products with speed.
+                Save time and avoid errors with Google Sheets syncing tailored
+                automatically to your Postgres database.
               </FallInPlace>
             }
           >
             <FallInPlace delay={0.8}>
-              <HStack pt="4" pb="12" spacing="8">
-                <NextjsLogo height="28px" /> <ChakraLogo height="20px" />
-              </HStack>
-
-              <ButtonGroup spacing={4} alignItems="center">
-                <ButtonLink colorScheme="primary" size="lg" href="/signup">
-                  Sign Up
+              <ButtonGroup spacing={4} alignItems="center" mt={10}>
+                <ButtonLink
+                  colorScheme="primary"
+                  size="lg"
+                  href="https://app.schemamap.io/signup"
+                >
+                  Get started for free
                 </ButtonLink>
                 <ButtonLink
                   size="lg"
-                  href="https://demo.saas-ui.dev"
+                  href="https://schemamap.io/meeting"
                   variant="outline"
                   rightIcon={
                     <Icon
@@ -135,15 +137,15 @@ const HeroSection: React.FC = () => {
                     />
                   }
                 >
-                  View demo
+                  Get a demo
                 </ButtonLink>
               </ButtonGroup>
             </FallInPlace>
           </Hero>
           <Box
             height="600px"
-            position="absolute"
-            display={{ base: "none", lg: "block" }}
+            position={{ base: "initial", lg: "absolute" }}
+            display={"block"}
             left={{ lg: "60%", xl: "55%" }}
             width="80vw"
             maxW="1100px"
@@ -152,12 +154,13 @@ const HeroSection: React.FC = () => {
             <FallInPlace delay={1}>
               <Box overflow="hidden" height="100%">
                 <Image
-                  src="/static/screenshots/list.png"
+                  src="/static/screenshots/google_sheet.png"
                   width={1200}
                   height={762}
-                  alt="Screenshot of a ListPage in Saas UI Pro"
-                  quality="75"
-                  priority />
+                  alt="Screenshot of the Google Sheet editor in Schemamap.io"
+                  quality="100"
+                  priority
+                />
               </Box>
             </FallInPlace>
           </Box>
@@ -169,7 +172,7 @@ const HeroSection: React.FC = () => {
         columns={[1, 2, 4]}
         iconSize={4}
         innerWidth="container.xl"
-        pt="20"
+        pt={{ base: 0, lg: 20 }}
         features={[
           {
             title: "Accessible",
@@ -462,16 +465,18 @@ const FaqSection = () => {
 
 export default Home;
 
+/*
 export async function getStaticProps() {
   return {
     props: {
       announcement: {
-        title: "Support us by becoming a stargazer! 🚀 ",
+        title: "Star us on Github! 🚀 ",
         description:
-          '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
-        href: "https://github.com/saas-js/saas-ui",
+          '<img src="https://img.shields.io/github/stars/schemamap/schemamap.svg?style=social&label=Star" />',
+        href: "https://schemamap.dev",
         action: false,
       },
     },
   };
 }
+*/

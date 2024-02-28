@@ -30,12 +30,12 @@ Feel free to submit any feature requests. If you use this template please share 
 
 ## Getting Started
 
-First, clone this repo and run `pnpm i`
+First, clone this repo and run `yarn install`
 
 To start the app run:
 
 ```bash
-pnpm dev
+yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
