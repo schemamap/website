@@ -12,7 +12,7 @@ import siteConfig from "data/config";
 export const Logo = ({ href = "/", onClick }: LogoProps) => {
   let logo;
   if (siteConfig.logo) {
-    logo = <Box as={siteConfig.logo} height="36px" />;
+    logo = <Box as={siteConfig.logo} height="28px" />;
   } else {
     logo = (
       <Heading as="h1" size="md">
@@ -32,7 +32,9 @@ export const Logo = ({ href = "/", onClick }: LogoProps) => {
         alignItems={"center"}
       >
         {logo}
-        <VisuallyHidden>{siteConfig.seo?.title}</VisuallyHidden>
+        <Heading as="h1" size="md" ml={4} _hover={{ textDecoration: "none" }}>
+          {siteConfig.seo?.title}
+        </Heading>
       </Link>
     </Flex>
   );

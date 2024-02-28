@@ -24,7 +24,7 @@ export default {
         },
       ],
       action: {
-        href: "https://app.schemamap.io/signup",
+        href: "/signup",
       },
     },
     {

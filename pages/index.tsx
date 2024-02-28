@@ -113,11 +113,7 @@ const HeroSection: React.FC = () => {
           >
             <FallInPlace delay={0.8}>
               <ButtonGroup spacing={4} alignItems="center" mt={10}>
-                <ButtonLink
-                  colorScheme="primary"
-                  size="lg"
-                  href="https://app.schemamap.io/signup"
-                >
+                <ButtonLink colorScheme="primary" size="lg" href="/signup">
                   Get started for free
                 </ButtonLink>
                 <ButtonLink
@@ -150,6 +146,7 @@ const HeroSection: React.FC = () => {
             width="80vw"
             maxW="1100px"
             margin="0 auto"
+            zIndex={1000}
           >
             <FallInPlace delay={1}>
               <Box overflow="hidden" height="100%">
@@ -453,7 +450,7 @@ const PricingSection = () => {
   return (
     <Pricing {...pricing}>
       <Text p="8" textAlign="center" color="muted">
-        VAT may be applicable depending on your location.
+        VAT may be applicable depending on your location and business.
       </Text>
     </Pricing>
   );

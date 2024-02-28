@@ -33,7 +33,7 @@ const siteConfig = {
       },
       {
         label: "Sign Up",
-        href: "https://app.schemamap.io/signup",
+        href: "/signup",
         variant: "primary",
       },
     ],
@@ -48,6 +48,18 @@ const siteConfig = {
     ),
     links: [
       {
+        href: "/privacy",
+        label: "Privacy Policy",
+      },
+      {
+        href: "/terms",
+        label: "Terms of Service",
+      },
+      {
+        href: "/eula",
+        label: "EULA",
+      },
+      {
         href: "mailto:krisz@schemamap.io",
         label: "Contact",
       },
@@ -58,7 +70,7 @@ const siteConfig = {
     ],
   },
   signup: {
-    title: "Start building with Saas UI",
+    title: "Create a new Schemamap.io account",
     features: [
       {
         icon: FiCheck,
