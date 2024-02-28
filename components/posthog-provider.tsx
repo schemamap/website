@@ -21,7 +21,9 @@ export function PHProvider({ children }) {
         },
         mode
       );
-      Crisp.configure("ad7ab300-bd5d-410f-86eb-136d1d846a73");
+      if (mode === "cookie") {
+        Crisp.configure("ad7ab300-bd5d-410f-86eb-136d1d846a73");
+      }
       setPhInstance(ph || null);
     };
 
