@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import {
   Container,
   Box,
@@ -153,13 +153,11 @@ const HeroSection: React.FC = () => {
               <Box overflow="hidden" height="100%">
                 <Image
                   src="/static/screenshots/list.png"
-                  layout="fixed"
                   width={1200}
                   height={762}
                   alt="Screenshot of a ListPage in Saas UI Pro"
                   quality="75"
-                  priority
-                />
+                  priority />
               </Box>
             </FallInPlace>
           </Box>
