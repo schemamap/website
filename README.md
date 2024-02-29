@@ -1,68 +1,25 @@
-# Saas UI - Next.js - landing page.
+# schemamap.io website
 
-This is a free Next.js landing page template based on https://saas-ui.dev.
-Feel free to submit any feature requests. If you use this template please share what you've built [on Twitter](https://twitter.com/saas_js) 🚀.
+### Setup
 
-**[View demo](https://saas-ui-nextjs-landing-page.netlify.app/)**
+1. https://devenv.sh/getting-started/#installation
+2. `direnv allow`
+3. `devenv up`
 
-## Tech
+Check `devenv info` for any extra functionality/scripts
 
-- Next.js
-- Chakra UI
-- Saas UI
-- Typescript
+### Commands
 
-## Features
+All commands are run from the root of the project, from a terminal:
 
-- Feature blocks
-- Testimonials
-- Pricing tables
-- Log in and Sign up pages
-- FAQ
+| Command               | Action                                             |
+| :-------------------- | :------------------------------------------------- |
+| `yarn install`         | Installs dependencies                              |
+| `yarn dev`         | Starts local dev server at `localhost:3000`        |
+| `yarn build`       | Build your production site to `./dist/`            |
 
-## In progress
-
-- [ ] Supabase Auth
-- [ ] Waitlist sign-up with GetRevue
-- [ ] Docs
-
-## Getting Started
-
-First, clone this repo and run `yarn install`
-
-To start the app run:
-
-```bash
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-## Configuration
-
-Configuration files to edit basic site information, add testimonials, faq and pricing table can be found in `/data`.
-
-## Learn More
-
-Find out more about Saas UI.
-
-- [Saas UI Documentation](https://saas-ui.dev/docs/introduction).
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br>
 
 ## License
 
-MIT
+The original [Saas UI landing page](https://github.com/saas-js/saas-ui-nextjs-landing-page) template is licensed under the MIT license.

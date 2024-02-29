@@ -31,5 +31,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# devenv
+.devenv*
+.direnv*
+.pre-commit-config.yaml
+process-compose.yml
+
 # typescript
 *.tsbuildinfo
