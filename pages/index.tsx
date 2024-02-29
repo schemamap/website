@@ -15,8 +15,10 @@ import {
   Tag,
   useClipboard,
   IconButton,
+  Link as ChakraLink,
   VStack,
   Flex,
+  Center,
 } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
 
@@ -28,11 +30,16 @@ import {
   FiArrowRight,
   FiBox,
   FiCheck,
+  FiCheckCircle,
+  FiCheckSquare,
   FiCode,
   FiCopy,
+  FiCrosshair,
+  FiDatabase,
   FiFlag,
   FiGrid,
   FiLock,
+  FiRefreshCcw,
   FiSearch,
   FiSliders,
   FiSmile,
@@ -60,6 +67,8 @@ import {
   HighlightsTestimonialItem,
 } from "components/highlights";
 import siteConfig from "data/config";
+import { FaBrain, FaGlobeEurope, FaSignLanguage } from "react-icons/fa";
+import { useConsent } from "components/consent";
 
 const Home: NextPage = () => {
   return (
@@ -79,7 +88,9 @@ const Home: NextPage = () => {
 
         <PricingSection />
 
-        <FaqSection />
+        {/* <FaqSection /> */}
+
+        <QuestionsSection />
       </Box>
     </Box>
   );
@@ -296,6 +307,7 @@ const FeaturesSection = () => {
   return (
     <Features
       id="features"
+      innerWidth={"container.xl"}
       title={
         <Heading
           lineHeight="short"
@@ -303,7 +315,8 @@ const FeaturesSection = () => {
           textAlign="left"
           as="p"
         >
-          Everything you need to reduce your tenants time to ROI.
+          Everything you need to reduce your tenants activation time and to
+          reduce churn.
         </Heading>
       }
       description={
@@ -314,75 +327,79 @@ const FeaturesSection = () => {
       }
       align="left"
       columns={[1, 2, 3]}
-      iconSize={6}
+      iconSize={4}
       features={[
         {
-          title: "Components.",
-          icon: FiBox,
+          title: "Repeatable imports.",
+          icon: FiRefreshCcw,
           description:
-            "All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.",
-          variant: "inline",
+            "Spreadsheet imports have been historically one-and-done processes. Schemamap.io allows reruns and amendments, by handling the import process for you.",
         },
         {
-          title: "Starterkits.",
-          icon: FiLock,
+          title: "Automatic data validation.",
+          icon: FiCheckSquare,
           description:
-            "Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.",
-          variant: "inline",
+            "All of your unique and check constraints get turned into their Google Sheet equivalent formulas and maintained as they change. Users get early feedback, before even importing.",
         },
         {
-          title: "Documentation.",
-          icon: FiSearch,
-          description:
-            "Extensively documented, including storybooks, best practices, use-cases and examples.",
-          variant: "inline",
-        },
-        {
-          title: "Onboarding.",
-          icon: FiUserPlus,
-          description:
-            "Add user onboarding flows, like tours, hints and inline documentation without breaking a sweat.",
-          variant: "inline",
-        },
-        {
-          title: "Feature flags.",
-          icon: FiFlag,
-          description:
-            "Implement feature toggles for your billing plans with easy to use hooks. Connect Flagsmith, or other remote config services once you're ready.",
-          variant: "inline",
-        },
-        {
-          title: "Upselling.",
-          icon: FiTrendingUp,
-          description:
-            "Components and hooks for upgrade flows designed to make upgrading inside your app frictionless.",
-          variant: "inline",
-        },
-        {
-          title: "Themes.",
-          icon: FiToggleLeft,
-          description:
-            "Includes multiple themes with darkmode support, always have the perfect starting point for your next project.",
-          variant: "inline",
-        },
-        {
-          title: "Generators.",
-          icon: FiTerminal,
-          description:
-            "Extend your design system while maintaininig code quality and consistency with built-in generators.",
-          variant: "inline",
-        },
-        {
-          title: "Monorepo.",
-          icon: FiCode,
+          title: "(De-)normalization.",
+          icon: FaBrain,
           description: (
             <>
-              All code is available as packages in a high-performance{" "}
-              <Link href="https://turborepo.com">Turborepo</Link>, you have full
-              control to modify and adjust it to your workflow.
+              <Text>
+                Existing tools only work for single tables. Schemamap.io uses
+                the{" "}
+                <Link href="https://turborepo.com" isExternal>
+                  PostgreSQL analyzer
+                </Link>{" "}
+                to turn any SELECT with JOINs into an equivalent INSERT CTE.
+              </Text>
             </>
           ),
-          variant: "inline",
+        },
+        {
+          title: "SQL-defined interfaces.",
+          icon: FiDatabase,
+          description:
+            "Define how your multi-tenancy is implemented along with master data views in SQL via your regular database migrations. As close to the truth as it gets.",
+        },
+        {
+          title: "Secure by default.",
+          icon: FiLock,
+          description:
+            "Schemamap.io uses the least amount of database resources and permissions for each stage of your adoption. No fear of data leaks and your DBA stays in control.",
+        },
+
+        {
+          title: "In-memory transforms.",
+          icon: FiTrendingUp,
+          description:
+            "Schemamap.io never stores your data. It transfers it from and to your database in a heavily sandboxed environment, with tens of GBs of RAM readily available. So you don't have to.",
+        },
+        {
+          title: "Postgres-only.",
+          icon: FiCheckCircle,
+          description:
+            "Instead of building a generic solution, we are fully committed to build the best way to move tabular data in and out of Postgres. This allows us to provide the most secure and performant solution.",
+        },
+        {
+          title: "Schema analysis & diffing.",
+          icon: FiSearch,
+          description:
+            "Track your database schema along with constraints across environments (Local/Staging/Prod) and see how it evolves. Easily spot any differences.",
+        },
+        {
+          title: "Internalization support.",
+          icon: FaGlobeEurope,
+          description: (
+            <>
+              <Text>
+                Schemamap.io supports your application locales (en_US, de_DE,
+                fr_FR, ...). Provide your I18n as JSON, get tenant language
+                specific columns/comments/dropdowns, just like your web app.
+              </Text>
+            </>
+          ),
         },
       ]}
     />
@@ -432,6 +449,46 @@ const PricingSection = () => {
 
 const FaqSection = () => {
   return <Faq {...faq} />;
+};
+
+const QuestionsSection = () => {
+  const { consent, setConsent } = useConsent();
+  return (
+    <Box>
+      <Container maxW="container.xl" pb="40">
+        <Stack spacing="6">
+          <Heading as="h2" fontSize="4xl" textAlign="center">
+            Any questions?
+          </Heading>
+          <Text fontSize="xl" textAlign="center">
+            Talk to the{" "}
+            <ChakraLink href="https://www.linkedin.com/in/kriszszabo/">
+              founder directly.
+            </ChakraLink>{" "}
+          </Text>
+          {consent != "granted" ? (
+            <HStack spacing="4" justifyContent="center">
+              <ButtonLink
+                href="https://schemamap.io/meeting"
+                variant={"primary"}
+              >
+                Book a meeting
+              </ButtonLink>
+              <Text>
+                or{" "}
+                <Link onClick={() => setConsent("granted")}>
+                  accept cookies
+                </Link>{" "}
+                to chat directly.
+              </Text>
+            </HStack>
+          ) : (
+            <Center>Use the chat icon in the lower right.</Center>
+          )}
+        </Stack>
+      </Container>
+    </Box>
+  );
 };
 
 export default Home;

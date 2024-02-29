@@ -8,10 +8,13 @@ export default {
       <Text>
         Pay only for the synced Postgres master data bandwidth used, per MB.
       </Text>
-      {/* <Text>
-        Don&apos;t get penalized by Monthly active rows-based pricing, for
-        properly designed granular tables.
-      </Text> */}
+      <Text>
+        All prices include a{" "}
+        <Tag colorScheme="green" mt={2}>
+          -50% early adopter discount
+        </Tag>
+        , upgrade while it lasts!
+      </Text>
     </VStack>
   ),
   plans: [
@@ -48,11 +51,11 @@ export default {
         },
       ],
       action: {
-        href: "/signup",
+        href: "https://app.schemamap.io/signup?selected_plan=free",
       },
     },
     {
-      id: "starter_plan",
+      id: "starter_annual",
       title: "Starter Plan",
       description: "Best for companies close to PMF.",
       price: <Text>€600/year</Text>,
@@ -66,7 +69,7 @@ export default {
           title: "Flexible usage pricing: €0.05 / MB",
         },
         {
-          title: "5 tracked tenants",
+          title: "3 tracked tenants",
         },
         {
           title: "100 Google Sheets",
@@ -82,12 +85,12 @@ export default {
         },
       ],
       action: {
-        href: "/signup",
+        href: "https://app.schemamap.io/signup?selected_plan=starter_annual",
         label: "Sign up then upgrade",
       },
     },
     {
-      id: "pro_plan",
+      id: "pro_annual",
       title: "Pro Plan",
       description: "For companies that are expanding rapidly.",
       isRecommended: true,
@@ -123,7 +126,7 @@ export default {
         },
       ],
       action: {
-        href: "/signup",
+        href: "https://app.schemamap.io/signup?selected_plan=pro_annual",
         label: "Sign up then upgrade",
       },
     },

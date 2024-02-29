@@ -1,14 +1,14 @@
-// app/consent.js
-"use client";
 import { useEffect, useState, createContext, useContext } from "react";
 
 const ph_project_api_key = "phc_dvLAOScCPWS1kXSnJlvSHNnfXDvarKIsSN7Q32yt20s";
 const consentKey = `__consent_${ph_project_api_key}`;
 
+export type Consent = "initiating" | "undecided" | "granted" | "denied";
+
 type ConsentContextValue = {
-  consent: string;
-  updateConsent: (newConsent: string) => void;
-  setConsent: (newConsent: string) => void;
+  consent: Consent;
+  updateConsent: (newConsent: Consent) => void;
+  setConsent: (newConsent: Consent) => void;
 };
 
 const ConsentContext = createContext<ConsentContextValue | undefined>(
@@ -24,13 +24,13 @@ export const useConsent = () => {
 };
 
 export const ConsentProvider = ({ children }) => {
-  const [consent, setConsent] = useState<string>("initiating");
+  const [consent, setConsent] = useState<Consent>("initiating");
 
   useEffect(() => {
     // Access localStorage only after the component mounts, i.e., on the client side
     const storedConsent = localStorage.getItem(consentKey);
     if (storedConsent) {
-      setConsent(storedConsent);
+      setConsent(storedConsent as Consent);
     }
   }, []);
 

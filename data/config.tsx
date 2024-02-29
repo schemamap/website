@@ -42,7 +42,7 @@ const siteConfig = {
       },
       {
         label: "Sign Up",
-        href: "/signup",
+        href: "https://app.schemamap.io/signup",
         variant: "primary",
       },
     ],
@@ -71,6 +71,10 @@ const siteConfig = {
       {
         href: "mailto:krisz@schemamap.io",
         label: "Contact",
+      },
+      {
+        href: "https://stats.uptimerobot.com/ZELp9fP5Xn/",
+        label: "Status",
       },
       {
         href: "https://github.com/schemamap/schemamap",
