@@ -32,10 +32,12 @@ const siteConfig = {
         id: "pricing",
         label: "Pricing",
       },
+      /*
       {
         id: "faq",
         label: "FAQ",
       },
+      */
       {
         label: "Login",
         href: "https://app.schemamap.io/login",

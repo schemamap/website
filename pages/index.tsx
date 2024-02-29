@@ -313,7 +313,7 @@ const FeaturesSection = () => {
           lineHeight="short"
           fontSize={["xl", null, "2xl"]}
           textAlign="left"
-          as="p"
+          as="div"
         >
           Everything you need to reduce your tenants activation time and to
           reduce churn.
@@ -345,16 +345,13 @@ const FeaturesSection = () => {
           title: "(De-)normalization.",
           icon: FaBrain,
           description: (
-            <>
-              <Text>
-                Existing tools only work for single tables. Schemamap.io uses
-                the{" "}
-                <Link href="https://turborepo.com" isExternal>
-                  PostgreSQL analyzer
-                </Link>{" "}
-                to turn any SELECT with JOINs into an equivalent INSERT CTE.
-              </Text>
-            </>
+            <Text as={"span"}>
+              Existing tools only work for single tables. Schemamap.io uses the{" "}
+              <Link href="https://turborepo.com" isExternal>
+                PostgreSQL analyzer
+              </Link>{" "}
+              to turn any SELECT with JOINs into an equivalent INSERT CTE.
+            </Text>
           ),
         },
         {
@@ -392,13 +389,11 @@ const FeaturesSection = () => {
           title: "Internalization support.",
           icon: FaGlobeEurope,
           description: (
-            <>
-              <Text>
-                Schemamap.io supports your application locales (en_US, de_DE,
-                fr_FR, ...). Provide your I18n as JSON, get tenant language
-                specific columns/comments/dropdowns, just like your web app.
-              </Text>
-            </>
+            <Text as="span">
+              Schemamap.io supports your application locales (en_US, de_DE,
+              fr_FR, ...). Provide your I18n as JSON, get tenant language
+              specific columns/comments/dropdowns, just like your web app.
+            </Text>
           ),
         },
       ]}
@@ -471,16 +466,18 @@ const QuestionsSection = () => {
               <ButtonLink
                 href="https://schemamap.io/meeting"
                 variant={"primary"}
+                size={"lg"}
               >
                 Book a meeting
               </ButtonLink>
-              <Text>
-                or{" "}
-                <Link onClick={() => setConsent("granted")}>
-                  accept cookies
-                </Link>{" "}
-                to chat directly.
-              </Text>
+              <Text>or </Text>
+              <Button
+                onClick={() => setConsent("granted")}
+                variant={"secondary"}
+              >
+                accept cookies
+              </Button>{" "}
+              <Text>to chat directly.</Text>
             </HStack>
           ) : (
             <Center>Use the chat icon in the lower right.</Center>

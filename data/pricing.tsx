@@ -10,7 +10,7 @@ export default {
       </Text>
       <Text>
         All prices include a{" "}
-        <Tag colorScheme="green" mt={2}>
+        <Tag colorScheme="green" size={"lg"}>
           -50% early adopter discount
         </Tag>
         , upgrade while it lasts!
@@ -119,7 +119,6 @@ export default {
         {
           title: "Priority support",
         },
-        null,
         {
           title: "Success Engineer",
           iconColor: "green.500",
@@ -137,12 +136,15 @@ export default {
       price: "Custom",
       features: [
         { title: "Everything in Pro, plus:" },
-        { title: "Custom/unlimited bandwidth pricing" },
-        { title: "On-premise hosting & cloud deployment" },
+        { title: "Custom/unlimited bandwidth pricing", iconColor: "green.500" },
+        {
+          title: "On-premise hosting & cloud deployment",
+          iconColor: "green.500",
+        },
+        { title: "SLAs", iconColor: "green.500" },
+        { title: "Dedicated support & training", iconColor: "green.500" },
         { title: "White-labeling" },
         { title: "Custom components" },
-        { title: "Dedicated support" },
-        { title: "SLAs" },
         { title: "Onboarding optimization consulting" },
       ],
       action: {
