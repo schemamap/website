@@ -136,7 +136,7 @@ const HeroSection: React.FC = () => {
                 </ButtonLink>
                 <ButtonLink
                   size="lg"
-                  href="https://schemamap.io/meeting"
+                  href={siteConfig.meetlingUrl}
                   variant="outline"
                   data-attr="demo"
                   height={12}
@@ -464,7 +464,7 @@ const QuestionsSection = () => {
           {consent != "granted" ? (
             <HStack spacing="4" justifyContent="center">
               <ButtonLink
-                href="https://schemamap.io/meeting"
+                href={siteConfig.meetlingUrl}
                 variant={"primary"}
                 size={"lg"}
               >

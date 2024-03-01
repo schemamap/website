@@ -16,6 +16,7 @@ import { FeatureProps } from "components/features";
 
 const siteConfig = {
   logo: Logo,
+  meetlingUrl: "https://savvycal.com/schemamap/talk",
   seo: {
     title: "Schemamap.io",
     description: "Tenant Onboarding for Postgres",

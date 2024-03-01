@@ -1,4 +1,5 @@
 import { HStack, Tag, Text, VStack } from "@chakra-ui/react";
+import siteConfig from "./config";
 
 export default {
   title: "Pricing for every business",
@@ -149,7 +150,7 @@ export default {
       ],
       action: {
         label: "Talk to the founder",
-        href: "https://schemamap.io/meeting",
+        href: siteConfig.meetlingUrl,
       },
     },
   ],
