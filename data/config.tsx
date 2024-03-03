@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/react";
-import { Link } from "@saas-ui/react";
+import { Br, Link } from "@saas-ui/react";
 import { NextSeoProps } from "next-seo";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import {
@@ -53,12 +53,13 @@ const siteConfig = {
   footer: {
     copyright: (
       <>
-        <Link href="https://www.linkedin.com/company/schemamap-io-kft/">
-          © {new Date().getFullYear()} Schemamap.io Kft. All rights reserved
-        </Link>
+        © {new Date().getFullYear()} Schemamap.io Kft.{" "}
+        <Br display={{ base: "initial", md: "none" }} />
+        All rights reserved
       </>
     ),
     links: [
+      { href: "/about", label: "About" },
       {
         href: "/privacy",
         label: "Privacy Policy",
