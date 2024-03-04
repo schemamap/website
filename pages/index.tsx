@@ -119,7 +119,8 @@ const HeroSection: React.FC = () => {
             description={
               <FallInPlace delay={0.4} fontWeight="medium">
                 Reduce onboarding time and avoid errors with Google Sheets
-                tailored automatically to your multi-tenant Postgres database.
+                automatically generated from your multi-tenant Postgres
+                database.
               </FallInPlace>
             }
           >
@@ -309,12 +310,7 @@ const FeaturesSection = () => {
       id="features"
       innerWidth={"container.xl"}
       title={
-        <Heading
-          lineHeight="short"
-          fontSize={["xl", null, "2xl"]}
-          textAlign="left"
-          as="div"
-        >
+        <Heading lineHeight="tall" fontSize={"2xl"} textAlign="left" as="div">
           Everything you need to reduce your tenants activation time and to
           reduce churn.
         </Heading>
@@ -339,7 +335,7 @@ const FeaturesSection = () => {
           title: "Automatic data validation.",
           icon: FiCheckSquare,
           description:
-            "All of your unique and check constraints get turned into their Google Sheet equivalent formulas and maintained as they change. Users get early feedback, before even importing.",
+            "All of your Postgres unique and check constraints get turned into their Google Sheet equivalent formulas and maintained as they change. Users get early feedback, before even importing.",
         },
         {
           title: "(De-)normalization.",
@@ -377,7 +373,7 @@ const FeaturesSection = () => {
           title: "Postgres-only.",
           icon: FiCheckCircle,
           description:
-            "Instead of building a generic solution, we are fully committed to build the best way to move tabular data in and out of Postgres. This allows us to provide the most secure and performant solution.",
+            "Instead of building a generic solution, we are fully committed to building the best way to move tabular data in and out of Postgres. This allows us to provide the most secure and performant solution.",
         },
         {
           title: "Schema analysis & diffing.",
@@ -386,13 +382,14 @@ const FeaturesSection = () => {
             "Track your database schema along with constraints across environments (Local/Staging/Prod) and see how it evolves. Easily spot any differences.",
         },
         {
-          title: "Internalization support.",
+          title: "Localization support.",
           icon: FaGlobeEurope,
           description: (
             <Text as="span">
               Schemamap.io supports your application locales (en_US, de_DE,
               fr_FR, ...). Provide your I18n as JSON, get tenant language
-              specific columns/comments/dropdowns, just like your web app.
+              specific columns/comments/dropdowns automatically, same as your
+              frontend.
             </Text>
           ),
         },
