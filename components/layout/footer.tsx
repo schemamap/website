@@ -67,16 +67,7 @@ export const Copyright: React.FC<CopyrightProps> = ({
 export const FooterLink: React.FC<LinkProps> = (props) => {
   const { children, ...rest } = props;
   return (
-    <Link
-      color="muted"
-      fontSize="sm"
-      textDecoration="none"
-      _hover={{
-        color: "white",
-        transition: "color .2s ease-in",
-      }}
-      {...rest}
-    >
+    <Link fontSize="sm" textDecoration="none" variant={"nav-link"} {...rest}>
       {children}
     </Link>
   );
