@@ -91,6 +91,14 @@ export const Pricing: React.FC<PricingProps> = (props) => {
           </Box>
         )}
 
+        <Box mt={8}>
+          <Heading as="h4" size="lg" mb="4">
+            Pricing example
+          </Heading>
+          10K row product sheet + with 40 columns = ~1MB of data You can
+          import/export that N times per plan (10, 1000, 10k)
+        </Box>
+
         {children}
       </Box>
     </Section>

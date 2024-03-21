@@ -16,7 +16,7 @@ import { FeatureProps } from "components/features";
 
 const siteConfig = {
   logo: Logo,
-  meetlingUrl: "https://savvycal.com/schemamap/talk",
+  meetingUrl: "https://savvycal.com/schemamap/talk",
   seo: {
     title: "Schemamap.io",
     description: "Tenant Onboarding for Postgres",
@@ -90,12 +90,12 @@ const siteConfig = {
     title: "Create a new Schemamap.io account",
     features: [
       {
-        title: "Google Sheet management",
+        title: "Spreadsheet management",
         icon: FiTable,
         description:
-          "Stop building CSV and Excel imports. Allow your customers to import their data collaboratively via secure Google Sheet integration.",
+          "Stop building CSV and Excel imports by hand. Allow your customers to import their data collaboratively for any table in your web app.",
         iconPosition: "left",
-        delay: 0.6,
+        delay: 0.4,
       },
       {
         title: "Tenant Onboarding",
@@ -103,7 +103,7 @@ const siteConfig = {
         description:
           "Track the onboarding progress of your tenants, see where people get stuck. Get notified on Slack when data is ready for import.",
         iconPosition: "left",
-        delay: 0.8,
+        delay: 0.5,
       },
       {
         title: "Postgres-native",
@@ -111,7 +111,7 @@ const siteConfig = {
         description:
           "Integrate Schemamap.io with any cloud Postgres provider (Supabase, Hasura, AWS RDS, GCP, Azure). No special extensions needed.",
         iconPosition: "left",
-        delay: 1,
+        delay: 0.6,
       },
       {
         title: "Always up-to-date",
@@ -119,7 +119,7 @@ const siteConfig = {
         description:
           "By tracking how the underlying tables & their constraints change, your spreadsheets stay automatically in sync. Trivially backfill data.",
         iconPosition: "left",
-        delay: 1.1,
+        delay: 0.7,
       },
     ] as FeatureProps[],
   },
