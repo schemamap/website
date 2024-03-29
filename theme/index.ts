@@ -26,7 +26,7 @@ export default extendTheme(
     config: {
       initialColorMode: "dark",
       useSystemColorMode: false,
-  },
+    },
     styles,
     fontSizes,
     components,

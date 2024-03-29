@@ -14,6 +14,7 @@ import {
 } from "components/button-link/button-link";
 import { BackgroundGradient } from "components/gradients/background-gradient";
 import { Section, SectionProps, SectionTitle } from "components/section";
+import { Br } from "components/typography";
 import React from "react";
 import { FiCheck } from "react-icons/fi";
 
@@ -91,12 +92,17 @@ export const Pricing: React.FC<PricingProps> = (props) => {
           </Box>
         )}
 
-        <Box mt={8}>
+        <Box mt={16} textAlign={"center"}>
           <Heading as="h4" size="lg" mb="4">
             Pricing example
           </Heading>
-          10K row product sheet + with 40 columns = ~1MB of data You can
-          import/export that N times per plan (10, 1000, 10k)
+          <Text>
+            A usual 10K line row Product table with 40 columns is about ~1MB of
+            data.
+            <Br />
+            This allows 10X, 1024X, 10240x imports of this data for the Free,
+            Starter and Pro plans respectively.
+          </Text>
         </Box>
 
         {children}

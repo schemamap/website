@@ -253,7 +253,7 @@ const HighlightsSection = () => {
               />
             </CodePill>
             <Text my={4} color="muted" fontSize="xl">
-              or apply to any existing Postgres:
+              or apply to any existing Postgres DB:
             </Text>
             <CodePill>
               <Box>

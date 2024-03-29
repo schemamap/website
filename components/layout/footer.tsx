@@ -55,7 +55,7 @@ export const Copyright: React.FC<CopyrightProps> = ({
 }: CopyrightProps) => {
   let content;
   if (title && !children) {
-    content = `&copy; ${new Date().getFullYear()} - ${title}`;
+    content = `&copy; 2023-${new Date().getFullYear()} - ${title}`;
   }
   return (
     <Text color="muted" fontSize="sm">

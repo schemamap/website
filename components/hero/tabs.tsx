@@ -21,24 +21,13 @@ import {
 const SyncEnvironmentsTab = () => {
   return (
     <TabPanel>
-      <Stack
-        direction={{ base: "column", lg: "row" }}
-        alignItems={"center"}
-        spacing={10}
-      >
-        <Image
-          src="https://source.unsplash.com/random"
-          width={500}
-          height={400}
-          alt="Sync Environments"
-        />
-
-        <Text>
-          Schemamap.io allows you to sync your development, staging, and
-          production environments with ease. You can easily compare and contrast
-          your schemas and track changes over time.
-        </Text>
-      </Stack>
+      <Image
+        src="/static/images/env-sync.svg"
+        width={1800}
+        height={500}
+        alt="Sync Environments"
+        priority
+      />
     </TabPanel>
   );
 };
@@ -53,6 +42,7 @@ export const HeroTabs = ({
       align="center"
       variant="enclosed"
       colorScheme="primary"
+      mt={10}
       orientation={orientation ?? "horizontal"}
     >
       <TabList>
@@ -60,19 +50,19 @@ export const HeroTabs = ({
           <Icon as={FiRefreshCcw} mr={2} />
           Sync environments
         </Tab>
-        <Tab>
+        <Tab isDisabled title="Coming soon...">
           <Icon as={FiSave} mr={2} />
           Import/Export spreadsheets
         </Tab>
-        <Tab>
+        <Tab isDisabled title="Coming soon...">
           <Icon as={FiUser} mr={2} />
           Onboard tenants
         </Tab>
-        <Tab>
+        <Tab isDisabled title="Coming soon...">
           <Icon as={FiCheckCircle} mr={2} />
           Backfill columns
         </Tab>
-        <Tab>
+        <Tab isDisabled title="Coming soon...">
           <Icon as={FiTable} mr={2} />
           Schema tracking
         </Tab>
@@ -81,39 +71,39 @@ export const HeroTabs = ({
         <SyncEnvironmentsTab />
         <TabPanel>
           <Image
-            src="https://source.unsplash.com/random"
-            width={500}
-            height={300}
-            alt="Sync Environments"
+            src="/static/images/env-sync.svg"
+            width={1800}
+            height={500}
+            alt="Import / Export Spreadsheets"
+            priority
           />
-          Import Export CSV
         </TabPanel>
         <TabPanel>
           <Image
-            src="https://source.unsplash.com/random"
-            width={500}
-            height={400}
-            alt="Sync Environments"
+            src="/static/images/env-sync.svg"
+            width={1800}
+            height={500}
+            alt="Onboard Tenants"
+            priority
           />
-          Tenant Onboarding
         </TabPanel>
         <TabPanel>
           <Image
-            src="https://source.unsplash.com/random"
-            width={500}
-            height={400}
-            alt="Sync Environments"
+            src="/static/images/env-sync.svg"
+            width={1800}
+            height={500}
+            alt="Backfill columns"
+            priority
           />
-          Backfill Columns
         </TabPanel>
         <TabPanel>
           <Image
-            src="https://source.unsplash.com/random"
-            width={500}
-            height={400}
-            alt="Sync Environments"
+            src="/static/images/env-sync.svg"
+            width={1800}
+            height={500}
+            alt="Schema tracking"
+            priority
           />
-          Schema Tracking
         </TabPanel>
       </TabPanels>
     </Tabs>

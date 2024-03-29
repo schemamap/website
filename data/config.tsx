@@ -53,7 +53,7 @@ const siteConfig = {
   footer: {
     copyright: (
       <>
-        © {new Date().getFullYear()} Schemamap.io Kft.{" "}
+        © 2023-{new Date().getFullYear()} Schemamap.io Kft.{" "}
         <Br display={{ base: "initial", md: "none" }} />
         All rights reserved
       </>
