@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 # See full reference at https://devenv.sh/reference/options/
 {
@@ -12,7 +12,30 @@
 
   process.implementation = "process-compose";
 
-  processes.nextjs.exec = "yarn dev";
+  processes =
+    let
+      d2-file-to-process = filename:
+        {
+          exec = ''
+            exec ${pkgs.d2}/bin/d2 --theme="3" --layout=elk -w \
+              d2/${filename}.d2 \
+              public/static/images/${filename}.svg
+          '';
+          process-compose = {
+            disabled = true; # start manually
+            availability.restart = "always";
+          };
+        };
+    in
+    {
+      nextjs = {
+        exec = "exec yarn dev";
+        process-compose = {
+          availability.restart = "on_failure";
+        };
+      };
+      env-sync = (d2-file-to-process "env-sync");
+    };
 
   pre-commit.hooks = {
     nixpkgs-fmt.enable = true;
@@ -28,7 +51,7 @@
   };
 
   enterShell = ''
-    ln -sf ${config.process-managers.process-compose.configFile} ${config.env.DEVENV_ROOT}/process-compose.yml
+    ln - sf ${config.process-managers.process-compose.configFile} ${config.env.DEVENV_ROOT}/process-compose.yml
   '';
 
   # devenv.debug = true;
