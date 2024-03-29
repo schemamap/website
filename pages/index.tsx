@@ -58,7 +58,7 @@ const Home: NextPage = () => {
   return (
     <Box>
       <SEO
-        title="Schemamap.io - Automatic Data Migrations for Postgres"
+        title="Schemamap.io - Data Movement Platform for Postgres"
         description="The SQL-first data movement platform to suit the needs of multi-tenant SaaS applications."
       />
       <Box>
@@ -103,7 +103,7 @@ const HeroSection: React.FC = () => {
             zIndex={1000}
             title={
               <FallInPlace>
-                Never write a &quot;one-off&quot; SQL script again
+                Never write a &quot;one-off&quot; ETL script again
               </FallInPlace>
             }
             description={
