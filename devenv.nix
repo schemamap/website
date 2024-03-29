@@ -2,6 +2,10 @@
 
 # See full reference at https://devenv.sh/reference/options/
 {
+  packages = with pkgs; [
+    d2 # https://d2lang.com/
+  ];
+
   # https://devenv.sh/languages/
   languages.nix.enable = true;
   languages.typescript.enable = true;
