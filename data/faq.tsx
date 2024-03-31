@@ -10,7 +10,7 @@ const faq = {
         <>
           By assuming all data migrations are faulty by default, and using
           safe-guards every step of the way. One example is not directly
-          inserting/updating data, but instead using temporary tables to "stage"
+          inserting/updating data, but instead using temporary tables to stage
           the data. This allows full control for introspection and validation
           and committing the data only when everything is in order.
         </>
@@ -22,7 +22,7 @@ const faq = {
     },
     {
       q: "How is the MB/bandwith counted?",
-      a: "You are only charged for megabytes of data that is loaded into the temporary tables during data migrations. Schemamap.io uses binary data transfer talking to Postgres to minimize these costs.",
+      a: "You are only charged for megabytes of data that is loaded into the temporary tables during data migrations. In case a DB-to-DB data migration, only the ingress data is charged.",
     },
     {
       q: "Is Schemamap.io GDPR compliant?",

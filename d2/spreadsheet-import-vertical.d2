@@ -19,10 +19,10 @@ vars: {
   }
 }
 
-staging-pg: Staging Postgres {
+pg: Postgres {
   style.shadow: true
 
-  product: Product Master Data Entity v1 {
+  product: Product Master Data Entity {
     style.multiple: true
     products: {
       shape: sql_table
@@ -50,39 +50,26 @@ schemamap: "" {
   }
 
   smio-features: |md
-    - Filter by tenant and `WHERE` clause
-    - Anonymize & Transform via `SQL`
-    - Compare & Diff with existing records
-    - `Git`-like workflow: stage & commit data
+    - Maintain bidirectional mapping between schema and humanized spreadsheets
+    - Automatically inferred from schema, but extensible for custom cases
+    - Constraints turned into data validation rules & dropdowns
+    - Translated to the tenants locale using I18N JSON from your app
+    - File uploads, validation, partial imports, etc. handled by our server
+    - Embeddable via React SDK, import/export button for any table
   |
   smio-features: {
     style.font-size: 26
   }
 }
 
-local-pg: Local Postgres {
-  style.shadow: true
+xlsx: "Excel/Google Sheets" {
+  style.fill: white
 
-  product: Product Master Data Entity v2 {
-    style.multiple: true
-    products: {
-      shape: sql_table
-      id: bigint {constraint: primary_key}
-      tenant_id: bigint {constraint: [foreign_key; unique]}
-      name: text {constraint: unique}
-      description: text
-      product_group_id: bigint {constraint: foreign_key}
-    }
-    product_groups: {
-      shape: sql_table
-      id: bigint {constraint: primary_key}
-      name: text {constraint: unique}
-      ordinal_position: int
-    }
-
-    products.product_group_id -> product_groups.id
+  image: "" {
+    shape: image
+    icon: https://upload.wikimedia.org/wikipedia/commons/f/f3/.xlsx_icon.svg
   }
 }
 
-staging-pg.product -> schemamap
-schemamap -> local-pg.product
+pg.product <-> schemamap
+schemamap <-> xlsx

@@ -9,6 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import { getImageProps } from "next/image";
 import {
   FiCheck,
   FiCheckCircle,
@@ -19,15 +20,30 @@ import {
 } from "react-icons/fi";
 
 const SyncEnvironmentsTab = () => {
+  const common = { alt: "Sync Environments", width: 1800, height: 500 };
+  const {
+    props: { srcSet: desktop },
+  } = getImageProps({ ...common, src: "static/images/env-sync.svg" });
+  const {
+    props: { srcSet: mobile, ...rest },
+  } = getImageProps({ ...common, src: "static/images/env-sync-vertical.svg" });
   return (
     <TabPanel>
-      <Image
-        src="/static/images/env-sync.svg"
-        width={1800}
-        height={500}
-        alt="Sync Environments"
-        priority
-      />
+      <picture>
+        <source
+          media="(min-width: 768px)"
+          srcSet={"static/images/env-sync.svg"}
+        />
+        <source
+          media="(max-width: 768px)"
+          srcSet={"static/images/env-sync-vertical.svg"}
+        />
+        <img
+          {...rest}
+          alt={common.alt}
+          style={{ width: "100%", height: "auto" }}
+        />
+      </picture>
     </TabPanel>
   );
 };
@@ -45,7 +61,7 @@ export const HeroTabs = ({
       mt={10}
       orientation={orientation ?? "horizontal"}
     >
-      <TabList>
+      <TabList display={{ base: "none", md: "flex" }}>
         <Tab>
           <Icon as={FiRefreshCcw} mr={2} />
           Sync environments

@@ -4,23 +4,23 @@ import {
   Box,
   StackProps,
   useMultiStyleConfig,
-} from '@chakra-ui/react'
+} from "@chakra-ui/react";
 
-export interface SectionTitleProps extends Omit<StackProps, 'title'> {
-  title: React.ReactNode
-  description?: React.ReactNode
-  align?: 'left' | 'center'
-  variant?: string
+export interface SectionTitleProps extends Omit<StackProps, "title"> {
+  title: React.ReactNode;
+  description?: React.ReactNode;
+  align?: "left" | "center";
+  variant?: string;
 }
 
 export const SectionTitle: React.FC<SectionTitleProps> = (props) => {
-  const { title, description, align, variant, ...rest } = props
-  const styles = useMultiStyleConfig('SectionTitle', { variant })
+  const { title, description, align, variant, ...rest } = props;
+  const styles = useMultiStyleConfig("SectionTitle", { variant });
 
   return (
     <VStack
       sx={styles.wrapper}
-      alignItems={align === 'left' ? 'flex-start' : 'center'}
+      alignItems={align === "left" ? "flex-start" : "center"}
       spacing={4}
       {...rest}
     >
@@ -33,5 +33,5 @@ export const SectionTitle: React.FC<SectionTitleProps> = (props) => {
         </Box>
       )}
     </VStack>
-  )
-}
+  );
+};
