@@ -22,6 +22,7 @@
               public/static/images/${filename}.svg
           '';
           process-compose = {
+            namespace = "d2";
             disabled = true; # start manually
             availability.restart = "always";
           };
@@ -35,6 +36,9 @@
         };
       };
       env-sync = (d2-file-to-process "env-sync");
+      env-sync-vertical = (d2-file-to-process "env-sync-vertical");
+      spreadsheet-import = (d2-file-to-process "spreadsheet-import");
+      spreadsheet-import-vertical = (d2-file-to-process "spreadsheet-import-vertical");
     };
 
   pre-commit.hooks = {
@@ -51,7 +55,7 @@
   };
 
   enterShell = ''
-    ln - sf ${config.process-managers.process-compose.configFile} ${config.env.DEVENV_ROOT}/process-compose.yml
+    ln -sf ${config.process-managers.process-compose.configFile} ${config.env.DEVENV_ROOT}/process-compose.yml
   '';
 
   # devenv.debug = true;

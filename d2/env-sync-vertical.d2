@@ -1,0 +1,88 @@
+direction: down
+vars: {
+  d2-config: {
+    theme-overrides: {
+      # B1: "#2E7D32"
+      # B2: "#66BB6A"
+      # B3: "#A5D6A7"
+      # B4: "#C5E1A5"
+      # B5: "#E6EE9C"
+      # B6: "#FFF59D"
+
+      # AA2: "#0D47A1"
+      # AA4: "#42A5F5"
+      # AA5: "#90CAF9"
+
+      # AB4: "#F44336"
+      # AB5: "#FFCDD2"
+    }
+  }
+}
+
+staging-pg: Staging Postgres {
+  style.shadow: true
+
+  product: Product Master Data Entity v1 {
+    style.multiple: true
+    products: {
+      shape: sql_table
+      id: bigint {constraint: primary_key}
+      tenant_id: bigint {constraint: [foreign_key; unique]}
+      name: text {constraint: unique}
+      product_group_id: bigint {constraint: foreign_key}
+    }
+    product_groups: {
+      shape: sql_table
+      id: bigint {constraint: primary_key}
+      name: text {constraint: unique}
+    }
+
+    products.product_group_id -> product_groups.id
+  }
+}
+
+schemamap: "" {
+  style.fill: white
+
+  smio: "" {
+    shape: image
+    icon: https://schemamap.io/static/favicons/apple-touch-icon.png
+  }
+
+  smio-features: |md
+    - Filter by tenant and `WHERE` clause
+    - Anonymize & Transform via `SQL`
+    - Compare & Diff with existing records
+    - `Git`-like workflow: stage & commit data
+  |
+  smio-features: {
+    style.font-size: 26
+  }
+}
+
+local-pg: Local Postgres {
+  style.shadow: true
+
+  product: Product Master Data Entity v2 {
+    style.multiple: true
+    products: {
+      shape: sql_table
+      id: bigint {constraint: primary_key}
+      tenant_id: bigint {constraint: [foreign_key; unique]}
+      name: text {constraint: unique}
+      description: text
+      product_group_id: bigint {constraint: foreign_key}
+    }
+    product_groups: {
+      shape: sql_table
+      id: bigint {constraint: primary_key}
+      name: text {constraint: unique}
+      ordinal_position: int
+    }
+
+    products.product_group_id -> product_groups.id
+  }
+}
+
+staging-pg.product -> schemamap
+schemamap -> local-pg.product
