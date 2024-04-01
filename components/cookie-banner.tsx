@@ -2,19 +2,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useConsent } from "./consent";
-import {
-  Box,
-  Button,
-  HStack,
-  Stack,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Button, Link, Stack, Text } from "@chakra-ui/react";
 
 export function Banner() {
   const [showBanner, setShowBanner] = useState(false);
   const { consent, updateConsent, setConsent } = useConsent();
-  const bg = useColorModeValue("whiteAlpha.700", "rgba(29, 32, 37, 0.7)");
+  const bg = "rgba(29, 32, 37, 0.7)";
 
   useEffect(() => {
     if (consent === "granted" || consent === "denied") {
@@ -49,6 +42,7 @@ export function Banner() {
   return (
     <Stack
       width={"100%"}
+      margin={"0 auto"}
       position="fixed"
       zIndex={"sticky"}
       fontSize={{ base: "md", lg: "xl" }}
@@ -62,16 +56,18 @@ export function Banner() {
       borderTopWidth={"1px"}
       backdropFilter={"blur(10px)"}
       direction={{ base: "column", lg: "row" }}
+      justifyContent={"center"}
     >
       <Text>
-        We use tracking cookies to understand how you use the product and help
-        us improve it. Please accept cookies to help us improve.
+        Please accept cookies to help us improve. For more information see our{" "}
+        <Link href={"/privacy"}>Privacy Policy</Link> and our{" "}
+        <Link href={"/terms"}>Terms of Service</Link>.
       </Text>
       <Button variant={"primary"} onClick={acceptCookies}>
         Accept cookies
       </Button>
       <span> </span>
-      <Button variant={"secondary"} onClick={declineCookies}>
+      <Button variant={"secondary"} size={"lg"} onClick={declineCookies}>
         Decline cookies
       </Button>
     </Stack>

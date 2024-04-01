@@ -1,53 +1,38 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import Image from "next/image";
 import {
   Container,
   Box,
   Stack,
   HStack,
-  ButtonGroup,
   Button,
   Icon,
   Heading,
   Text,
-  Wrap,
-  Tag,
   useClipboard,
   IconButton,
   Link as ChakraLink,
   VStack,
-  Flex,
   Center,
+  useBreakpointValue,
+  Code,
 } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
 
 import { FallInPlace } from "components/motion/fall-in-place";
 import { Hero } from "components/hero";
-import { Link, Br } from "@saas-ui/react";
-import { Em } from "components/typography";
+import { Link } from "@saas-ui/react";
 import {
   FiArrowRight,
-  FiBox,
   FiCheck,
   FiCheckCircle,
   FiCheckSquare,
-  FiCode,
   FiCopy,
-  FiCrosshair,
   FiDatabase,
-  FiFlag,
-  FiGrid,
   FiLock,
   FiRefreshCcw,
   FiSearch,
-  FiSliders,
-  FiSmile,
-  FiTerminal,
-  FiThumbsUp,
-  FiToggleLeft,
   FiTrendingUp,
-  FiUserPlus,
 } from "react-icons/fi";
 import { Features } from "components/features";
 import { BackgroundGradient } from "components/gradients/background-gradient";
@@ -61,34 +46,29 @@ import faq from "data/faq";
 import testimonials from "data/testimonials";
 import pricing from "data/pricing";
 
-import {
-  Highlights,
-  HighlightsItem,
-  HighlightsTestimonialItem,
-} from "components/highlights";
+import { Highlights, HighlightsItem } from "components/highlights";
 import siteConfig from "data/config";
-import { FaBrain, FaGlobeEurope, FaSignLanguage } from "react-icons/fa";
+import { FaBrain, FaGlobeEurope } from "react-icons/fa";
 import { useConsent } from "components/consent";
+import { HeroTabs } from "components/hero/tabs";
+import CodePill from "components/highlights/codepill";
+import { CompaniesSection } from "components/companies";
 
 const Home: NextPage = () => {
   return (
     <Box>
       <SEO
-        title="Schemamap.io - Tenant Onboarding for Postgres"
-        description="Schemamap.io handles your multi-tenant SaaS onboarding, inferred from your Postgres database schema."
+        title="Schemamap.io - Data Movement Platform for Postgres"
+        description="The SQL-first data movement platform to suit the needs of multi-tenant SaaS applications."
       />
       <Box>
         <HeroSection />
 
-        {/* <HighlightsSection /> */}
-
         <FeaturesSection />
-
-        {/* <TestimonialsSection /> */}
 
         <PricingSection />
 
-        {/* <FaqSection /> */}
+        <FaqSection />
 
         <QuestionsSection />
       </Box>
@@ -97,15 +77,25 @@ const Home: NextPage = () => {
 };
 
 const HeroSection: React.FC = () => {
+  const orientation: "horizontal" | "vertical" | undefined = useBreakpointValue(
+    {
+      base: "vertical",
+      md: "horizontal",
+    },
+    {
+      fallback: "md",
+    }
+  );
+
   return (
     <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" />
       <Container
         maxW="container.xl"
-        pt={{ base: 10, lg: 40 }}
+        pt={{ base: 10, lg: 10 }}
         pb={{ base: 0, lg: 10 }}
       >
-        <Stack direction={{ base: "column", lg: "row" }} alignItems="center">
+        <Stack direction={"column"} alignItems="center">
           <Hero
             id="home"
             justifyContent="flex-start"
@@ -113,31 +103,43 @@ const HeroSection: React.FC = () => {
             zIndex={1000}
             title={
               <FallInPlace>
-                Spreadsheet imports solved once and for all
+                Never write a &quot;one-off&quot; ETL script again
               </FallInPlace>
             }
             description={
-              <FallInPlace delay={0.4} fontWeight="medium">
-                Reduce onboarding time and avoid errors with Google Sheets
-                automatically generated from your multi-tenant Postgres
-                database.
+              <FallInPlace delay={0.1} fontWeight="medium">
+                The Postgres-native data movement platform to suit the needs of
+                multi-tenant SaaS apps
               </FallInPlace>
             }
           >
-            <FallInPlace delay={0.8}>
-              <ButtonGroup spacing={4} alignItems="center" mt={10}>
+            <FallInPlace delay={0.2}>
+              <Center mt={10} justifyItems={"center"}>
                 <ButtonLink
                   variant="primary"
                   size="lg"
                   href="https://app.schemamap.io/signup?utm_content=hero-cta&utm_source=schemamap.io"
                   height={12}
                   data-attr="signup"
+                  mr={4}
+                  rightIcon={
+                    <Icon
+                      as={FiArrowRight}
+                      sx={{
+                        transitionProperty: "common",
+                        transitionDuration: "normal",
+                        ".chakra-button:hover &": {
+                          transform: "translate(5px)",
+                        },
+                      }}
+                    />
+                  }
                 >
                   Get started for free
                 </ButtonLink>
                 <ButtonLink
                   size="lg"
-                  href={siteConfig.meetlingUrl}
+                  href={siteConfig.meetingUrl}
                   variant="outline"
                   data-attr="demo"
                   height={12}
@@ -156,34 +158,22 @@ const HeroSection: React.FC = () => {
                 >
                   Get a demo
                 </ButtonLink>
-              </ButtonGroup>
+              </Center>
             </FallInPlace>
           </Hero>
-          <Box
-            maxH="600px"
-            position={{ base: "initial", lg: "absolute" }}
-            display={"block"}
-            left={{ lg: "60%", xl: "55%" }}
-            width="80vw"
-            maxW="1100px"
-            margin="0 auto"
-            zIndex={1000}
-          >
-            <FallInPlace delay={1}>
-              <Box overflow="hidden" height="100%">
-                <Image
-                  src="/static/screenshots/google_sheet.png"
-                  width={1200}
-                  height={762}
-                  alt="Screenshot of the Google Sheet editor in Schemamap.io"
-                  quality="100"
-                  priority
-                />
-              </Box>
-            </FallInPlace>
-          </Box>
         </Stack>
       </Container>
+      <Container maxW="container.xl" pb="20">
+        <FallInPlace delay={0.3}>
+          <HeroTabs orientation={orientation} />
+        </FallInPlace>
+      </Container>
+
+      <CompaniesSection />
+
+      <HighlightsSection />
+
+      {/* <TestimonialsSection /> */}
 
       <Features
         id="benefits"
@@ -199,58 +189,116 @@ const HeroSection: React.FC = () => {
 };
 
 const HighlightsSection = () => {
-  const { value, onCopy, hasCopied } = useClipboard("yarn add @saas-ui/react");
+  const dockerRunText = "docker run schemamap/postgres";
+  const dockerRun = useClipboard(dockerRunText);
+  const curlCmdText = "curl -SL schemamap.dev/install_schemamap.sh | bash";
+  const curlCmd = useClipboard(curlCmdText);
 
   return (
     <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Core components">
+      <HighlightsItem
+        colSpan={[1, null, 2]}
+        title="Try it locally, no signup needed"
+      >
         <VStack alignItems="flex-start" spacing="8">
           <Text color="muted" fontSize="xl">
-            Get started for free with <Em>30+ open source components</Em>.
-            Including authentication screens with Clerk, Supabase and Magic.
-            Fully functional forms with React Hook Form. Data tables with React
-            Table.
+            Replace your existing{" "}
+            <Link isExternal href={"https://hub.docker.com/_/postgres"}>
+              <Code>postgres</Code>
+            </Link>{" "}
+            container with our image:
           </Text>
 
-          <Flex
-            rounded="full"
-            borderWidth="1px"
-            flexDirection="row"
-            alignItems="center"
-            py="1"
-            ps="8"
-            pe="2"
-            bg="primary.900"
-            _dark={{ bg: "gray.900" }}
-          >
-            <Box>
-              <Text color="yellow.400" display="inline">
-                yarn add
-              </Text>{" "}
-              <Text color="cyan.300" display="inline">
-                @saas-ui/react
-              </Text>
-            </Box>
-            <IconButton
-              icon={hasCopied ? <FiCheck /> : <FiCopy />}
-              aria-label="Copy install command"
-              onClick={onCopy}
-              variant="ghost"
-              ms="4"
-              isRound
-              color="white"
-            />
-          </Flex>
+          {/*           <UnorderedList>
+            <ListItem>
+              <Code>schemamap</Code> SDK pre-installed
+            </ListItem>
+            <ListItem>
+              <Code>SELECT</Code>-able schema overview
+            </ListItem>
+            <ListItem>
+              <Code></Code>
+            </ListItem>
+            <ListItem>
+              Fixture/seed data management & restore for testing
+            </ListItem>
+          </UnorderedList> */}
+
+          <Stack direction="column">
+            <CodePill>
+              <Box>
+                <Text color="blue.400" display="inline">
+                  $
+                </Text>{" "}
+                <Text color="yellow.400" display="inline">
+                  docker run
+                </Text>{" "}
+                <Text color="cyan.300" display="inline">
+                  <Link
+                    href={"https://hub.docker.com/r/schemamap/postgres"}
+                    isExternal
+                  >
+                    schemamap/postgres
+                  </Link>
+                </Text>
+              </Box>
+              <IconButton
+                icon={dockerRun.hasCopied ? <FiCheck /> : <FiCopy />}
+                aria-label="Copy docker run command"
+                onClick={dockerRun.onCopy}
+                variant="ghost"
+                ms="4"
+                isRound
+                color="white"
+              />
+            </CodePill>
+            <Text my={4} color="muted" fontSize="xl">
+              or apply to any existing Postgres DB:
+            </Text>
+            <CodePill>
+              <Box>
+                <Text color="blue.400" display="inline">
+                  $
+                </Text>{" "}
+                <Text color="yellow.400" display="inline">
+                  curl -SL
+                </Text>{" "}
+                <Text color="cyan.300" display="inline">
+                  <Link
+                    href={"https://schemamap.dev/install_schemamap.sh"}
+                    isExternal
+                  >
+                    schemamap.dev/install_schemamap.sh
+                  </Link>
+                </Text>
+                <Text color="yellow.400" display="inline">
+                  {" | bash"}
+                </Text>
+              </Box>
+              <IconButton
+                icon={curlCmd.hasCopied ? <FiCheck /> : <FiCopy />}
+                aria-label="Copy curl command"
+                onClick={curlCmd.onCopy}
+                variant="ghost"
+                ms="4"
+                isRound
+                color="white"
+              />
+            </CodePill>
+          </Stack>
         </VStack>
       </HighlightsItem>
-      <HighlightsItem title="Solid foundations">
+      <HighlightsItem title="Local-first DX">
         <Text color="muted" fontSize="lg">
-          We don&apos;t like to re-invent the wheel, neither should you. We
-          selected the most productive and established tools in the scene and
-          build Saas UI on top of it.
+          Schemamap.io is geared for developers who love using Postgres and know
+          their way around SQL.
+        </Text>
+        <Text color="muted" fontSize="lg" mt={4}>
+          By using a handful of stored procedures, you can benefit from
+          Schemamap.io without leaving psql or your favorite SQL client.
         </Text>
       </HighlightsItem>
-      <HighlightsTestimonialItem
+      {/* <HighlightsTestimonialItem
         name="Renata Alink"
         description="Founder"
         avatar="/static/images/avatar.jpg"
@@ -259,47 +307,7 @@ const HighlightsSection = () => {
         “Saas UI helped us set up a beautiful modern UI in no time. It saved us
         hundreds of hours in development time and allowed us to focus on
         business logic for our specific use-case from the start.”
-      </HighlightsTestimonialItem>
-      <HighlightsItem
-        colSpan={[1, null, 2]}
-        title="Start your next idea two steps ahead"
-      >
-        <Text color="muted" fontSize="lg">
-          We took care of all your basic frontend needs, so you can start
-          building functionality that makes your product unique.
-        </Text>
-        <Wrap mt="8">
-          {[
-            "authentication",
-            "navigation",
-            "crud",
-            "settings",
-            "multi-tenancy",
-            "layouts",
-            "billing",
-            "a11y testing",
-            "server-side rendering",
-            "documentation",
-            "onboarding",
-            "storybooks",
-            "theming",
-            "upselling",
-            "unit testing",
-            "feature flags",
-            "responsiveness",
-          ].map((value) => (
-            <Tag
-              key={value}
-              variant="subtle"
-              colorScheme="purple"
-              rounded="full"
-              px="3"
-            >
-              {value}
-            </Tag>
-          ))}
-        </Wrap>
-      </HighlightsItem>
+        </HighlightsTestimonialItem> */}
     </Highlights>
   );
 };
@@ -318,7 +326,7 @@ const FeaturesSection = () => {
       description={
         <>
           Free up precious developer time by using your database schema as a
-          knowledge base for your onboarding.
+          knowledge base for your data migrations.
         </>
       }
       align="left"
@@ -335,7 +343,7 @@ const FeaturesSection = () => {
           title: "Automatic data validation.",
           icon: FiCheckSquare,
           description:
-            "All of your Postgres unique and check constraints get turned into their Google Sheet equivalent formulas and maintained as they change. Users get early feedback, before even importing.",
+            "All of your Postgres unique and check constraints get turned into their Excel-equivalent formulas and maintained as they change. Users get early feedback, before even importing.",
         },
         {
           title: "(De-)normalization.",
@@ -461,7 +469,7 @@ const QuestionsSection = () => {
           {consent != "granted" ? (
             <HStack spacing="4" justifyContent="center">
               <ButtonLink
-                href={siteConfig.meetlingUrl}
+                href={siteConfig.meetingUrl}
                 variant={"primary"}
                 size={"lg"}
               >
@@ -470,6 +478,7 @@ const QuestionsSection = () => {
               <Text>or </Text>
               <Button
                 onClick={() => setConsent("granted")}
+                size={"lg"}
                 variant={"secondary"}
               >
                 accept cookies
@@ -486,19 +495,3 @@ const QuestionsSection = () => {
 };
 
 export default Home;
-
-/*
-export async function getStaticProps() {
-  return {
-    props: {
-      announcement: {
-        title: "Star us on Github! 🚀 ",
-        description:
-          '<img src="https://img.shields.io/github/stars/schemamap/schemamap.svg?style=social&label=Star" />',
-        href: "https://schemamap.dev",
-        action: false,
-      },
-    },
-  };
-}
-*/

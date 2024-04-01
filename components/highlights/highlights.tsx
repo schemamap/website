@@ -6,10 +6,7 @@ import {
   GridItem,
   GridItemProps,
   Heading,
-  Text,
-  useColorModeValue,
   useTheme,
-  VStack,
 } from "@chakra-ui/react";
 import { transparentize } from "@chakra-ui/theme-tools";
 import { Section, SectionProps } from "components/section";
@@ -31,7 +28,7 @@ export const HighlightsItem: React.FC<HighlightBoxProps> = (props) => {
       spacing="8"
       overflow="hidden"
       position="relative"
-      bg={useColorModeValue("white", "gray.800")}
+      bg={"gray.800"}
       {...rest}
     >
       {title && (

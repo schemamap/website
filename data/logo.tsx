@@ -1,13 +1,7 @@
-import {
-  chakra,
-  HTMLChakraProps,
-  useColorModeValue,
-  useTheme,
-} from "@chakra-ui/react";
+import { chakra, HTMLChakraProps } from "@chakra-ui/react";
 
 export const Logo: React.FC<HTMLChakraProps<"svg">> = (props) => {
-  const theme = useTheme();
-  const color = useColorModeValue("#000", "#fff");
+  const color = "#fff";
   return (
     <chakra.svg
       xmlns="http://www.w3.org/2000/svg"

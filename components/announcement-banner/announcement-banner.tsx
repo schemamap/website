@@ -1,19 +1,8 @@
 import NextLink from "next/link";
-import {
-  Box,
-  Container,
-  Flex,
-  HStack,
-  Icon,
-  LinkBox,
-  LinkOverlay,
-  useColorModeValue,
-  Button,
-} from "@chakra-ui/react";
+import { Container, Flex, HStack, Icon, Button } from "@chakra-ui/react";
 import {
   Banner,
   BannerActions,
-  BannerContent,
   BannerDescription,
   BannerTitle,
 } from "@saas-ui/react";
@@ -36,9 +25,9 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
   }
 
   return (
-    <Flex position="absolute" zIndex="10" top="100px" width="100%">
+    <Flex position="absolute" zIndex="10" bottom="150px" width="100%">
       <Container maxW="container.2xl" px="8">
-        <FallInPlace delay={1.4} translateY="-100px">
+        <FallInPlace delay={0.4} translateY="-100px">
           <NextLink href={href} legacyBehavior>
             <Banner
               display="flex"
@@ -69,8 +58,9 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
                 borderRadius: "inherit",
                 margin: "-2px",
                 bgGradient: "linear(to-r, purple.500, cyan.500)",
+
                 transition: "background .2s ease-out",
-                _dark: {
+                _light: {
                   bgGradient: "linear(to-r, purple.500, cyan.500)",
                 },
               }}

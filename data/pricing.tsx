@@ -27,22 +27,19 @@ export default {
       price: "Free",
       features: [
         {
-          title: "10MB / month of Postgres bandwidth included",
+          title: "10MB / month of Postgres bandwidth",
         },
         {
           title: "No flexible bandwidth usage",
         },
         {
-          title: "EU data residency with GDPR compliance",
+          title: "EU data residency",
         },
         {
           title: "1 tracked tenant",
         },
         {
-          title: "2 Google Sheets",
-        },
-        {
-          title: "Unlimited users",
+          title: "3 users",
         },
         {
           title: "Slack integration",
@@ -64,7 +61,7 @@ export default {
         { title: "Everything in Free, plus:" },
 
         {
-          title: "1GB / month of Postgres bandwidth included",
+          title: "1GB / month of Postgres bandwidth",
         },
         {
           title: "Flexible usage pricing: €0.05 / MB",
@@ -73,7 +70,7 @@ export default {
           title: "3 tracked tenants",
         },
         {
-          title: "100 Google Sheets",
+          title: "10 users",
         },
         {
           title: "3-day email support",
@@ -106,7 +103,7 @@ export default {
           title: "Everything in Starter, plus:",
         },
         {
-          title: "10GB / month of Postgres bandwidth included",
+          title: "10GB / month of Postgres bandwidth",
         },
         {
           title: "Flexible usage pricing: €0.04 / MB",
@@ -115,7 +112,7 @@ export default {
           title: "100 tracked tenants",
         },
         {
-          title: "1000 Google Sheets",
+          title: "100 users",
         },
         {
           title: "Priority support",
@@ -150,7 +147,7 @@ export default {
       ],
       action: {
         label: "Talk to the founder",
-        href: siteConfig.meetlingUrl,
+        href: siteConfig.meetingUrl,
       },
     },
   ],

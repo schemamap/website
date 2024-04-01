@@ -1,13 +1,6 @@
 import * as React from "react";
 
-import {
-  Box,
-  BoxProps,
-  Container,
-  Flex,
-  useColorModeValue,
-  Text,
-} from "@chakra-ui/react";
+import { Box, BoxProps, Container, Flex } from "@chakra-ui/react";
 import Navigation from "./navigation";
 import { Logo } from "./logo";
 import { useScroll } from "framer-motion";
@@ -24,7 +17,7 @@ export const Header = (props: HeaderProps) => {
     return scrollY.on("change", () => setY(scrollY.get()));
   }, [scrollY]);
 
-  const bg = useColorModeValue("whiteAlpha.700", "rgba(29, 32, 37, 0.7)");
+  const bg = "rgba(29, 32, 37, 0.7)";
 
   return (
     <Box

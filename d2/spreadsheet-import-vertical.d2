@@ -1,0 +1,75 @@
+direction: down
+vars: {
+  d2-config: {
+    theme-overrides: {
+      # B1: "#2E7D32"
+      # B2: "#66BB6A"
+      # B3: "#A5D6A7"
+      # B4: "#C5E1A5"
+      # B5: "#E6EE9C"
+      # B6: "#FFF59D"
+
+      # AA2: "#0D47A1"
+      # AA4: "#42A5F5"
+      # AA5: "#90CAF9"
+
+      # AB4: "#F44336"
+      # AB5: "#FFCDD2"
+    }
+  }
+}
+
+pg: Postgres {
+  style.shadow: true
+
+  product: Product Master Data Entity {
+    style.multiple: true
+    products: {
+      shape: sql_table
+      id: bigint {constraint: primary_key}
+      tenant_id: bigint {constraint: [foreign_key; unique]}
+      name: text {constraint: unique}
+      product_group_id: bigint {constraint: foreign_key}
+    }
+    product_groups: {
+      shape: sql_table
+      id: bigint {constraint: primary_key}
+      name: text {constraint: unique}
+    }
+
+    products.product_group_id -> product_groups.id
+  }
+}
+
+schemamap: "" {
+  style.fill: white
+
+  smio: "" {
+    shape: image
+    icon: https://schemamap.io/static/favicons/apple-touch-icon.png
+  }
+
+  smio-features: |md
+    - Maintain bidirectional mapping between schema and humanized spreadsheets
+    - Automatically inferred from schema, but extensible for custom cases
+    - Constraints turned into data validation rules & dropdowns
+    - Translated to the tenants locale using I18N JSON from your app
+    - File uploads, validation, partial imports, etc. handled by our server
+    - Embeddable via React SDK, import/export button for any table
+  |
+  smio-features: {
+    style.font-size: 26
+  }
+}
+
+xlsx: "Excel/Google Sheets" {
+  style.fill: white
+
+  image: "" {
+    shape: image
+    icon: https://upload.wikimedia.org/wikipedia/commons/f/f3/.xlsx_icon.svg
+  }
+}
+
+pg.product <-> schemamap
+schemamap <-> xlsx
