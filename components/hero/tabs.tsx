@@ -19,31 +19,38 @@ import {
   FiUser,
 } from "react-icons/fi";
 
-const SyncEnvironmentsTab = () => {
-  const common = { alt: "Sync Environments", width: 1800, height: 500 };
-  const {
-    props: { srcSet: desktop },
-  } = getImageProps({ ...common, src: "static/images/env-sync.svg" });
+type ResponsiveImageTabPanelProps = {
+  children?: React.ReactNode;
+  alt: string;
+  imgName: string;
+};
+
+const ResponsiveImageTabPanel = ({
+  children,
+  alt,
+  imgName,
+}: ResponsiveImageTabPanelProps) => {
+  const common = { alt, width: 1800, height: 500 };
   const {
     props: { srcSet: mobile, ...rest },
-  } = getImageProps({ ...common, src: "static/images/env-sync-vertical.svg" });
+  } = getImageProps({
+    ...common,
+    src: `static/images/${imgName}-vertical.svg`,
+  });
   return (
-    <TabPanel>
+    <TabPanel px={0}>
       <picture>
         <source
           media="(min-width: 768px)"
-          srcSet={"static/images/env-sync.svg"}
+          srcSet={`static/images/${imgName}.svg`}
         />
         <source
           media="(max-width: 768px)"
-          srcSet={"static/images/env-sync-vertical.svg"}
+          srcSet={`static/images/${imgName}-vertical.svg`}
         />
-        <img
-          {...rest}
-          alt={common.alt}
-          style={{ width: "100%", height: "auto" }}
-        />
+        <img {...rest} alt={alt} style={{ width: "100%", height: "auto" }} />
       </picture>
+      {children}
     </TabPanel>
   );
 };
@@ -84,16 +91,11 @@ export const HeroTabs = ({
         </Tab>
       </TabList>
       <TabPanels>
-        <SyncEnvironmentsTab />
-        <TabPanel>
-          <Image
-            src="/static/images/spreadsheet-import.svg"
-            width={1800}
-            height={500}
-            alt="Import / Export Spreadsheets"
-            priority
-          />
-        </TabPanel>
+        <ResponsiveImageTabPanel alt="Sync Environments" imgName="env-sync" />
+        <ResponsiveImageTabPanel
+          alt="Spreadsheet Import"
+          imgName="spreadsheet-import"
+        />
         <TabPanel>
           <Image
             src="/static/images/env-sync.svg"
