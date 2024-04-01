@@ -66,7 +66,7 @@ export const HeroTabs = ({
           <Icon as={FiRefreshCcw} mr={2} />
           Sync environments
         </Tab>
-        <Tab isDisabled title="Coming soon...">
+        <Tab>
           <Icon as={FiSave} mr={2} />
           Import/Export spreadsheets
         </Tab>
@@ -87,7 +87,7 @@ export const HeroTabs = ({
         <SyncEnvironmentsTab />
         <TabPanel>
           <Image
-            src="/static/images/env-sync.svg"
+            src="/static/images/spreadsheet-import.svg"
             width={1800}
             height={500}
             alt="Import / Export Spreadsheets"
