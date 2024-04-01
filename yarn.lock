@@ -2281,10 +2281,10 @@
     "@saas-ui/react-utils" "2.0.0-next.1"
     "@saas-ui/theme" "2.0.0-next.6"
 
-"@saas-ui/core@2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@saas-ui/core/-/core-2.4.0.tgz#3bb38482b4215d29486df1254b4cc77d9b8eaaec"
-  integrity sha512-C++NiLinp6Ncq8yTIytgJZl4fzVQLZKrIk6I9R6kcsu+Nk9xu4SuS713V3ZQDBWwKwT8G21aJG7rgOi0C28tiw==
+"@saas-ui/core@2.4.3":
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/@saas-ui/core/-/core-2.4.3.tgz#74e39caebca478db97d16b92d527073a0731ebb0"
+  integrity sha512-F89ZjySMXm+rkd3rlT+iu9OBX47nj6aHtZcxYIG4/7A0L9nJ4kFYQZMS8Cj6XJSF8n1r7RPdeGuvN7xRbKvtXQ==
   dependencies:
     "@chakra-ui/react-utils" "^2.0.12"
     "@chakra-ui/styled-system" "^2.9.2"
@@ -2294,17 +2294,17 @@
     "@react-aria/interactions" "^3.21.1"
     "@react-aria/utils" "^3.23.2"
     "@saas-ui/react-utils" "2.0.1"
-    "@saas-ui/theme" "2.3.3"
+    "@saas-ui/theme" "2.3.4"
     "@zag-js/dom-event" "^0.36.3"
     "@zag-js/dom-utils" "^0.2.4"
 
-"@saas-ui/data-table@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@saas-ui/data-table/-/data-table-8.0.0.tgz#30d9d63cf20caf6f514e1c687ffa45208406ac60"
-  integrity sha512-WWFjmqXEs/4Iv3R8H9AvmZuCe2qYv1lH0ipYsRwycOe58IZS39zPUgo68eqTb0MSsz3PVBLVuWzTT4GBmLPF4A==
+"@saas-ui/data-table@9.0.2":
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/@saas-ui/data-table/-/data-table-9.0.2.tgz#6d8d2ae95ac741ba021874ff1103d80730d7085a"
+  integrity sha512-xoBMp6AILdYEaFq/IG+JMGo235tv1/Eh+ckAOuYlpKp0nPinpNlwfQsBK7fYpu64GTfI/g8dbcyKpjM+2oH5Vg==
   dependencies:
     "@chakra-ui/utils" "^2.0.15"
-    "@saas-ui/core" "2.4.0"
+    "@saas-ui/core" "2.4.3"
     "@tanstack/react-table" "^8.12.0"
 
 "@saas-ui/forms@2.0.0-next.12":
@@ -2317,15 +2317,15 @@
     "@saas-ui/core" "2.0.0-next.10"
     react-hook-form "^7.43.9"
 
-"@saas-ui/forms@2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@saas-ui/forms/-/forms-2.4.0.tgz#6214161e65f3824fda44a8463a4ac1e24b3ca7b3"
-  integrity sha512-mhEhuJxkIDPJi5Lqyur9r7TZxUp1za7qIZ3+ZcQ4QjxiCTEhfJRGwGzqg3V+TD5O3fkv/tnXq9F7/c4sIVphLw==
+"@saas-ui/forms@2.5.2":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@saas-ui/forms/-/forms-2.5.2.tgz#81fe419bb140f3f7b7e6b352b008e680363bee4c"
+  integrity sha512-3sTePwCS3aQY10tAlaewHjbTFPPLXWe/MAe5qLNE+U1FZ+6qkPj7w0Uf764G7LCGK4izVbCWHLi5ukTkEr17jg==
   dependencies:
     "@chakra-ui/react-utils" "^2.0.12"
     "@chakra-ui/utils" "^2.0.15"
     "@hookform/resolvers" "^3.3.4"
-    "@saas-ui/core" "2.4.0"
+    "@saas-ui/core" "2.4.3"
     react-hook-form "^7.50.1"
 
 "@saas-ui/hooks@2.0.0-next.2":
@@ -2338,24 +2338,24 @@
   resolved "https://registry.yarnpkg.com/@saas-ui/hooks/-/hooks-2.0.3.tgz#4c9ef750d09d7eb388b838e79475ec5856713572"
   integrity sha512-Os/5/DVEriGfjmcDZEn8DQjNEBz6jOjMkaUjTRCV+C4bIFVCoTB9aXxb2doV9wWPSmUUSUGEJzfjxtRHHjDJ7g==
 
-"@saas-ui/hotkeys@2.2.3":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@saas-ui/hotkeys/-/hotkeys-2.2.3.tgz#202011bcf15da48bfe0d2bf3e568a6bfc18fa012"
-  integrity sha512-Qb9EdAn4wfxJEc3VR6ouAfe6hnjIrg/C40tU5XDikTP44tjhF5d+PSUoBo0rr7n1/s5qp8s/o6BpF26SJw8Xlg==
+"@saas-ui/hotkeys@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@saas-ui/hotkeys/-/hotkeys-2.2.6.tgz#49b103166d0745356135faad83501be9390b75cd"
+  integrity sha512-2jpGO/sXGmTOydWkcCwKchsDZrXFb+8/VdxrQ8GqJa4+kMIwcJAQ+fJfg2RDPD1XWP5TTeRWeFZQz2c1kZOaAA==
   dependencies:
     "@chakra-ui/react-utils" "^2.0.12"
     "@chakra-ui/utils" "^2.0.15"
-    "@saas-ui/core" "2.4.0"
+    "@saas-ui/core" "2.4.3"
     "@saas-ui/use-hotkeys" "1.1.1"
 
-"@saas-ui/modals@2.1.22":
-  version "2.1.22"
-  resolved "https://registry.yarnpkg.com/@saas-ui/modals/-/modals-2.1.22.tgz#1c0c9cceac1e6b807e4228a0d55aa08a4770984e"
-  integrity sha512-hEkiCUatk5k4D/7cVJQEiK06poqQxMOvo3Op4cJM+85q71bdYxY4rDwXTv/u71nMitpzO58YZMR5smzG3Rd2sQ==
+"@saas-ui/modals@2.1.27":
+  version "2.1.27"
+  resolved "https://registry.yarnpkg.com/@saas-ui/modals/-/modals-2.1.27.tgz#7b3c1f57b96175aa1a463f8a83a470ded9e6eb0a"
+  integrity sha512-APlerGuJdc13HuzISrzR/DkjCOdxC7FrNIKHH3gNnAv+cqGiC0OqWRUeVsQ1YsreuSAyfFpbWufjR6eBXGuWGQ==
   dependencies:
     "@chakra-ui/react-utils" "^2.0.12"
     "@chakra-ui/utils" "^2.0.15"
-    "@saas-ui/forms" "2.4.0"
+    "@saas-ui/forms" "2.5.2"
     "@saas-ui/hooks" "2.0.3"
     "@saas-ui/react-utils" "2.0.1"
 
@@ -2381,23 +2381,23 @@
   dependencies:
     "@chakra-ui/utils" "^2.0.15"
 
-"@saas-ui/react@^2.0.0-next.12":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@saas-ui/react/-/react-2.6.0.tgz#652d52a00c9b630c8a4e9b207767d988dccca8a1"
-  integrity sha512-H6NhBsHg4vvc4X+0cYUmU+svp0XfNbxq6LezzPu+bwuKcUgS2S4g6vk4wlBL/zncvKsoXulTZBrqaJb0FyxNNw==
+"@saas-ui/react@^2.7.2":
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/@saas-ui/react/-/react-2.7.2.tgz#c1a5860e9761fcecb7537d0f51814dd964f874ca"
+  integrity sha512-QGr6Zo/g9Xmnr9/HyD9TjNZCslIS2OPsFt1NV0VX/G+uhQlCqyaIHFmxzUnegdoAnLpKfmayqs6XQu/++LVw3Q==
   dependencies:
     "@chakra-ui/icon" "^3.2.0"
     "@chakra-ui/react-utils" "^2.0.12"
     "@chakra-ui/system" "^2.6.2"
     "@chakra-ui/utils" "^2.0.15"
-    "@saas-ui/core" "2.4.0"
-    "@saas-ui/data-table" "8.0.0"
-    "@saas-ui/forms" "2.4.0"
+    "@saas-ui/core" "2.4.3"
+    "@saas-ui/data-table" "9.0.2"
+    "@saas-ui/forms" "2.5.2"
     "@saas-ui/hooks" "2.0.3"
-    "@saas-ui/hotkeys" "2.2.3"
-    "@saas-ui/modals" "2.1.22"
+    "@saas-ui/hotkeys" "2.2.6"
+    "@saas-ui/modals" "2.1.27"
     "@saas-ui/nprogress" "2.0.3"
-    "@saas-ui/theme" "2.3.3"
+    "@saas-ui/theme" "2.3.4"
 
 "@saas-ui/theme-glass@^0.5.4":
   version "0.5.4"
@@ -2418,10 +2418,10 @@
     "@chakra-ui/styled-system" "^2.8.0"
     "@chakra-ui/theme-tools" "^2.0.17"
 
-"@saas-ui/theme@2.3.3":
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/@saas-ui/theme/-/theme-2.3.3.tgz#d1431ac3a7c505b60ab821f849c448a3e7f3d54b"
-  integrity sha512-u9HLNxgueialKloRb1psdqnaM52RulWBpCgUsJ5o38Wv7WUb8xiJ+TIQlKym695BvfXKdAvUW+yHg7bWUMblmw==
+"@saas-ui/theme@2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@saas-ui/theme/-/theme-2.3.4.tgz#936fcb89f6dd0e759d26f9c18429319f6cb6cbe7"
+  integrity sha512-SUAEd98SnlEl955owdlXsf1yCSOHHCHvxhMLW/pXSDpJ0aipjBmxb+sIwubRUL1xiPP+CX7UB6gEBuQj63YFtA==
   dependencies:
     "@chakra-ui/anatomy" "^2.2.2"
     "@chakra-ui/styled-system" "^2.9.2"
@@ -2681,7 +2681,7 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@^18.2.73":
+"@types/react@^18.2.0":
   version "18.2.73"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.73.tgz#0579548ad122660d99e00499d22e33b81e73ed94"
   integrity sha512-XcGdod0Jjv84HOC7N5ziY3x+qL0AfmubvKOZ9hJjJ2yd5EE+KYjWhdOjt387e9HPheHkdggF9atTifMRtyAaRA==
@@ -6340,10 +6340,10 @@ typed-array-length@^1.0.6:
     is-typed-array "^1.1.13"
     possible-typed-array-names "^1.0.0"
 
-typescript@5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.4.tgz#b217fd20119bd61a94d4011274e0ab369058da3b"
-  integrity sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==
+typescript@^5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.3.tgz#5c6fedd4c87bee01cd7a528a30145521f8e0feff"
+  integrity sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
