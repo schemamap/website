@@ -1,19 +1,8 @@
 import NextLink from "next/link";
-import {
-  Box,
-  Container,
-  Flex,
-  HStack,
-  Icon,
-  LinkBox,
-  LinkOverlay,
-  useColorModeValue,
-  Button,
-} from "@chakra-ui/react";
+import { Container, Flex, HStack, Icon, Button } from "@chakra-ui/react";
 import {
   Banner,
   BannerActions,
-  BannerContent,
   BannerDescription,
   BannerTitle,
 } from "@saas-ui/react";
@@ -69,8 +58,9 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
                 borderRadius: "inherit",
                 margin: "-2px",
                 bgGradient: "linear(to-r, purple.500, cyan.500)",
+
                 transition: "background .2s ease-out",
-                _dark: {
+                _light: {
                   bgGradient: "linear(to-r, purple.500, cyan.500)",
                 },
               }}

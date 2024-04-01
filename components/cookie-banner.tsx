@@ -2,20 +2,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useConsent } from "./consent";
-import {
-  Box,
-  Button,
-  HStack,
-  Link,
-  Stack,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Button, Link, Stack, Text } from "@chakra-ui/react";
 
 export function Banner() {
   const [showBanner, setShowBanner] = useState(false);
   const { consent, updateConsent, setConsent } = useConsent();
-  const bg = useColorModeValue("whiteAlpha.700", "rgba(29, 32, 37, 0.7)");
+  const bg = "rgba(29, 32, 37, 0.7)";
 
   useEffect(() => {
     if (consent === "granted" || consent === "denied") {

@@ -1,16 +1,9 @@
-import {
-  Box,
-  Center,
-  Grid,
-  Link,
-  Stack,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Link, Stack } from "@chakra-ui/react";
 import { Section } from "components/section";
 import Image from "next/image";
 
 export const CompaniesSection = () => {
-  const bg = useColorModeValue("gray.700", "gray.900");
+  const bg = "gray.900";
   const linkProps = {
     isExternal: true,
     bg,
@@ -51,10 +44,7 @@ export const CompaniesSection = () => {
             alt="deepico AG Logo"
           />
         </Link>
-        <Link
-          href="https://heypatient.ch"
-          {...{ ...linkProps, bg: useColorModeValue("white", "gray.900") }}
-        >
+        <Link href="https://heypatient.ch" {...{ ...linkProps }}>
           <Image
             src="/static/images/heypatient_logo.png"
             width={216}
