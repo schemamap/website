@@ -226,7 +226,7 @@ const HighlightsSection = () => {
 
           <Stack direction="column">
             <CodePill>
-              <Box>
+              <Box width={"full"}>
                 <Text color="blue.400" display="inline">
                   $
                 </Text>{" "}
@@ -438,13 +438,7 @@ const TestimonialsSection = () => {
 };
 
 const PricingSection = () => {
-  return (
-    <Pricing {...pricing}>
-      <Text p="8" textAlign="center" color="muted">
-        VAT may be applicable depending on your location and business type.
-      </Text>
-    </Pricing>
-  );
+  return <Pricing {...pricing} />;
 };
 
 const FaqSection = () => {
@@ -467,7 +461,12 @@ const QuestionsSection = () => {
             </ChakraLink>{" "}
           </Text>
           {consent != "granted" ? (
-            <HStack spacing="4" justifyContent="center">
+            <Stack
+              direction={{ base: "column", lg: "row" }}
+              spacing="4"
+              alignItems={"center"}
+              justifyContent="center"
+            >
               <ButtonLink
                 href={siteConfig.meetingUrl}
                 variant={"primary"}
@@ -484,7 +483,7 @@ const QuestionsSection = () => {
                 accept cookies
               </Button>{" "}
               <Text>to chat directly.</Text>
-            </HStack>
+            </Stack>
           ) : (
             <Center>Use the chat icon in the lower right.</Center>
           )}

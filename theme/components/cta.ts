@@ -1,37 +1,37 @@
 const CTA = {
-  parts: ['wrapper', 'title', 'action', 'secondaryAction'],
+  parts: ["wrapper", "title", "action", "secondaryAction"],
   baseStyle: {
     wrapper: {
       pt: 28,
       pb: 28,
     },
     action: {
-      colorScheme: 'primary',
+      colorScheme: "primary",
     },
     secondaryAction: {
-      colorScheme: 'primary',
-      variant: 'ghost',
+      colorScheme: "primary",
+      variant: "ghost",
     },
   },
   variants: {
     subtle: {},
     solid: {
       wrapper: {
-        bg: 'primary.400',
+        bg: "primary.400",
       },
       secondaryAction: {
-        colorScheme: 'white',
+        colorScheme: "white",
       },
     },
     light: ({ colorMode }: any) => ({
       wrapper: {
-        bg: colorMode === 'dark' ? 'gray.700' : 'gray.100',
+        bg: "gray.700",
       },
     }),
   },
   defaultProps: {
-    variant: 'subtle',
+    variant: "subtle",
   },
-}
+};
 
-export default CTA
+export default CTA;
