@@ -87,19 +87,17 @@ WITH table_sizes AS (
       table_type = 'BASE TABLE'
       AND table_schema NOT IN ('pg_catalog', 'information_schema', 'schemamap')
 ), human_table_stats AS (
-SELECT
-  table_name,
-  total_size_bytes::numeric / (1024 * 1024) AS total_size_mb,
-  average_record_size_bytes::numeric / (1024 * 1024) AS average_record_size_mb,
-  estimated_row_count
-FROM table_sizes
-ORDER BY 2 DESC)
-
-, schemamap_plans as (
-SELECT *
-FROM (VALUES ('Free', 10), ('Starter', 1024), ('Pro', 10240)) plans(plan_name, bandwidth_mb_included)
+  SELECT
+    table_name,
+    total_size_bytes::numeric / (1024 * 1024) AS total_size_mb,
+    average_record_size_bytes::numeric / (1024 * 1024) AS average_record_size_mb,
+    estimated_row_count
+  FROM table_sizes
+  ORDER BY 2 DESC
+), schemamap_plans as (
+  SELECT *
+  FROM (VALUES ('Free', 10), ('Starter', 1024), ('Pro', 10240)) plans(plan_name, bandwidth_mb_included)
 )
-
 SELECT hts.*, sp.*, sp.bandwidth_mb_included::numeric / hts.total_size_mb as number_of_imports
 FROM human_table_stats hts
 CROSS JOIN schemamap_plans sp;
