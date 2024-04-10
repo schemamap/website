@@ -10,8 +10,7 @@ const CodePill: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       alignItems="center"
       py="2"
       px={{ base: 4, sm: "8" }}
-      bg="gray.800"
-      _dark={{ bg: "gray.900" }}
+      bg="gray.900"
     >
       {children}
     </Flex>

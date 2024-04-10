@@ -195,7 +195,7 @@ const HighlightsSection = () => {
   const curlCmd = useClipboard(curlCmdText);
 
   return (
-    <Highlights>
+    <Highlights display={["none", "initial"]}>
       <HighlightsItem
         colSpan={[1, null, 2]}
         title="Try it locally, no signup needed"
