@@ -226,7 +226,7 @@ const HighlightsSection = () => {
 
           <Stack direction="column">
             <CodePill>
-              <Box>
+              <Box width={"full"}>
                 <Text color="blue.400" display="inline">
                   $
                 </Text>{" "}
