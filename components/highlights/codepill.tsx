@@ -11,8 +11,6 @@ const CodePill: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       py="2"
       px={{ base: 4, sm: "8" }}
       bg="gray.800"
-      overflow={"break-word"}
-      overflowWrap={"break-word"}
       _dark={{ bg: "gray.900" }}
     >
       {children}

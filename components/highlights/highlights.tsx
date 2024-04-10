@@ -26,7 +26,6 @@ export const HighlightsItem: React.FC<HighlightBoxProps> = (props) => {
       flex="1 0"
       alignItems="flex-start"
       spacing="8"
-      overflow="hidden"
       position="relative"
       bg={"gray.800"}
       {...rest}
