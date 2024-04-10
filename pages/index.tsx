@@ -438,13 +438,7 @@ const TestimonialsSection = () => {
 };
 
 const PricingSection = () => {
-  return (
-    <Pricing {...pricing}>
-      <Text p="8" textAlign="center" color="muted">
-        VAT may be applicable depending on your location and business type.
-      </Text>
-    </Pricing>
-  );
+  return <Pricing {...pricing} />;
 };
 
 const FaqSection = () => {

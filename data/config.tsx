@@ -13,13 +13,29 @@ import {
 } from "react-icons/fi";
 import { Logo } from "./logo";
 import { FeatureProps } from "components/features";
+import { title } from "process";
 
 const siteConfig = {
   logo: Logo,
   meetingUrl: "https://savvycal.com/schemamap/talk",
   seo: {
     title: "Schemamap.io",
-    description: "Tenant Onboarding for Postgres",
+    description: "Data Movement Platform for Postgres",
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: "https://schemamap.io",
+      site_name: "Schemamap.io",
+      title: "Schemamap.io - Data Movement Platform for Postgres",
+      description:
+        "The SQL-first data movement platform to suit the needs of multi-tenant SaaS applications.",
+      images: [
+        {
+          url: "https://schemamap.io//static/favicons/apple-touch-icon.png",
+          alt: "Schemamap.io logo",
+        },
+      ],
+    },
   } as NextSeoProps,
   termsUrl: "/terms",
   privacyUrl: "/privacy",
@@ -33,12 +49,10 @@ const siteConfig = {
         id: "pricing",
         label: "Pricing",
       },
-      /*
       {
         id: "faq",
         label: "FAQ",
       },
-      */
       {
         label: "Login",
         href: "https://app.schemamap.io/login",

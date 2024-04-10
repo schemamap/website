@@ -1,11 +1,16 @@
 import {
   Box,
+  Card,
+  CardBody,
+  CardFooter,
   Heading,
   HStack,
   Icon,
+  IconButton,
   SimpleGrid,
   StackProps,
   Text,
+  useClipboard,
   VStack,
 } from "@chakra-ui/react";
 import {
@@ -15,8 +20,9 @@ import {
 import { BackgroundGradient } from "components/gradients/background-gradient";
 import { Section, SectionProps, SectionTitle } from "components/section";
 import { Br } from "components/typography";
+import Link from "next/link";
 import React from "react";
-import { FiCheck } from "react-icons/fi";
+import { FiCheck, FiCopy, FiInfo } from "react-icons/fi";
 
 export interface PricingPlan {
   id: string;
@@ -44,10 +50,7 @@ export const PricingPlan = ({ plan }: { plan: PricingPlan }) => {
         plan.isRecommended
           ? {
               borderColor: "primary.500",
-              _dark: {
-                borderColor: "primary.500",
-                bg: "blackAlpha.300",
-              },
+              bg: "blackAlpha.300",
             }
           : {}
       }
@@ -64,6 +67,40 @@ export const PricingPlan = ({ plan }: { plan: PricingPlan }) => {
   );
 };
 
+const pricingPlanSql = `
+WITH table_sizes AS (
+  SELECT 
+      table_schema || '.' || table_name as table_name,
+      (pg_total_relation_size(quote_ident(table_name))) AS total_size_bytes,
+      (pg_relation_size(quote_ident(table_name)) / nullif(reltuples, 0)) AS average_record_size_bytes,
+      reltuples AS estimated_row_count
+  FROM 
+      information_schema.tables
+      JOIN pg_class ON information_schema.tables.table_name = pg_class.relname
+  WHERE 
+      table_type = 'BASE TABLE'
+      AND table_schema NOT IN ('pg_catalog', 'information_schema')
+      AND table_name ILIKE 'product%'
+      AND reltuples > 0
+), human_table_stats AS (
+SELECT 
+  table_name,
+  total_size_bytes::numeric / (1024 * 1024) AS total_size_mb,
+  average_record_size_bytes::numeric / (1024 * 1024) AS average_record_size_mb,
+  estimated_row_count
+FROM table_sizes
+ORDER BY 2 DESC)
+
+, schemamap_plans as (
+SELECT *
+FROM (VALUES ('Free', 10), ('Starter', 1024), ('Pro', 10240)) plans(plan_name, bandwidth_mb_included)
+)
+
+SELECT hts.*, sp.*, sp.bandwidth_mb_included::numeric / hts.total_size_mb as number_of_imports
+FROM human_table_stats hts
+CROSS JOIN schemamap_plans sp;
+`;
+
 export const Pricing: React.FC<PricingProps> = (props) => {
   const { children, plans, title, description, ...rest } = props;
 
@@ -73,6 +110,8 @@ export const Pricing: React.FC<PricingProps> = (props) => {
     (plan) => plan.id !== enterpriseId
   );
   const enterprisePlan = plans.find((plan) => plan.id === enterpriseId);
+
+  const pricingSqlCopy = useClipboard(pricingPlanSql);
 
   return (
     <Section id="pricing" pos="relative" {...rest}>
@@ -96,13 +135,42 @@ export const Pricing: React.FC<PricingProps> = (props) => {
           <Heading as="h4" size="lg" mb="4">
             Pricing example
           </Heading>
-          <Text>
-            A usual 10K line row Product table with 40 columns is about ~1MB of
-            data.
-            <Br />
-            This allows 10X, 1024X, 10240x imports of this data for the Free,
-            Starter and Pro plans respectively.
-          </Text>
+          <Card>
+            <CardBody>
+              <Text>
+                A usual 10K line row Product table with 40 columns is about ~1MB
+                of data.
+              </Text>
+              <Text mt={4}>
+                This allows 10X, 1024X, 10240x imports of this data for the
+                Free, Starter and Pro plans respectively.
+              </Text>
+            </CardBody>
+          </Card>
+          <Card mt="4">
+            <CardBody>
+              <Text>Want to know more with your own data?</Text>
+              <Text mt={4}>
+                <Text
+                  as={"span"}
+                  onClick={pricingSqlCopy.onCopy}
+                  textDecor={"underline"}
+                  cursor={"pointer"}
+                >
+                  Copy this SQL SELECT query
+                  <IconButton
+                    icon={pricingSqlCopy.hasCopied ? <FiCheck /> : <FiCopy />}
+                    aria-label="Copy pricing plan estimate SQL query"
+                    variant="ghost"
+                    isRound
+                    color="white"
+                  />
+                </Text>{" "}
+                and run it on your database to get a feel for which plan is
+                right for you!
+              </Text>
+            </CardBody>
+          </Card>
         </Box>
 
         {children}
@@ -155,17 +223,13 @@ const PricingBox: React.FC<PricingBoxProps> = (props) => {
   return (
     <VStack
       zIndex="2"
-      bg="whiteAlpha.600"
+      bg="blackAlpha.300"
       borderRadius="md"
       p="8"
       flex="1 0"
       alignItems="stretch"
       border="1px solid"
-      borderColor="gray.400"
-      _dark={{
-        bg: "blackAlpha.300",
-        borderColor: "gray.800",
-      }}
+      borderColor="gray.800"
       {...rest}
     >
       <Heading as="h3" size="md" fontWeight="bold" fontSize="lg" mb="2">
