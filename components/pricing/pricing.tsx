@@ -8,6 +8,7 @@ import {
   Icon,
   IconButton,
   SimpleGrid,
+  Stack,
   StackProps,
   Text,
   useClipboard,
@@ -113,6 +114,14 @@ export const Pricing: React.FC<PricingProps> = (props) => {
 
   const pricingSqlCopy = useClipboard(pricingPlanSql);
 
+  const cardProps = {
+    bg: "blackAlpha.300",
+    mt: "4",
+    alignItems: "stretch",
+    borderRadius: "md",
+    p: "4",
+  } as const;
+
   return (
     <Section id="pricing" pos="relative" {...rest}>
       <BackgroundGradient height="100%" />
@@ -135,42 +144,44 @@ export const Pricing: React.FC<PricingProps> = (props) => {
           <Heading as="h4" size="lg" mb="4">
             Pricing example
           </Heading>
-          <Card>
-            <CardBody>
-              <Text>
-                A usual 10K line row Product table with 40 columns is about ~1MB
-                of data.
-              </Text>
-              <Text mt={4}>
-                This allows 10X, 1024X, 10240x imports of this data for the
-                Free, Starter and Pro plans respectively.
-              </Text>
-            </CardBody>
-          </Card>
-          <Card mt="4">
-            <CardBody>
-              <Text>Want to know more with your own data?</Text>
-              <Text mt={4}>
-                <Text
-                  as={"span"}
-                  onClick={pricingSqlCopy.onCopy}
-                  textDecor={"underline"}
-                  cursor={"pointer"}
-                >
-                  Copy this SQL SELECT query
-                  <IconButton
-                    icon={pricingSqlCopy.hasCopied ? <FiCheck /> : <FiCopy />}
-                    aria-label="Copy pricing plan estimate SQL query"
-                    variant="ghost"
-                    isRound
-                    color="white"
-                  />
-                </Text>{" "}
-                and run it on your database to get a feel for which plan is
-                right for you!
-              </Text>
-            </CardBody>
-          </Card>
+          <SimpleGrid columns={[1, null, 2]} spacing={4}>
+            <Card {...cardProps}>
+              <CardBody>
+                <Text>
+                  A usual 10K line row Product table with 40 columns is about
+                  ~1MB of data.
+                </Text>
+                <Text mt={4}>
+                  This allows 10X, 1024X, 10240x imports of this data for the
+                  Free, Starter and Pro plans respectively.
+                </Text>
+              </CardBody>
+            </Card>
+            <Card {...cardProps}>
+              <CardBody>
+                <Text>Want to know more with your own data?</Text>
+                <Text mt={4}>
+                  <Text
+                    as={"span"}
+                    onClick={pricingSqlCopy.onCopy}
+                    textDecor={"underline"}
+                    cursor={"pointer"}
+                  >
+                    Copy this SQL SELECT query
+                    <IconButton
+                      icon={pricingSqlCopy.hasCopied ? <FiCheck /> : <FiCopy />}
+                      aria-label="Copy pricing plan estimate SQL query"
+                      variant="ghost"
+                      isRound
+                      color="white"
+                    />
+                  </Text>{" "}
+                  and run it on your database to get a feel for which plan is
+                  right for you!
+                </Text>
+              </CardBody>
+            </Card>
+          </SimpleGrid>
         </Box>
 
         {children}
