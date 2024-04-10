@@ -70,21 +70,24 @@ export const PricingPlan = ({ plan }: { plan: PricingPlan }) => {
 
 const pricingPlanSql = `
 WITH table_sizes AS (
-  SELECT 
+  SELECT
       table_schema || '.' || table_name as table_name,
-      (pg_total_relation_size(quote_ident(table_name))) AS total_size_bytes,
-      (pg_relation_size(quote_ident(table_name)) / nullif(reltuples, 0)) AS average_record_size_bytes,
+      pg_total_relation_size((quote_ident(table_schema) || '.' ||
+      quote_ident(table_name))::regclass) AS total_size_bytes,
+      (pg_relation_size(
+        (quote_ident(table_schema) || '.' || quote_ident(table_name))::regclass) / nullif(pg_class.reltuples, 0)) AS average_record_size_bytes,
       reltuples AS estimated_row_count
-  FROM 
+  FROM
       information_schema.tables
-      JOIN pg_class ON information_schema.tables.table_name = pg_class.relname
-  WHERE 
+      JOIN pg_class ON
+        pg_class.relname = information_schema.tables.table_name AND
+        pg_class.relnamespace::regnamespace::text = information_schema.tables.table_schema AND
+        pg_class.reltuples > 0
+  WHERE
       table_type = 'BASE TABLE'
-      AND table_schema NOT IN ('pg_catalog', 'information_schema')
-      AND table_name ILIKE 'product%'
-      AND reltuples > 0
+      AND table_schema NOT IN ('pg_catalog', 'information_schema', 'schemamap')
 ), human_table_stats AS (
-SELECT 
+SELECT
   table_name,
   total_size_bytes::numeric / (1024 * 1024) AS total_size_mb,
   average_record_size_bytes::numeric / (1024 * 1024) AS average_record_size_mb,
