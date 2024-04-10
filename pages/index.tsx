@@ -467,7 +467,12 @@ const QuestionsSection = () => {
             </ChakraLink>{" "}
           </Text>
           {consent != "granted" ? (
-            <HStack spacing="4" justifyContent="center">
+            <Stack
+              direction={{ base: "column", lg: "row" }}
+              spacing="4"
+              alignItems={"center"}
+              justifyContent="center"
+            >
               <ButtonLink
                 href={siteConfig.meetingUrl}
                 variant={"primary"}
@@ -484,7 +489,7 @@ const QuestionsSection = () => {
                 accept cookies
               </Button>{" "}
               <Text>to chat directly.</Text>
-            </HStack>
+            </Stack>
           ) : (
             <Center>Use the chat icon in the lower right.</Center>
           )}
