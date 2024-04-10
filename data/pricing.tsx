@@ -95,7 +95,9 @@ export default {
       price: (
         <HStack>
           <Text>€1200/year</Text>
-          <Tag colorScheme="green">Best value</Tag>
+          <Tag display={["none", null, null, "inherit"]} colorScheme="green">
+            Best value
+          </Tag>
         </HStack>
       ),
       features: [
