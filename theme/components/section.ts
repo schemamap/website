@@ -1,21 +1,21 @@
 const Section = {
   baseStyle: {
-    pt: 28,
-    pb: 28,
+    pt: 16,
+    pb: 16,
     px: [4, null],
   },
   variants: {
     subtle: {},
     solid: {
-      bg: 'primary.400',
+      bg: "primary.400",
     },
     alternate: ({ colorMode }: any) => ({
-      bg: colorMode === 'dark' ? 'gray.800' : 'gray.50',
+      bg: "gray.800",
     }),
   },
   defaultProps: {
-    variant: 'subtle',
+    variant: "subtle",
   },
-}
+};
 
-export default Section
+export default Section;

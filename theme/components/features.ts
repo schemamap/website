@@ -38,7 +38,7 @@ const Features = {
     },
     light: ({ colorMode }: any) => ({
       container: {
-        bg: colorMode === "dark" ? "gray.700" : "gray.100",
+        bg: "gray.100",
       },
     }),
   },
@@ -63,17 +63,14 @@ export const Feature = {
     description: {
       fontSize: "lg",
       fontWeight: "normal",
-      color: mode("gray.500", "gray.400")(props),
+      color: "gray.400",
     },
     icon: {
       mb: 4,
       mr: 4,
       p: 2,
-      bg: mode(
-        "primary.100",
-        transparentize("primary.500", 0.2)(props.theme)
-      )(props),
-      color: mode("primary.700", "primary.400")(props),
+      bg: transparentize("primary.500", 0.2)(props.theme),
+      color: "primary.400",
       float: "left",
     },
   }),
@@ -113,7 +110,7 @@ export const Feature = {
     },
     light: ({ colorMode }: any) => ({
       wrapper: {
-        bg: colorMode === "dark" ? "gray.700" : "gray.100",
+        bg: "gray.700",
       },
     }),
   },
