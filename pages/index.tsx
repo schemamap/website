@@ -189,7 +189,8 @@ const HeroSection: React.FC = () => {
 };
 
 const HighlightsSection = () => {
-  const dockerRunText = "docker run schemamap/postgres";
+  const dockerRunText =
+    "docker run --rm -e POSTGRES_PASSWORD=postgres -p 5432:5432 --name=schemamap_postgres schemamap/postgres";
   const dockerRun = useClipboard(dockerRunText);
   const curlCmdText = "curl -SL schemamap.dev/install_schemamap.sh | bash";
   const curlCmd = useClipboard(curlCmdText);
