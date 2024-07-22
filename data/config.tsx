@@ -28,7 +28,7 @@ const siteConfig = {
       site_name: "Schemamap.io",
       title: "Schemamap.io - Data Movement Platform for Postgres",
       description:
-        "The SQL-first data movement platform to suit the needs of multi-tenant SaaS applications.",
+        "The best data migration solution you’ll never have to maintain.",
       images: [
         {
           url: "https://schemamap.io//static/favicons/apple-touch-icon.png",

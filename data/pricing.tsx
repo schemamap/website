@@ -6,9 +6,7 @@ export default {
   description: (
     <VStack>
       <Text>Use Schemamap.io free forever (with generous usage limits).</Text>
-      <Text>
-        Pay only for the synced Postgres master data bandwidth used, per MB.
-      </Text>
+      <Text>Pay only for the Postgres bandwidth used, per MB.</Text>
       <Text>
         All prices include a{" "}
         <Tag colorScheme="green" size={"lg"}>

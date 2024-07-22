@@ -59,7 +59,7 @@ const Home: NextPage = () => {
     <Box>
       <SEO
         title="Schemamap.io - Data Movement Platform for Postgres"
-        description="The SQL-first data movement platform to suit the needs of multi-tenant SaaS applications."
+        description="The best data migration solution you’ll never have to maintain."
       />
       <Box>
         <HeroSection />
@@ -102,14 +102,11 @@ const HeroSection: React.FC = () => {
             px="0"
             zIndex={1000}
             title={
-              <FallInPlace>
-                Never write a &quot;one-off&quot; ETL script again
-              </FallInPlace>
+              <FallInPlace>Instant batch data import for Postgres</FallInPlace>
             }
             description={
               <FallInPlace delay={0.1} fontWeight="medium">
-                The Postgres-native data movement platform to suit the needs of
-                multi-tenant SaaS apps
+                The best data migration solution you’ll never have to maintain.
               </FallInPlace>
             }
           >
@@ -192,8 +189,8 @@ const HighlightsSection = () => {
   const dockerRunText =
     "docker run --rm -e POSTGRES_PASSWORD=postgres -p 5432:5432 --name=schemamap_postgres schemamap/postgres";
   const dockerRun = useClipboard(dockerRunText);
-  const curlCmdText = "curl -SL schemamap.dev/install_schemamap.sh | bash";
-  const curlCmd = useClipboard(curlCmdText);
+  const brewInstallText = "brew install schemamap && schemamap init";
+  const brewCmd = useClipboard(brewInstallText);
 
   return (
     <Highlights display={["none", "initial"]}>
@@ -254,7 +251,7 @@ const HighlightsSection = () => {
               />
             </CodePill>
             <Text my={4} color="muted" fontSize="xl">
-              or apply to any existing Postgres DB:
+              or apply to your existing Postgres DB:
             </Text>
             <CodePill>
               <Box>
@@ -262,24 +259,22 @@ const HighlightsSection = () => {
                   $
                 </Text>{" "}
                 <Text color="yellow.400" display="inline">
-                  curl -SL
+                  brew install
                 </Text>{" "}
                 <Text color="cyan.300" display="inline">
-                  <Link
-                    href={"https://schemamap.dev/install_schemamap.sh"}
-                    isExternal
-                  >
-                    schemamap.dev/install_schemamap.sh
-                  </Link>
+                  schemamap
                 </Text>
                 <Text color="yellow.400" display="inline">
-                  {" | bash"}
+                  {" && "}
+                </Text>
+                <Text color="cyan.300" display="inline">
+                  schemamap init
                 </Text>
               </Box>
               <IconButton
-                icon={curlCmd.hasCopied ? <FiCheck /> : <FiCopy />}
-                aria-label="Copy curl command"
-                onClick={curlCmd.onCopy}
+                icon={brewCmd.hasCopied ? <FiCheck /> : <FiCopy />}
+                aria-label="Copy install command"
+                onClick={brewCmd.onCopy}
                 variant="ghost"
                 ms="4"
                 isRound
