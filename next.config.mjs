@@ -3,6 +3,15 @@ import rehypeSlug from "rehype-slug";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  redirects: async () => {
+    return [
+      {
+        source: "/meeting",
+        destination: "https://savvycal.com/schemamap/talk",
+        permanent: false,
+      },
+    ];
+  },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   reactStrictMode: true,
   webpack(config) {
