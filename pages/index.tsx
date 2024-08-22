@@ -115,7 +115,7 @@ const HeroSection: React.FC = () => {
                 <ButtonLink
                   variant="primary"
                   size="lg"
-                  href="https://app.schemamap.io/signup?utm_content=hero-cta&utm_source=schemamap.io"
+                  href="https://accounts.schemamap.io/sign-up?utm_content=hero-cta&utm_source=schemamap.io"
                   height={12}
                   data-attr="signup"
                   mr={4}

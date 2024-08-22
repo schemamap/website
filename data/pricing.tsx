@@ -47,7 +47,7 @@ export default {
         },
       ],
       action: {
-        href: "https://app.schemamap.io/signup?selected_plan=free",
+        href: "https://accounts.schemamap.io/sign-up?selected_plan=free",
       },
     },
     {
@@ -81,7 +81,7 @@ export default {
         },
       ],
       action: {
-        href: "https://app.schemamap.io/signup?selected_plan=starter_annual",
+        href: "https://accounts.schemamap.io/sign-up?selected_plan=starter_annual",
         label: "Sign up then upgrade",
       },
     },
@@ -123,7 +123,7 @@ export default {
         },
       ],
       action: {
-        href: "https://app.schemamap.io/signup?selected_plan=pro_annual",
+        href: "https://accounts.schemamap.io/sign-up?selected_plan=pro_annual",
         label: "Sign up then upgrade",
       },
     },

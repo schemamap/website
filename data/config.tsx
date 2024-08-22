@@ -55,11 +55,11 @@ const siteConfig = {
       },
       {
         label: "Login",
-        href: "https://app.schemamap.io/login",
+        href: "https://accounts.schemamap.io/sign-in",
       },
       {
         label: "Sign Up",
-        href: "https://app.schemamap.io/signup",
+        href: "https://accounts.schemamap.io/sign-up",
         variant: "primary",
       },
     ],
