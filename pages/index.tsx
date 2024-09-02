@@ -16,6 +16,16 @@ import {
   Center,
   useBreakpointValue,
   Code,
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  ListItem,
+  OrderedList,
 } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
 
@@ -168,7 +178,7 @@ const HeroSection: React.FC = () => {
 
       <CompaniesSection />
 
-      <HighlightsSection />
+      <InstallSection />
 
       {/* <TestimonialsSection /> */}
 
@@ -185,84 +195,105 @@ const HeroSection: React.FC = () => {
   );
 };
 
-const HighlightsSection = () => {
+const DockerInstall = () => {
   const dockerRunText =
     "docker run --rm -e POSTGRES_PASSWORD=postgres -p 5432:5432 --name=schemamap_postgres schemamap/postgres";
   const dockerRun = useClipboard(dockerRunText);
-  const brewInstallText = "brew install schemamap && schemamap init";
-  const brewCmd = useClipboard(brewInstallText);
 
   return (
-    <Highlights display={["none", "initial"]}>
-      <HighlightsItem
-        colSpan={[1, null, 2]}
-        title="Try it locally, no signup needed"
-      >
-        <VStack alignItems="flex-start" spacing="8">
-          <Text color="muted" fontSize="xl">
-            Replace your existing{" "}
-            <Link isExternal href={"https://hub.docker.com/_/postgres"}>
-              <Code>postgres</Code>
-            </Link>{" "}
-            container with our image:
+    <VStack alignItems={"stretch"} spacing="4" w="full">
+      <Text color="muted" fontSize="xl">
+        Replace your existing{" "}
+        <Link isExternal href={"https://hub.docker.com/_/postgres"}>
+          <Code>postgres</Code>
+        </Link>{" "}
+        container with our image:
+      </Text>
+
+      <CodePill>
+        <Box width={"full"}>
+          <Text color="blue.400" display="inline">
+            $
+          </Text>{" "}
+          <Text color="yellow.400" display="inline">
+            docker run
+          </Text>{" "}
+          <Text color="cyan.300" display="inline">
+            <Link
+              href={"https://hub.docker.com/r/schemamap/postgres"}
+              isExternal
+            >
+              schemamap/postgres
+            </Link>
           </Text>
+        </Box>
+        <IconButton
+          icon={dockerRun.hasCopied ? <FiCheck /> : <FiCopy />}
+          aria-label="Copy docker run command"
+          onClick={dockerRun.onCopy}
+          variant="ghost"
+          ms="4"
+          isRound
+          color="white"
+        />
+      </CodePill>
+    </VStack>
+  );
+};
 
-          {/*           <UnorderedList>
-            <ListItem>
-              <Code>schemamap</Code> SDK pre-installed
-            </ListItem>
-            <ListItem>
-              <Code>SELECT</Code>-able schema overview
-            </ListItem>
-            <ListItem>
-              <Code></Code>
-            </ListItem>
-            <ListItem>
-              Fixture/seed data management & restore for testing
-            </ListItem>
-          </UnorderedList> */}
+const BinaryInstall = () => {
+  const brewInstallText =
+    "brew tap schemamap/tap && brew install schemamap && schemamap init";
+  const brewCmd = useClipboard(brewInstallText);
 
-          <Stack direction="column">
+  const nixInstallText =
+    "nix profile install nixpkgs#schemamap && schemamap init";
+  const nixCmd = useClipboard(nixInstallText);
+
+  return (
+    <VStack alignItems="flex-start" spacing="0" w="full">
+      <Text my={4} color="muted" fontSize="xl">
+        Apply to your existing Postgres DB using the CLI:
+      </Text>
+      <Tabs isFitted w="full">
+        <TabList>
+          <Tab>Brew</Tab>
+          <Tab>Nix</Tab>
+          <Tab>Docker</Tab>
+          <Tab>Binary</Tab>
+        </TabList>
+
+        <TabPanels>
+          <TabPanel px="0">
             <CodePill>
-              <Box width={"full"}>
+              <Box w="full">
                 <Text color="blue.400" display="inline">
                   $
                 </Text>{" "}
                 <Text color="yellow.400" display="inline">
-                  docker run
+                  brew tap
                 </Text>{" "}
                 <Text color="cyan.300" display="inline">
                   <Link
-                    href={"https://hub.docker.com/r/schemamap/postgres"}
+                    href={"https://github.com/schemamap/homebrew-tap"}
                     isExternal
                   >
-                    schemamap/postgres
+                    schemamap/tap
                   </Link>
                 </Text>
-              </Box>
-              <IconButton
-                icon={dockerRun.hasCopied ? <FiCheck /> : <FiCopy />}
-                aria-label="Copy docker run command"
-                onClick={dockerRun.onCopy}
-                variant="ghost"
-                ms="4"
-                isRound
-                color="white"
-              />
-            </CodePill>
-            <Text my={4} color="muted" fontSize="xl">
-              or apply to your existing Postgres DB:
-            </Text>
-            <CodePill>
-              <Box>
-                <Text color="blue.400" display="inline">
-                  $
-                </Text>{" "}
+                <Text color="yellow.400" display="inline">
+                  {" && "}
+                </Text>
                 <Text color="yellow.400" display="inline">
                   brew install
                 </Text>{" "}
                 <Text color="cyan.300" display="inline">
-                  schemamap
+                  <Link
+                    href="https://github.com/schemamap/homebrew-tap/blob/main/Formula/schemamap.rb"
+                    isExternal
+                  >
+                    schemamap
+                  </Link>
                 </Text>
                 <Text color="yellow.400" display="inline">
                   {" && "}
@@ -281,8 +312,79 @@ const HighlightsSection = () => {
                 color="white"
               />
             </CodePill>
-          </Stack>
-        </VStack>
+          </TabPanel>
+          <TabPanel px="0">
+            <CodePill>
+              <Box w="full">
+                <Text color="blue.400" display="inline">
+                  $
+                </Text>{" "}
+                <Text color="yellow.400" display="inline">
+                  nix profile install
+                </Text>{" "}
+                <Text color="cyan.300" display="inline">
+                  <Link
+                    href="https://search.nixos.org/packages?channel=unstable&show=schemamap&from=0&size=50&sort=relevance&type=packages&query=schemamap"
+                    isExternal
+                  >
+                    nixpkgs#schemamap
+                  </Link>
+                </Text>
+                <Text color="yellow.400" display="inline">
+                  {" && "}
+                </Text>
+                <Text color="cyan.300" display="inline">
+                  schemamap init
+                </Text>
+              </Box>
+              <IconButton
+                icon={nixCmd.hasCopied ? <FiCheck /> : <FiCopy />}
+                aria-label="Copy install command"
+                onClick={nixCmd.onCopy}
+                variant="ghost"
+                ms="4"
+                isRound
+                color="white"
+              />
+            </CodePill>
+          </TabPanel>
+          <TabPanel px="0">
+            <DockerInstall />
+          </TabPanel>
+          <TabPanel px="0">
+            <OrderedList>
+              <ListItem>
+                Download latest binary from the{" "}
+                <Link
+                  href="https://github.com/schemamap/schemamap/releases/latest"
+                  isExternal
+                  textDecoration={"underline"}
+                >
+                  releases page on Github
+                </Link>
+              </ListItem>
+              <ListItem>
+                Add to your <Code>$PATH</Code>
+              </ListItem>
+              <ListItem>
+                <Code>schemamap init</Code>
+              </ListItem>
+            </OrderedList>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </VStack>
+  );
+};
+
+const InstallSection = () => {
+  return (
+    <Highlights display={["none", "initial"]}>
+      <HighlightsItem
+        colSpan={[1, null, 2]}
+        title="Try it locally, no signup needed"
+      >
+        <BinaryInstall />
       </HighlightsItem>
       <HighlightsItem title="Local-first DX">
         <Text color="muted" fontSize="lg">
@@ -294,16 +396,6 @@ const HighlightsSection = () => {
           Schemamap.io without leaving psql or your favorite SQL client.
         </Text>
       </HighlightsItem>
-      {/* <HighlightsTestimonialItem
-        name="Renata Alink"
-        description="Founder"
-        avatar="/static/images/avatar.jpg"
-        gradient={["pink.200", "purple.500"]}
-      >
-        “Saas UI helped us set up a beautiful modern UI in no time. It saved us
-        hundreds of hours in development time and allowed us to focus on
-        business logic for our specific use-case from the start.”
-        </HighlightsTestimonialItem> */}
     </Highlights>
   );
 };
@@ -333,13 +425,13 @@ const FeaturesSection = () => {
           title: "Repeatable imports.",
           icon: FiRefreshCcw,
           description:
-            "Spreadsheet imports have been historically one-and-done processes. Schemamap.io allows reruns and amendments, by handling the import process for you.",
+            "Data migrations have been historically one-and-done processes. Schemamap.io allows reruns and amendments, by handling the import process for you.",
         },
         {
           title: "Automatic data validation.",
           icon: FiCheckSquare,
           description:
-            "All of your Postgres unique and check constraints get turned into their Excel-equivalent formulas and maintained as they change. Users get early feedback, before even importing.",
+            "All of your Postgres unique and check constraints are considered. This way the feasibility of your data migrations is checked before even importing.",
         },
         {
           title: "(De-)normalization.",
@@ -347,7 +439,7 @@ const FeaturesSection = () => {
           description: (
             <Text as={"span"}>
               Existing tools only work for single tables. Schemamap.io uses the{" "}
-              <Link href="https://turborepo.com" isExternal>
+              <Link href="https://github.com/schemamap/pg-query-clj" isExternal>
                 PostgreSQL analyzer
               </Link>{" "}
               to turn any SELECT with JOINs into an equivalent INSERT CTE.
@@ -383,7 +475,7 @@ const FeaturesSection = () => {
           title: "Schema analysis & diffing.",
           icon: FiSearch,
           description:
-            "Track your database schema along with constraints across environments (Local/Staging/Prod) and see how it evolves. Easily spot any differences.",
+            "Track your database schema along with constraints across environments (Local/CI/Staging/Prod) and see how it evolves. Easily spot any differences, regardless of the platform or provider.",
         },
         {
           title: "Localization support.",
@@ -399,37 +491,6 @@ const FeaturesSection = () => {
         },
       ]}
     />
-  );
-};
-
-const TestimonialsSection = () => {
-  const columns = React.useMemo(() => {
-    return testimonials.items.reduce<Array<typeof testimonials.items>>(
-      (columns, t, i) => {
-        columns[i % 3].push(t);
-
-        return columns;
-      },
-      [[], [], []]
-    );
-  }, []);
-
-  return (
-    <Testimonials
-      title={testimonials.title}
-      columns={[1, 2, 3]}
-      innerWidth="container.xl"
-    >
-      <>
-        {columns.map((column, i) => (
-          <Stack key={i} spacing="8">
-            {column.map((t, i) => (
-              <Testimonial key={i} {...t} />
-            ))}
-          </Stack>
-        ))}
-      </>
-    </Testimonials>
   );
 };
 
@@ -490,3 +551,17 @@ const QuestionsSection = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      announcement: {
+        title: "Support us by becoming a stargazer! 🚀 ",
+        description:
+          '<img src="https://img.shields.io/github/stars/schemamap/schemamap.svg?style=social&label=Star" />',
+        href: "https://github.com/schemamap/schemamap",
+        action: false,
+      },
+    },
+  };
+}
