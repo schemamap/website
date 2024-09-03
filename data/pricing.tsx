@@ -34,9 +34,6 @@ export default {
           title: "EU data residency",
         },
         {
-          title: "1 tracked tenant",
-        },
-        {
           title: "3 users",
         },
         {
@@ -63,9 +60,6 @@ export default {
         },
         {
           title: "Flexible usage pricing: €0.05 / MB",
-        },
-        {
-          title: "3 tracked tenants",
         },
         {
           title: "10 users",
@@ -107,9 +101,6 @@ export default {
         },
         {
           title: "Flexible usage pricing: €0.04 / MB",
-        },
-        {
-          title: "100 tracked tenants",
         },
         {
           title: "100 users",

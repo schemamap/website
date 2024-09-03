@@ -20,13 +20,13 @@ const siteConfig = {
   meetingUrl: "https://savvycal.com/schemamap/talk",
   seo: {
     title: "Schemamap.io",
-    description: "Data Movement Platform for Postgres",
+    description: "Sync data from any Postgres DB to another",
     openGraph: {
       type: "website",
       locale: "en_US",
       url: "https://schemamap.io",
       site_name: "Schemamap.io",
-      title: "Schemamap.io - Data Movement Platform for Postgres",
+      title: "Schemamap.io - Sync data from any Postgres DB to another",
       description:
         "The best data migration solution you’ll never have to maintain.",
       images: [
@@ -126,14 +126,6 @@ const siteConfig = {
           "Integrate Schemamap.io with any cloud Postgres provider (Supabase, Hasura, AWS RDS, GCP, Azure). No special extensions needed.",
         iconPosition: "left",
         delay: 0.6,
-      },
-      {
-        title: "Always up-to-date",
-        icon: FiThumbsUp,
-        description:
-          "By tracking how the underlying tables & their constraints change, your spreadsheets stay automatically in sync. Trivially backfill data.",
-        iconPosition: "left",
-        delay: 0.7,
       },
     ] as FeatureProps[],
   },

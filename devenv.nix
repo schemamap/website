@@ -17,7 +17,13 @@
       d2-file-to-process = filename:
         {
           exec = ''
-            exec ${pkgs.d2}/bin/d2 --theme="3" --layout=elk -w \
+            exec ${pkgs.d2}/bin/d2 --theme="200" \
+              --layout=elk -w --pad=70 \
+              --elk-algorithm=layered \
+              --elk-nodeNodeBetweenLayers=10 \
+              --elk-padding="[top=10,left=10,bottom=10,right=10]" \
+              --elk-edgeNodeBetweenLayers=60 \
+              --elk-nodeSelfLoop=10 \
               d2/${filename}.d2 \
               public/static/images/${filename}.svg
           '';

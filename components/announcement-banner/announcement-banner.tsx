@@ -27,85 +27,83 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
   return (
     <Flex position="absolute" zIndex="10" bottom="150px" width="100%">
       <Container maxW="container.2xl" px="8">
-        <FallInPlace delay={0.4} translateY="-100px">
-          <NextLink href={href} legacyBehavior>
-            <Banner
-              display="flex"
-              bg="white"
-              fontSize="sm"
-              justifyContent="center"
-              colorScheme="purple"
-              backgroundClip="padding-box"
-              borderRadius="full"
-              maxW="400px"
-              margin="0 auto"
-              borderColor="transparent"
-              position="relative"
-              py="4px"
-              px="3"
-              overflow="visible"
-              cursor="pointer"
-              transition="all .2s ease-out"
-              _dark={{ bg: "gray.900", borderColor: "transparent" }}
-              _before={{
-                content: `""`,
-                position: "absolute",
-                zIndex: -1,
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0,
-                borderRadius: "inherit",
-                margin: "-2px",
+        <NextLink href={href} legacyBehavior>
+          <Banner
+            display="flex"
+            bg="white"
+            fontSize="sm"
+            justifyContent="center"
+            colorScheme="purple"
+            backgroundClip="padding-box"
+            borderRadius="full"
+            maxW="400px"
+            margin="0 auto"
+            borderColor="transparent"
+            position="relative"
+            py="4px"
+            px="3"
+            overflow="visible"
+            cursor="pointer"
+            transition="all .2s ease-out"
+            _dark={{ bg: "gray.900", borderColor: "transparent" }}
+            _before={{
+              content: `""`,
+              position: "absolute",
+              zIndex: -1,
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              borderRadius: "inherit",
+              margin: "-2px",
+              bgGradient: "linear(to-r, purple.500, cyan.500)",
+
+              transition: "background .2s ease-out",
+              _light: {
                 bgGradient: "linear(to-r, purple.500, cyan.500)",
+              },
+            }}
+            _hover={{
+              "& .chakra-icon": {
+                transform: "translate(0)",
+              },
+              boxShadow: "md",
+            }}
+          >
+            <HStack zIndex="2">
+              <BannerTitle fontWeight="semibold" noOfLines={1}>
+                {title}
+              </BannerTitle>
+              <BannerDescription
+                display={{ base: "none", md: "block" }}
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
 
-                transition: "background .2s ease-out",
-                _light: {
-                  bgGradient: "linear(to-r, purple.500, cyan.500)",
-                },
-              }}
-              _hover={{
-                "& .chakra-icon": {
-                  transform: "translate(0)",
-                },
-                boxShadow: "md",
-              }}
-            >
-              <HStack zIndex="2">
-                <BannerTitle fontWeight="semibold" noOfLines={1}>
-                  {title}
-                </BannerTitle>
-                <BannerDescription
-                  display={{ base: "none", md: "block" }}
-                  dangerouslySetInnerHTML={{ __html: description }}
-                />
-
-                {action && (
-                  <BannerActions>
-                    <Button
-                      size="xs"
-                      variant="link"
-                      color="muted"
-                      _hover={{
-                        textDecoration: "none",
-                      }}
-                      rightIcon={
-                        <Icon
-                          as={FiArrowRight}
-                          transform="translate(-5px)"
-                          transitionProperty="common"
-                          transitionDuration="normal"
-                        />
-                      }
-                    >
-                      Read more
-                    </Button>
-                  </BannerActions>
-                )}
-              </HStack>
-            </Banner>
-          </NextLink>
-        </FallInPlace>
+              {action && (
+                <BannerActions>
+                  <Button
+                    size="xs"
+                    variant="link"
+                    color="muted"
+                    _hover={{
+                      textDecoration: "none",
+                    }}
+                    rightIcon={
+                      <Icon
+                        as={FiArrowRight}
+                        transform="translate(-5px)"
+                        transitionProperty="common"
+                        transitionDuration="normal"
+                      />
+                    }
+                  >
+                    Read more
+                  </Button>
+                </BannerActions>
+              )}
+            </HStack>
+          </Banner>
+        </NextLink>
       </Container>
     </Flex>
   );

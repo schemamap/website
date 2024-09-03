@@ -4,7 +4,6 @@ import {
   Container,
   Box,
   Stack,
-  HStack,
   Button,
   Icon,
   Heading,
@@ -16,9 +15,6 @@ import {
   Center,
   useBreakpointValue,
   Code,
-  Accordion,
-  AccordionButton,
-  AccordionItem,
   Tab,
   TabList,
   TabPanel,
@@ -35,10 +31,8 @@ import { Link } from "@saas-ui/react";
 import {
   FiArrowRight,
   FiCheck,
-  FiCheckCircle,
   FiCheckSquare,
   FiCopy,
-  FiDatabase,
   FiLock,
   FiRefreshCcw,
   FiSearch,
@@ -50,17 +44,15 @@ import { Faq } from "components/faq";
 import { Pricing } from "components/pricing/pricing";
 
 import { ButtonLink } from "components/button-link/button-link";
-import { Testimonial, Testimonials } from "components/testimonials";
 
 import faq from "data/faq";
-import testimonials from "data/testimonials";
 import pricing from "data/pricing";
 
 import { Highlights, HighlightsItem } from "components/highlights";
 import siteConfig from "data/config";
-import { FaBrain, FaGlobeEurope } from "react-icons/fa";
+import { FaBrain } from "react-icons/fa";
 import { useConsent } from "components/consent";
-import { HeroTabs } from "components/hero/tabs";
+import { HeroImages } from "components/hero/tabs";
 import CodePill from "components/highlights/codepill";
 import { CompaniesSection } from "components/companies";
 
@@ -68,7 +60,7 @@ const Home: NextPage = () => {
   return (
     <Box>
       <SEO
-        title="Schemamap.io - Data Movement Platform for Postgres"
+        title="Schemamap.io - Sync data from any Postgres DB to another"
         description="The best data migration solution you’ll never have to maintain."
       />
       <Box>
@@ -112,7 +104,9 @@ const HeroSection: React.FC = () => {
             px="0"
             zIndex={1000}
             title={
-              <FallInPlace>Instant batch data import for Postgres</FallInPlace>
+              <FallInPlace delay={0.05}>
+                Sync data from any Postgres DB to another{" "}
+              </FallInPlace>
             }
             description={
               <FallInPlace delay={0.1} fontWeight="medium">
@@ -128,7 +122,7 @@ const HeroSection: React.FC = () => {
                   href="https://accounts.schemamap.io/sign-up?utm_content=hero-cta&utm_source=schemamap.io"
                   height={12}
                   data-attr="signup"
-                  mr={4}
+                mr={4}
                   rightIcon={
                     <Icon
                       as={FiArrowRight}
@@ -170,27 +164,15 @@ const HeroSection: React.FC = () => {
           </Hero>
         </Stack>
       </Container>
-      <Container maxW="container.xl" pb="20">
-        <FallInPlace delay={0.3}>
-          <HeroTabs orientation={orientation} />
+      <Container width={{ base: "full", lg: "90%" }} maxW="1800px" my="30">
+        <FallInPlace delay={0.4}>
+          <HeroImages />
         </FallInPlace>
       </Container>
 
       <CompaniesSection />
 
       <InstallSection />
-
-      {/* <TestimonialsSection /> */}
-
-      <Features
-        id="benefits"
-        columns={[1, 2, 4]}
-        iconSize={6}
-        innerWidth="container.xl"
-        pt={20}
-        features={siteConfig.signup.features}
-        reveal={FallInPlace}
-      />
     </Box>
   );
 };
@@ -252,10 +234,7 @@ const BinaryInstall = () => {
 
   return (
     <VStack alignItems="flex-start" spacing="0" w="full">
-      <Text my={4} color="muted" fontSize="xl">
-        Apply to your existing Postgres DB using the CLI:
-      </Text>
-      <Tabs isFitted w="full">
+      <Tabs w="full">
         <TabList>
           <Tab>Brew</Tab>
           <Tab>Nix</Tab>
@@ -381,20 +360,10 @@ const InstallSection = () => {
   return (
     <Highlights display={["none", "initial"]}>
       <HighlightsItem
-        colSpan={[1, null, 2]}
-        title="Try it locally, no signup needed"
+        title="Try it with your local Postgres DB, no signup needed"
+        colSpan={[5]}
       >
         <BinaryInstall />
-      </HighlightsItem>
-      <HighlightsItem title="Local-first DX">
-        <Text color="muted" fontSize="lg">
-          Schemamap.io is geared for developers who love using Postgres and know
-          their way around SQL.
-        </Text>
-        <Text color="muted" fontSize="lg" mt={4}>
-          By using a handful of stored procedures, you can benefit from
-          Schemamap.io without leaving psql or your favorite SQL client.
-        </Text>
       </HighlightsItem>
     </Highlights>
   );
@@ -403,29 +372,49 @@ const InstallSection = () => {
 const FeaturesSection = () => {
   return (
     <Features
+      mb="60"
       id="features"
       innerWidth={"container.xl"}
       title={
-        <Heading lineHeight="tall" fontSize={"2xl"} textAlign="left" as="div">
-          Everything you need to reduce your tenants activation time and to
-          reduce churn.
+        <Heading
+          lineHeight="tall"
+          fontSize={"2xl"}
+          mt="30"
+          textAlign="left"
+          as="div"
+        >
+          <q>
+            Show me your flowcharts and conceal your tables, and I shall
+            continue to be mystified. <br />
+            Show me your tables, and I won&apos;t usually need your flowcharts;
+            they&apos;ll be obvious.
+          </q>
+          <Box color="muted" fontSize="medium">
+            -- Fred Brooks, Mythical Man Month
+          </Box>
         </Heading>
       }
       description={
-        <>
-          Free up precious developer time by using your database schema as a
-          knowledge base for your data migrations.
-        </>
+        <Box mt={6} mb="30" color="white">
+          <p>
+            Schemamap introspects your Postgres schema, giving you unprecedented
+            control over your system&apos;s state.
+          </p>
+          <p>
+            Finally you can copy database records as easily as files, without
+            any DDL changes.
+          </p>
+        </Box>
       }
       align="left"
       columns={[1, 2, 3]}
       iconSize={4}
       features={[
         {
-          title: "Repeatable imports.",
+          title: "Repeatable processes.",
           icon: FiRefreshCcw,
           description:
-            "Data migrations have been historically one-and-done processes. Schemamap.io allows reruns and amendments, by handling the import process for you.",
+            "Data migrations have been historically ad-hoc processes. Schemamap.io allows reruns and amendments, by handling the import process for you.",
         },
         {
           title: "Automatic data validation.",
@@ -436,29 +425,15 @@ const FeaturesSection = () => {
         {
           title: "(De-)normalization.",
           icon: FaBrain,
-          description: (
-            <Text as={"span"}>
-              Existing tools only work for single tables. Schemamap.io uses the{" "}
-              <Link href="https://github.com/schemamap/pg-query-clj" isExternal>
-                PostgreSQL analyzer
-              </Link>{" "}
-              to turn any SELECT with JOINs into an equivalent INSERT CTE.
-            </Text>
-          ),
-        },
-        {
-          title: "SQL-defined interfaces.",
-          icon: FiDatabase,
           description:
-            "Define how your multi-tenancy is implemented along with master data views in SQL via your regular database migrations. As close to the truth as it gets.",
+            "Existing ETL tools only work for single tables. Schemamap.io can copy related records together automatically.",
         },
         {
           title: "Secure by default.",
           icon: FiLock,
           description:
-            "Schemamap.io uses the least amount of database resources and permissions for each stage of your adoption. No fear of data leaks and your DBA stays in control.",
+            "Schemamap.io uses the least amount of database resources and permissions for each stage of your adoption. By default it cannot even modify your data, only preparing data migrations.",
         },
-
         {
           title: "In-memory transforms.",
           icon: FiTrendingUp,
@@ -466,28 +441,10 @@ const FeaturesSection = () => {
             "Schemamap.io never stores your data. It transfers it from and to your database in a heavily sandboxed environment, with tens of GBs of RAM readily available. So you don't have to.",
         },
         {
-          title: "Postgres-only.",
-          icon: FiCheckCircle,
-          description:
-            "Instead of building a generic solution, we are fully committed to building the best way to move tabular data in and out of Postgres. This allows us to provide the most secure and performant solution.",
-        },
-        {
           title: "Schema analysis & diffing.",
           icon: FiSearch,
           description:
             "Track your database schema along with constraints across environments (Local/CI/Staging/Prod) and see how it evolves. Easily spot any differences, regardless of the platform or provider.",
-        },
-        {
-          title: "Localization support.",
-          icon: FaGlobeEurope,
-          description: (
-            <Text as="span">
-              Schemamap.io supports your application locales (en_US, de_DE,
-              fr_FR, ...). Provide your I18n as JSON, get tenant language
-              specific columns/comments/dropdowns automatically, same as your
-              frontend.
-            </Text>
-          ),
         },
       ]}
     />
@@ -506,17 +463,18 @@ const QuestionsSection = () => {
   const { consent, setConsent } = useConsent();
   return (
     <Box>
-      <Container maxW="container.xl" pb="40">
-        <Stack spacing="6">
+      <Container maxW="container.xl" mb="60">
+        <Stack spacing="10" alignItems={"center"}>
           <Heading as="h2" fontSize="4xl" textAlign="center">
             Any questions?
           </Heading>
-          <Text fontSize="xl" textAlign="center">
-            Talk to the{" "}
-            <ChakraLink href="https://www.linkedin.com/in/kriszszabo/">
-              founder directly.
-            </ChakraLink>{" "}
-          </Text>
+          <ButtonLink
+            href="https://www.linkedin.com/in/kriszszabo/"
+            variant={"primary"}
+            size="lg"
+          >
+            Talk to the founder directly.
+          </ButtonLink>{" "}
           {consent != "granted" ? (
             <Stack
               direction={{ base: "column", lg: "row" }}

@@ -21,7 +21,7 @@ export const BackgroundGradient = ({ hideOverlay, ...props }: any) => {
       position="absolute"
       top="0"
       left="0"
-      zIndex="0"
+      zIndex="-1"
       opacity={"0.5"}
       height="100vh"
       width="100%"
