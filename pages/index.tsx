@@ -225,7 +225,7 @@ const DockerInstall = () => {
 
 const BinaryInstall = () => {
   const brewInstallText =
-    "brew tap schemamap/tap && brew install schemamap && schemamap init";
+    "brew install schemamap/tap/schemamap && schemamap init";
   const brewCmd = useClipboard(brewInstallText);
 
   const nixInstallText =
@@ -250,20 +250,6 @@ const BinaryInstall = () => {
                   $
                 </Text>{" "}
                 <Text color="yellow.400" display="inline">
-                  brew tap
-                </Text>{" "}
-                <Text color="cyan.300" display="inline">
-                  <Link
-                    href={"https://github.com/schemamap/homebrew-tap"}
-                    isExternal
-                  >
-                    schemamap/tap
-                  </Link>
-                </Text>
-                <Text color="yellow.400" display="inline">
-                  {" && "}
-                </Text>
-                <Text color="yellow.400" display="inline">
                   brew install
                 </Text>{" "}
                 <Text color="cyan.300" display="inline">
@@ -271,7 +257,7 @@ const BinaryInstall = () => {
                     href="https://github.com/schemamap/homebrew-tap/blob/main/Formula/schemamap.rb"
                     isExternal
                   >
-                    schemamap
+                    schemamap/tap/schemamap
                   </Link>
                 </Text>
                 <Text color="yellow.400" display="inline">
