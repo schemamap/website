@@ -25,7 +25,13 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
   }
 
   return (
-    <Flex position="absolute" zIndex="10" bottom="150px" width="100%">
+    <Flex
+      position="absolute"
+      zIndex="10"
+      bottom="150px"
+      width="100%"
+      display={{ base: "none", lg: "block" }}
+    >
       <Container maxW="container.2xl" px="8">
         <NextLink href={href} legacyBehavior>
           <Banner

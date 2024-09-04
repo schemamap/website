@@ -122,7 +122,7 @@ const HeroSection: React.FC = () => {
                   href="https://accounts.schemamap.io/sign-up?utm_content=hero-cta&utm_source=schemamap.io"
                   height={12}
                   data-attr="signup"
-                mr={4}
+                  mr={4}
                   rightIcon={
                     <Icon
                       as={FiArrowRight}
