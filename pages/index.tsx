@@ -502,7 +502,7 @@ export async function getStaticProps() {
       announcement: {
         title: "Support us by becoming a stargazer! 🚀 ",
         description:
-          '<img src="https://img.shields.io/github/stars/schemamap/schemamap.svg?style=social&label=Star" />',
+          '<img src="https://img.shields.io/github/stars/schemamap/schemamap.svg?style=social&label=Star" alt="Schemamap stars on Github" />',
         href: "https://github.com/schemamap/schemamap",
         action: false,
       },

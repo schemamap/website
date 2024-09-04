@@ -15,7 +15,7 @@ export const Logo = ({ href = "/", onClick }: LogoProps) => {
     logo = <Box as={siteConfig.logo} height="28px" />;
   } else {
     logo = (
-      <Heading as="h1" size="md">
+      <Heading as="h2" size="md">
         {siteConfig.seo?.title}
       </Heading>
     );
@@ -33,7 +33,7 @@ export const Logo = ({ href = "/", onClick }: LogoProps) => {
         _hover={{ textDecoration: "none" }}
       >
         {logo}
-        <Heading as="h1" size="md" ml={4}>
+        <Heading as="h2" size="md" ml={4}>
           {siteConfig.seo?.title}
         </Heading>
       </Link>

@@ -21,8 +21,8 @@ const faq = {
       a: "There are IOPS and record/second limiters built-in, allowing you to control the amount of data that is being processed at any given time. This leaves headroom for your application to continue running smoothly.",
     },
     {
-      q: "How is the MB/bandwith counted?",
-      a: "You are only charged for megabytes of data that is loaded into the temporary tables during data migrations. In case a DB-to-DB data migration, only the ingress data is charged.",
+      q: "How is the MB/bandwidth counted?",
+      a: "You are only charged for megabytes of data that is loaded into the temporary tables during data migrations, rounded up.",
     },
     {
       q: "Is Schemamap.io GDPR compliant?",

@@ -26,7 +26,7 @@ const siteConfig = {
       locale: "en_US",
       url: "https://schemamap.io",
       site_name: "Schemamap.io",
-      title: "Schemamap.io - Sync data from any Postgres DB to another",
+      title: "Schemamap | Sync data from any Postgres DB to another",
       description:
         "The best data migration solution you’ll never have to maintain.",
       images: [
