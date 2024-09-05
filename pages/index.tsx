@@ -358,11 +358,11 @@ const InstallSection = () => {
 const FeaturesSection = () => {
   return (
     <Features
-      mb="60"
+      mb="20"
       id="features"
       innerWidth={"container.xl"}
       title={
-        <Heading
+        /*         <Heading
           lineHeight="tall"
           fontSize={"2xl"}
           mt="30"
@@ -378,7 +378,7 @@ const FeaturesSection = () => {
           <Box color="muted" fontSize="medium">
             -- Fred Brooks, Mythical Man Month
           </Box>
-        </Heading>
+        </Heading> */ ""
       }
       description={
         <Box mt={6} mb="30" color="white">
@@ -411,26 +411,30 @@ const FeaturesSection = () => {
         {
           title: "(De-)normalization.",
           icon: FaBrain,
-          description:
-            "Existing ETL tools only work for single tables. Schemamap.io can copy related records together automatically.",
+          description: (
+            <span>
+              Existing ETL tools only work for single tables. Schemamap.io can{" "}
+              <u>copy related records together</u> automatically.
+            </span>
+          ),
         },
         {
           title: "Secure by default.",
           icon: FiLock,
           description:
-            "Schemamap.io uses the least amount of database resources and permissions for each stage of your adoption. By default it cannot even modify your data, only preparing data migrations.",
+            "Schemamap.io uses the least amount of database resources and permissions for each stage of your adoption. By default it cannot even modify your live tables, only preparing data migrations.",
         },
         {
           title: "In-memory transforms.",
           icon: FiTrendingUp,
           description:
-            "Schemamap.io never stores your data. It transfers it from and to your database in a heavily sandboxed environment, with tens of GBs of RAM readily available. So you don't have to.",
+            "Schemamap.io never stores your data. It transfers it from and to your database in a heavily sandboxed environment, with tens of GBs of RAM readily available. So you don't have to worry about servers.",
         },
         {
-          title: "Schema analysis & diffing.",
+          title: "Schema tracking & comparison.",
           icon: FiSearch,
           description:
-            "Track your database schema along with constraints across environments (Local/CI/Staging/Prod) and see how it evolves. Easily spot any differences, regardless of the platform or provider.",
+            "Track your database schema along with constraints across environments (Local/CI/Staging/Prod) and see how it evolves. Easily spot differences, regardless of the platform or provider.",
         },
       ]}
     />
@@ -454,40 +458,16 @@ const QuestionsSection = () => {
           <Heading as="h2" fontSize="4xl" textAlign="center">
             Any questions?
           </Heading>
+
           <ButtonLink
-            href="https://www.linkedin.com/in/kriszszabo/"
+            href={siteConfig.meetingUrl}
             variant={"primary"}
-            size="lg"
+            size={"lg"}
+            px={"50px"}
+            py={"30px"}
           >
-            Talk to the founder directly.
-          </ButtonLink>{" "}
-          {consent != "granted" ? (
-            <Stack
-              direction={{ base: "column", lg: "row" }}
-              spacing="4"
-              alignItems={"center"}
-              justifyContent="center"
-            >
-              <ButtonLink
-                href={siteConfig.meetingUrl}
-                variant={"primary"}
-                size={"lg"}
-              >
-                Book a meeting
-              </ButtonLink>
-              <Text>or </Text>
-              <Button
-                onClick={() => setConsent("granted")}
-                size={"lg"}
-                variant={"secondary"}
-              >
-                accept cookies
-              </Button>{" "}
-              <Text>to chat directly.</Text>
-            </Stack>
-          ) : (
-            <Center>Use the chat icon in the lower right.</Center>
-          )}
+            Talk to the founder
+          </ButtonLink>
         </Stack>
       </Container>
     </Box>

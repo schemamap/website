@@ -1,4 +1,4 @@
-import { Link, Stack } from "@chakra-ui/react";
+import { Heading, Link, Stack } from "@chakra-ui/react";
 import { Section } from "components/section";
 import Image from "next/image";
 
@@ -21,7 +21,11 @@ export const CompaniesSection = () => {
       position="relative"
       overflow="hidden"
       py={0}
+      my={40}
     >
+      <Heading as="h2" size="lg" textAlign={"center"}>
+        As trusted by leading SaaS providers
+      </Heading>
       <Stack
         spacing={8}
         alignItems="center"
