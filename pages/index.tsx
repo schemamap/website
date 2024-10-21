@@ -117,12 +117,12 @@ const HeroSection: React.FC = () => {
             <FallInPlace delay={0.2}>
               <Center mt={10} justifyItems={"center"}>
                 <ButtonLink
+                  href={"/demo"}
                   variant="primary"
-                  size="lg"
-                  href="https://accounts.schemamap.io/sign-up?utm_content=hero-cta&utm_source=schemamap.io"
-                  height={12}
                   data-attr="signup"
-                  mr={4}
+                  px={30}
+                  fontSize="x-large"
+                  py={"30px"}
                   rightIcon={
                     <Icon
                       as={FiArrowRight}
@@ -130,34 +130,13 @@ const HeroSection: React.FC = () => {
                         transitionProperty: "common",
                         transitionDuration: "normal",
                         ".chakra-button:hover &": {
-                          transform: "translate(5px)",
+                          transform: "translate(7px)",
                         },
                       }}
                     />
                   }
                 >
-                  Get started for free
-                </ButtonLink>
-                <ButtonLink
-                  size="lg"
-                  href={siteConfig.meetingUrl}
-                  variant="outline"
-                  data-attr="demo"
-                  height={12}
-                  rightIcon={
-                    <Icon
-                      as={FiArrowRight}
-                      sx={{
-                        transitionProperty: "common",
-                        transitionDuration: "normal",
-                        ".chakra-button:hover &": {
-                          transform: "translate(5px)",
-                        },
-                      }}
-                    />
-                  }
-                >
-                  Get a demo
+                  Try demo
                 </ButtonLink>
               </Center>
             </FallInPlace>
