@@ -14,6 +14,11 @@ const nextConfig = {
         source: "/demo",
         destination: "https://app.schemamap.io/demo",
         permanent: false,
+      },
+      {
+        source: "/status",
+        destination: "https://stats.uptimerobot.com/ZELp9fP5Xn/",
+        permanent: false,
       }
     ];
   },
