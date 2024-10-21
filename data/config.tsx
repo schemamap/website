@@ -91,7 +91,7 @@ const siteConfig = {
         label: "Contact",
       },
       {
-        href: "https://stats.uptimerobot.com/ZELp9fP5Xn/",
+        href: "/status",
         label: "Status",
       },
       {
