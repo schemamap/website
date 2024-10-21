@@ -10,6 +10,11 @@ const nextConfig = {
         destination: "https://savvycal.com/schemamap/talk",
         permanent: false,
       },
+      {
+        source: "/demo",
+        destination: "https://app.schemamap.io/demo",
+        permanent: false,
+      }
     ];
   },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
